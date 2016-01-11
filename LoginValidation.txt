@@ -1,0 +1,17 @@
+Errors:
+Missing First Name
+Missing Last Name
+Missing Email Address
+Missing Re-enter Email Address
+Mismatch Email Address
+Missing Password
+Missing Confirm Password
+Mismatch Password
+Missing Primary Phone Number
+Missing Address 1
+Missing City
+Missing State
+Missing ZIP
+Missing Preferred Store
+Missing 21+ Certification
+Missing Terms Agreement

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+  <test name="ABCTest">
+    <classes>
+       <class name="com.totalwine.test.aml.WebAccountRegistration"/>
+    </classes>
+	<classes>
+       <class name="com.totalwine.test.checkout.ISPCheckout"/>
+    </classes>
+	<classes>
+       <class name="com.totalwine.test.checkout.ShipCheckout"/>
+    </classes>
+	<classes>
+       <class name="com.totalwine.test.events.BrowseEvent"/>
+    </classes>
+	<classes>
+       <class name="com.totalwine.test.productlist.Filter"/>
+    </classes>
+	<classes>
+       <class name="com.totalwine.test.productlist.Sort"/>
+    </classes>
+  </test>
+</suite>	
