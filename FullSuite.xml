@@ -81,7 +81,7 @@
 	</test>
 	<!--ISP Checkout (Guest) -->
 	<test name="ISP Checkout on FF">
-		<parameter name="browser" value="FF">
+		<parameter name="browser" value="Chrome">
 		</parameter>
 		<classes>
 			<class name="com.totalwine.test.checkout.ISPCheckout" />
@@ -89,7 +89,7 @@
 	</test>
 	<!--Shipping Checkout (Registered) -->
 	<test name="Shipping Checkout">
-		<parameter name="browser" value="FF">
+		<parameter name="browser" value="Chrome">
 		</parameter>
 		<classes>
 			<class name="com.totalwine.test.checkout.ShipCheckout" />

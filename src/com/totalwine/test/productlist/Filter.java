@@ -24,8 +24,6 @@ package com.totalwine.test.productlist;
  */
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import jxl.read.biff.BiffException;
@@ -63,8 +61,8 @@ public class Filter extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 	    
 	    Actions action=new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -76,14 +74,11 @@ public class Filter extends Browser {
 		WebElement winePLPNav=driver.findElement(By.xpath("//a[contains(@href,'/wine/white-wine/c/')]"));
 		js.executeScript("arguments[0].click();", winePLPNav);
 		Thread.sleep(5000);
-		
-		//Subcat Page
-		driver.findElement(By.cssSelector("div.clpviewall-view")).click();
-		Thread.sleep(3000);
-		
 		WebElement wineMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(wineMove).build().perform(); 
 		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("a.btn.btn-red.clpviewall")).click();
+		Thread.sleep(3000);
 		
 		//Varietal
 	    //driver.findElement(By.xpath("//li[4]/div/ul/li/a/span")).click();
@@ -92,7 +87,6 @@ public class Filter extends Browser {
 		//driver.findElement(By.id("check_box_showmoreAlbarinovarietaltype")).click();
 		
 	    Thread.sleep(3000);
-	    //String facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
 	    String facetValue = driver.findElement(By.cssSelector("div.inner-items-wrapper > ul > li > a.filter-link > span.filter-value")).getText();
 	    //String varietalType = driver.findElement(By.cssSelector("a[class=analyticsProductName]")).getText();
 	    String varietalType = driver.findElement(By.xpath("(//a[contains(text(),'Chardonnay')])[2]")).getText();
@@ -104,10 +98,21 @@ public class Filter extends Browser {
 	    	Thread.sleep(3000);
 	    	
 		//Country
-	    WebElement scroll_Country = driver.findElement(By.linkText("Country/State"));
-	    driver.findElement(By.xpath("//a[contains(text(),'Country')]")).click();
+	    
+	    WebElement scroll_Country = driver.findElement(By.xpath("//a[contains(text(),'Country/State')]"));
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    //driver.findElement(By.xpath("//a[contains(text(),'Country/State')]")).click();
+	    Thread.sleep(2000);
+	    //WebElement scroll_Country = driver.findElement(By.id("check_box_showmoreCaliforniastate"));
+	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    
 	    driver.findElement(By.id("check_box_showmoreCaliforniastate")).click();
-	    //driver.findElement(By.id("check_box_showmoreArgentinastate")).click();
 	    Thread.sleep(3000);
 	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
 	    Assert.assertEquals(facetValue, driver.findElement(By.cssSelector("a.analyticsCountryState")).getText());
@@ -117,14 +122,12 @@ public class Filter extends Browser {
 	    //Price Range
 	    WebElement wineMove1 = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(wineMove1).build().perform(); 
-	    WebElement scroll_Price = driver.findElement(By.linkText("Price"));
-	    //WebElement scroll = driver.findElement(By.linkText("plppricevalue"));
+	    WebElement scroll_Price = driver.findElement(By.linkText("Price Range"));
 	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
-	    //Robot scrollPrice = new Robot();
-	    //scrollPrice.mousePress(KeyEvent.VK_PAGE_DOWN);
-	    //scrollPrice.mouseRelease(KeyEvent.VK_PAGE_DOWN);
+	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
+	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
+	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
 	 	driver.findElement(By.xpath("//a[contains(text(),'Price')]")).click();
-	 	//driver.findElement(By.xpath("//a[contains(text(),'plppricevalue')]")).click();
 	    driver.findElement(By.id("check_box_showmoreUp to $10plppricevalue")).click();
 	    Thread.sleep(3000);
 	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
@@ -135,13 +138,10 @@ public class Filter extends Browser {
 	    	 
 	    //Rating Source
 	    WebElement scroll_RatingSource = driver.findElement(By.linkText("Rating Source"));
-	    //scroll = driver.findElement(By.linkText("ratingsource"));
 	 	scroll_RatingSource.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.xpath("//a[contains(text(),'Rating Source')]")).click();
 	    Thread.sleep(2000);
-	    //driver.findElement(By.xpath("//a[contains(text(),'ratingsource')]")).click();
-	    driver.findElement(By.id("check_box_showmoreWine Enthusiastratingsource")).click();
-	    //driver.findElement(By.id("check_box_showmoreAntonio Galloniratingsource")).click();
+	    driver.findElement(By.id("check_box_showmoreAntonio Galloniratingsource")).click();
 	    Thread.sleep(3000);
 	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
 	    Assert.assertEquals(facetValue, driver.findElement(By.cssSelector("span.plp-product-desc-winespec-desc-title")).getText());
@@ -149,11 +149,12 @@ public class Filter extends Browser {
 	    Thread.sleep(5000);
 	    
 	    //Rating Range
-	    //scroll = driver.findElement(By.linkText("Rating Range"));
-	    WebElement scroll_RatingRange = driver.findElement(By.linkText("Expert Rating"));
+	    WebElement scroll_RatingRange = driver.findElement(By.linkText("Top Rated"));
 	 	scroll_RatingRange.sendKeys(Keys.ARROW_DOWN);
-	    //driver.findElement(By.xpath("//a[contains(text(),'Rating Range')]")).click();
-	 	driver.findElement(By.xpath("//a[contains(text(),'Expert Rating')]")).click();
+	 	scroll_RatingRange.sendKeys(Keys.ARROW_DOWN);
+	 	scroll_RatingRange.sendKeys(Keys.ARROW_DOWN);
+	 	scroll_RatingRange.sendKeys(Keys.ARROW_DOWN);
+	 	driver.findElement(By.xpath("//a[contains(text(),'Top Rated')]")).click();
 	    driver.findElement(By.id("check_box_showmore89 and Belowratingrange")).click();
 	    Thread.sleep(3000);
 	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();

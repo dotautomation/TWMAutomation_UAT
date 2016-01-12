@@ -20,6 +20,8 @@ package com.totalwine.test.pricingpromos;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,7 +29,7 @@ import org.testng.annotations.Test;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
-//Promo Code in UAT 1221: $5 off $50 worth of WD Chardonnay, except for items ending in .97
+//Promo Code in Bugfix 1221: $5 off $50 worth of WD Chardonnay, except for items ending in .97
 
 public class Promotion extends Browser {
 
@@ -44,8 +46,8 @@ public class Promotion extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
     
     	//Add eligible item to cart
     	driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/cloud-break-chardonnay/p/110892750");
@@ -59,7 +61,14 @@ public class Promotion extends Browser {
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
-	    driver.findElement(By.name("qty")).sendKeys("14");
+	    driver.findElement(By.name("qty")).sendKeys("12");
+	    
+	    WebElement scroll_Country = driver.findElement(By.id("voucherCode"));
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");
@@ -70,6 +79,11 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your promotion has been applied successfully.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
+	    WebElement scroll = driver.findElement(By.id("checkout"));
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("RemoveProduct_0")).click();
 	    Thread.sleep(2000);
 	}
@@ -80,8 +94,8 @@ public class Promotion extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 
 	    //Add eligible item to cart
     	driver.get(ConfigurationFunctions.accessURL+"/wine/red-wine/cabernet-sauvignon/radius-cabernet/p/109682750");
@@ -96,6 +110,13 @@ public class Promotion extends Browser {
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
 	    driver.findElement(By.name("qty")).sendKeys("6");
+	    
+	    WebElement scroll_Country = driver.findElement(By.id("voucherCode"));
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");
@@ -106,6 +127,11 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
+	    WebElement scroll = driver.findElement(By.id("checkout"));
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("RemoveProduct_0")).click();
 	    Thread.sleep(2000);
 	}
@@ -116,8 +142,8 @@ public class Promotion extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 	    
 	    //Add eligible item to cart
     	driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/kendall-jackson-chardonnay/p/2403750");
@@ -132,6 +158,11 @@ public class Promotion extends Browser {
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
 	    driver.findElement(By.name("qty")).sendKeys("6");
+		    WebElement scroll_Country = driver.findElement(By.id("voucherCode"));
+		    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+		    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+		    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+		    scroll_Country.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");
@@ -142,6 +173,11 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
+	    WebElement scroll = driver.findElement(By.id("checkout"));
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("RemoveProduct_0")).click();
 	    Thread.sleep(2000);
 	}
@@ -152,8 +188,8 @@ public class Promotion extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 	    
     	//Add ineligible beer item to cart
     	driver.get(ConfigurationFunctions.accessURL+"/beer/lager/euro-pale-lager/heineken/p/3380128");
@@ -168,6 +204,13 @@ public class Promotion extends Browser {
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
 	    driver.findElement(By.name("qty")).sendKeys("6");
+	    
+	    WebElement scroll_Country = driver.findElement(By.id("voucherCode"));
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");
@@ -178,6 +221,11 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
+	    WebElement scroll = driver.findElement(By.id("checkout"));
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("RemoveProduct_0")).click();
 	    Thread.sleep(2000);
 	}
@@ -188,8 +236,8 @@ public class Promotion extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 	   
     	//Add eligible item, but not meeting the total threshold (total price < $50)
     	driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/cloud-break-chardonnay/p/110892750");
@@ -204,6 +252,13 @@ public class Promotion extends Browser {
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
 	    driver.findElement(By.name("qty")).sendKeys("2");
+	    
+	    WebElement scroll_Country = driver.findElement(By.id("voucherCode"));
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");
@@ -214,6 +269,11 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
+	    WebElement scroll = driver.findElement(By.id("checkout"));
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
+	    scroll.sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("RemoveProduct_0")).click();
 	    Thread.sleep(2000);
 	}

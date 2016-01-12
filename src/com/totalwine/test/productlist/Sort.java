@@ -64,8 +64,8 @@ public class Sort extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    //Thread.sleep(5000);
 		
 		//Hover over the "Wine" top-level menu
 		Actions action = new Actions(driver);
@@ -78,10 +78,11 @@ public class Sort extends Browser {
 		
 		WebElement wineMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(wineMove).build().perform(); 
-		
+		driver.findElement(By.cssSelector("a.btn.btn-red.clpviewall")).click();
+		Thread.sleep(3000);
 		
 		//driver.get(ConfigurationFunctions.accessURL+"/white-wine/c/013005");
-			//Thread.sleep(5000);
+		Thread.sleep(5000);
 	    driver.findElement(By.xpath("//div[2]/div/span/span")).click();
 	    driver.findElement(By.xpath("//div[2]/div/div[2]/div/div/div/div/ul/li[2]")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("option[value=our-favorites]")).isEmpty(),false);

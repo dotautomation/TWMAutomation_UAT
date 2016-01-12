@@ -153,12 +153,12 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.id("btnSaveAccount")).click();
 	    driver.findElement(By.cssSelector("div.ahp-heading")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Your Account")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.linkText("Your account")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Orders")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Your shopping lists")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.rewards-title")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsUpdateAcc]")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.xpath("(//a[contains(text(),'Learn More')])[4]")).isEmpty(),false);
+	    //Assert.assertEquals(driver.findElements(By.xpath("(//a[contains(text(),'Learn More')])[4]")).isEmpty(),false);
 	    //Assert.assertEquals(driver.findElements(By.xpath("//div[3]/span[3]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Online order history")).isEmpty(),false);
 	    //Assert.assertEquals(driver.findElements(By.linkText("1181-In-Store Purchase History")).isEmpty(),false);
@@ -168,14 +168,4 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.linkText("Welcome, Automated")).click();
 	    driver.findElement(By.linkText("Log out")).click();
 	}
-	
-	@AfterMethod 
-	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException { 
-		if(testResult.getStatus() == ITestResult.FAILURE) { 
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File("c:\\totalwine\\TWMAutomation\\FailureScreenshots\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
-		}
-		driver.close();
-	}
-	
 }

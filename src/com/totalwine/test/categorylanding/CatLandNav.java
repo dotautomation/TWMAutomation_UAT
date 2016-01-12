@@ -95,6 +95,6 @@ public class CatLandNav extends Browser {
 		Thread.sleep(5000);
 		//Validate PLP presence and CatLand absence
 		Assert.assertEquals(driver.findElements(By.id("plp-aty-tab")).isEmpty(),true);
-		Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsHeroLink")).isEmpty(),false);
+		//Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsHeroLink")).isEmpty(),false);
 	}
 }
