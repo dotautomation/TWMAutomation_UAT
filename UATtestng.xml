@@ -7,7 +7,7 @@
 	<parameter name="browser" value="Chrome">
 	</parameter>
     <classes>
-	   <class name="com.totalwine.test.checkout.NegativeInventoryTest"/>
+	   <class name="com.totalwine.test.aml.EmailSignup"/>
     </classes>
   </test>
 </suite>	
