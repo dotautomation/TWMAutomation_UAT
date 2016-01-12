@@ -79,7 +79,9 @@ public class ISPCheckout extends Browser {
 		driver.get(PDP);
 		Thread.sleep(3000);
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
-	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
+	    //driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
+		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
+
 	    Thread.sleep (2000);
 	    //driver.findElement(By.cssSelector("div.cart-popup")).click();
 	    driver.get("http://twmuatwebserver:webserveruattwm@uat.totalwine.com/cart");

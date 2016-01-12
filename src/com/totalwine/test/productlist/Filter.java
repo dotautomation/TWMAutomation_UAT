@@ -76,6 +76,11 @@ public class Filter extends Browser {
 		WebElement winePLPNav=driver.findElement(By.xpath("//a[contains(@href,'/wine/white-wine/c/')]"));
 		js.executeScript("arguments[0].click();", winePLPNav);
 		Thread.sleep(5000);
+		
+		//Subcat Page
+		driver.findElement(By.cssSelector("div.clpviewall-view")).click();
+		Thread.sleep(3000);
+		
 		WebElement wineMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(wineMove).build().perform(); 
 		Thread.sleep(2000);

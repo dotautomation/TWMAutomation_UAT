@@ -78,7 +78,8 @@ public class ShipCheckout extends Browser {
 		Thread.sleep(3000);
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		System.out.println(productId);
-	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
+	    //driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
+	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button
 		//WebElement atcbutton = driver.findElement(By.cssSelector("button.anAddToCart"));
 		//JavascriptExecutor executor = (JavascriptExecutor)driver;
 		//executor.executeScript("arguments[0].click();", atcbutton);

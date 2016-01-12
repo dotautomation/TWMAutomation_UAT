@@ -2,18 +2,18 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/selenium-2.45.0/selenium-java-2.45.0.jar" sourcepath="C:/totalwine/Library/selenium-2.45.0/selenium-java-2.45.0-srcs.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/selenium-2.45.0/selenium-java-2.45.0-srcs.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/jexcelapi/jxl.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/fighting-layout-bugs-0.6-jar-with-dependencies.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/ios-server-0.6.5-jar-with-dependencies.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/javax.mail.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/guice-4.0.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/reportng-1.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/velocity-dep-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/flyingsaucer-R8/core-renderer.jar"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/flyingsaucer-R8/core-renderer-minimal.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/totalwine/Library/selenium-2.45.0/selenium-server-standalone-2.45.0.jar" sourcepath="C:/totalwine/Library/selenium-2.45.0/selenium-java-2.45.0-srcs.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/fighting-layout-bugs-0.6-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/flyingsaucer-R8.zip"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/guice-4.0.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/jtidy-r872-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/selenium-java-2.48.2.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/selenium-server-standalone-2.48.2.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/testng-6.8.21.jar"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/testng-xslt-1.1.2-master.zip"/>
+	<classpathentry kind="lib" path="C:/twmautomation/TWMAutomation_UAT/lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

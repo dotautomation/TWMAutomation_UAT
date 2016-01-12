@@ -119,7 +119,7 @@ public class MobileWebRegistration extends Browser {
 	    Assert.assertEquals(driver.findElements(By.linkText("Your shopping lists")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.rewards-title")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsUpdateAcc]")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.xpath("(//a[contains(text(),'Learn More')])[4]")).isEmpty(),false);
+	    //Assert.assertEquals(driver.findElements(By.xpath("(//a[contains(text(),'Learn More')])[4]")).isEmpty(),false);
 	    //Assert.assertEquals(driver.findElements(By.xpath("//div[3]/span[3]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Online order history")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsPrefStore]")).isEmpty(),false);
