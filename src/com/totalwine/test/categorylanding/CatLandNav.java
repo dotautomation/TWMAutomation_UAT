@@ -46,7 +46,7 @@ public class CatLandNav extends Browser {
 	
 	@DataProvider(name="CatLandParameters")
     public Object[][] createData() {
-    	Object[][] retObjArr=ConfigurationFunctions.getTableArray("C:\\totalwine\\TWMAutomation\\Resources\\AutomatedFlows.xls","CatLand", "catlandprod");
+    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"CatLand", "catlandprod");
         return(retObjArr);
     } 
 	

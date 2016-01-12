@@ -76,7 +76,8 @@ public class PDPTabs extends Browser {
 		WebElement plpmove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(plpmove).build().perform();
 		
-		driver.findElement(By.xpath("//a[contains(@href,"+plp+"'?viewall=true')]")).click(); //For production since the SubCat Land page is setup
+		//driver.findElement(By.xpath("//a[contains(@href,"+plp+"'?viewall=true')]")).click(); //For production since the SubCat Land page is setup
+		driver.findElement(By.cssSelector("a.btn.btn-red.clpviewall")).click();
 		Thread.sleep(5000);
 		
 		String winename = driver.findElement(By.cssSelector("a.analyticsProductName")).getText();
@@ -102,11 +103,13 @@ public class PDPTabs extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.tabs-right.anPDPTab")).isEmpty(),false);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
+	    Thread.sleep(3000);
 	    
 	    //Tab 2 - Product Details
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.css-details-pd")).isEmpty(),false);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
+	    Thread.sleep(3000);
 	    
 	    //Tab 3 - BazaarVoice
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.BVDITitle.BVDI_QTTitle")).isEmpty(),false);
@@ -114,7 +117,9 @@ public class PDPTabs extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("img.BVRRTrustMarkOverlayImage")).isEmpty(), false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div#BVRRRatingSummaryLinkWriteID")).isEmpty(),false);
 	    
-	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
+	    //Commented due to RR
+	    
+	    /*driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
 	    Thread.sleep(5000);
 	    
 	    //Tab 4 - RichRelevance
@@ -123,6 +128,6 @@ public class PDPTabs extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("img.rr-image-asset")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToCart")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToListInit")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.tabs-left.anPDPTab")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.cssSelector("span.tabs-left.anPDPTab")).isEmpty(),false);*/
 	}
 }

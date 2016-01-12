@@ -46,10 +46,7 @@ public class Browser {
 	public void openBrowser(String browser) {
 		//Firefox
 		if(browser.equalsIgnoreCase("FF")) {
-			ProfilesIni profile = new ProfilesIni();
-			FirefoxProfile testProfile = profile.getProfile("default");
 			driver = new FirefoxDriver();
-			testProfile.setEnableNativeEvents(true);
 		}
 		//IE
 		if (browser.equalsIgnoreCase("IE")) {

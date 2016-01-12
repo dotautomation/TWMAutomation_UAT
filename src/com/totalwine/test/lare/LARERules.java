@@ -55,13 +55,13 @@ public class LARERules extends Browser {
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("button#changeStoreBtn")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals("Towson (Beltway), MD", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    Assert.assertEquals("Towson (Beltway) , MD", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	    
 	    Actions action=new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 	    WebElement wineNav = driver.findElement(By.xpath("//a[contains(@href,'c0020')]")); 
 		action.moveToElement(wineNav).build().perform(); //Top Level Menu Hover
-		WebElement winePLPNav=driver.findElement(By.xpath("//a[contains(@href,'013005')]"));
+		WebElement winePLPNav=driver.findElement(By.xpath("//a[contains(@href,'000009')]"));
 		js.executeScript("arguments[0].click();", winePLPNav);
 		Thread.sleep(5000);
 		WebElement wineMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
@@ -76,8 +76,10 @@ public class LARERules extends Browser {
 		//Validation: Global store header should have the deep link's store
 		connect(IP);
 		driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/null/j-lohr-arroyo-vista-chardonnay/p/91517750?s=205"); //McLean, VA
-		Thread.sleep(5000);
-		Assert.assertEquals("McLean, VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		Assert.assertEquals("McLean , VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	}
 		
 	@Test
@@ -100,7 +102,7 @@ public class LARERules extends Browser {
 	    driver.findElement(By.cssSelector("button.btn.btn-red.anLoginSubmit")).click();
 	    Thread.sleep(5000);
 	    driver.switchTo().activeElement();
-	    Assert.assertEquals("Fairfax, VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    Assert.assertEquals("Fairfax , VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	}
 	
 	@Test

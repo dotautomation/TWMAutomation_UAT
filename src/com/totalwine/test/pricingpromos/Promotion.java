@@ -59,7 +59,7 @@ public class Promotion extends Browser {
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    Thread.sleep(3000);
 	    driver.findElement(By.name("qty")).clear();
-	    driver.findElement(By.name("qty")).sendKeys("6");
+	    driver.findElement(By.name("qty")).sendKeys("14");
 	    driver.findElement(By.cssSelector("a.js-update-qty > span")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("voucherCode")).sendKeys("1221");

@@ -46,7 +46,7 @@ public class DefaultTabsBehavior extends Browser {
     public Object[][] createData() {
 		Object[][] retObjArr;
 		if (ConfigurationFunctions.locationSet.contains("uat")) {
-			retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"PLP", "plptabs");
+			retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"PLP", "plptabsUAT");
 		} else
 			retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"PLP", "plptabsphased");
         return(retObjArr);
@@ -73,12 +73,13 @@ public class DefaultTabsBehavior extends Browser {
 	    //Access Wine PLP
 		WebElement wineNav = driver.findElement(By.xpath("//a[contains(@href,'"+Wine+"')]")); 
 		action.moveToElement(wineNav).build().perform(); //Top Level Menu Hover
+		Thread.sleep(1000);
 		WebElement winePLPNav=driver.findElement(By.xpath("//a[contains(@href,'"+WinePLP+"')]"));
 		js.executeScript("arguments[0].click();", winePLPNav);
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath("//a[contains(@href,'000002?viewall=true')]")).click(); //For production since the SubCat Land page is setup
-		Thread.sleep(5000);
+		//driver.findElement(By.xpath("//a[contains(@href,'000002?viewall=true')]")).click(); //For production since the SubCat Land page is setup
+		//Thread.sleep(5000);
 		
 		WebElement wineMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(wineMove).build().perform(); 
@@ -112,8 +113,8 @@ public class DefaultTabsBehavior extends Browser {
 		js.executeScript("arguments[0].click();", beerPLPNav);
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath("//a[contains(@href,'41513?viewall=true')]")).click(); //For production since the SubCat Land page is setup
-		Thread.sleep(5000);
+		//driver.findElement(By.xpath("//a[contains(@href,'41513?viewall=true')]")).click(); //For production since the SubCat Land page is setup
+		//Thread.sleep(5000);
 		
 		WebElement beerMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(beerMove).build().perform(); 

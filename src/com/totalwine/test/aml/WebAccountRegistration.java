@@ -52,7 +52,6 @@ public class WebAccountRegistration extends Browser {
 
 	@BeforeMethod
 	  public void setUp() throws Exception {
-		//this.driver = ConfigurationFunctions.driver;
 	    driver.manage().window().maximize();
 	  }  
 	

@@ -114,7 +114,7 @@ public class MobileWebRegistration extends Browser {
 	    
 	    //Account homepage (same as desktop)
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Your Account")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.linkText("Your account")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Orders")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Your shopping lists")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.rewards-title")).isEmpty(),false);
