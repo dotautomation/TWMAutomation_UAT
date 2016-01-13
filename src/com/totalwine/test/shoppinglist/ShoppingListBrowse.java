@@ -78,9 +78,19 @@ public class ShoppingListBrowse extends Browser {
 	    //driver.findElement(By.cssSelector("html")).click();
 	    Thread.sleep(6000);
 
+	  //Check for the merge cart modal
+	    if (driver.findElements(By.cssSelector("button.btn.btn-red.cartMergeBtn")).size()!=0)
+	    	driver.findElement(By.cssSelector("button.btn.btn-red.cartMergeBtn")).click();
+	    Thread.sleep(2000);
+	    
 	    //Verify Page Elements on Shopping List 
         //WebElement webelement1= driver.switchTo().activeElement();
 	    //webelement1.click();
+	    
+	    //Check for survey popup
+	    if (driver.findElements(By.xpath("//img[contains(@src,'https://qdistribution.qualtrics.com/WRQualtricsShared/Graphics//black_popup_x.png')]")).size()!=0)
+	    	driver.findElement(By.xpath("//img[contains(@src,'https://qdistribution.qualtrics.com/WRQualtricsShared/Graphics//black_popup_x.png')]")).click();
+	    Thread.sleep(2000);
 	    
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.plp-product-title")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.an_ListName")).isEmpty(),false);
