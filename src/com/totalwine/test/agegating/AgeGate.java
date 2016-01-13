@@ -1,6 +1,6 @@
 package com.totalwine.test.agegating;
 
-/*
+/*2
  * Age Gate Workflow
  * Workflow:
  * 	1. Access the site
