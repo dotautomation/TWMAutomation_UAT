@@ -1,6 +1,6 @@
 package com.totalwine.test.agegating;
 
-/*2
+/*
  * Age Gate Workflow
  * Workflow:
  * 	1. Access the site
@@ -22,7 +22,7 @@ package com.totalwine.test.agegating;
  * 	4. AfterClass
  * 			Quit webdriver
  */
-//Test1
+
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
