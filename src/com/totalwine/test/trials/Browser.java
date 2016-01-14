@@ -21,6 +21,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -46,11 +47,20 @@ public class Browser {
 	public void openBrowser(String browser) {
 		//Firefox
 		if(browser.equalsIgnoreCase("FF")) {
+			ProfilesIni profile = new ProfilesIni();
+			//FirefoxProfile testProfile = profile.getProfile("WebDriver");
+			FirefoxProfile testProfile = profile.getProfile("Automation");
+			//FirefoxProfile automationProfile = new FirefoxProfile();
+			//File pathToBinary = new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+			//FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
+			//testProfile.setPreference("webdriver.load.strategy", "unstable");
 			driver = new FirefoxDriver();
+			//testProfile.setEnableNativeEvents(true);
 		}
 		//IE
 		if (browser.equalsIgnoreCase("IE")) {
-			File file = new File("C:/totalwine/Library/IEDriverServer.exe");
+			//File file = new File("C:/totalwine/Library/IEDriverServer.exe");
+			File file = new File(ConfigurationFunctions.IEDRIVERPATH);
 			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
 			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 			caps.setCapability("ignoreZoomSetting", true);
@@ -70,15 +80,15 @@ public class Browser {
 		}
 		//Chrome
 		if (browser.equalsIgnoreCase("Chrome")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			//File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-			DesiredCapabilities dc=new DesiredCapabilities();    
-			dc.setCapability("screen-resolution","1280x1024");
-			driver = new ChromeDriver(dc);
+			driver = new ChromeDriver();
 		}
 		//iOS (iPhone 6)
 		if (browser.equalsIgnoreCase("iOS")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			//File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			Map<String, String> mobileEmulation = new HashMap<String, String>();
 			mobileEmulation.put("deviceName", "Apple iPhone 6");
@@ -90,7 +100,8 @@ public class Browser {
 		}
 		//Android (Samsung Galaxy S4)
 		if (browser.equalsIgnoreCase("Android")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			//File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			Map<String, String> mobileEmulation = new HashMap<String, String>();
 			mobileEmulation.put("deviceName", "Samsung Galaxy S4");
@@ -100,9 +111,22 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		//Android (Samsung Galaxy S4)
+		if (browser.equalsIgnoreCase("CUA")) {
+			//File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
+			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+			Map<String, String> mobileEmulation = new HashMap<String, String>();
+			mobileEmulation.put("userAgent", "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19");
+			Map<String, Object> chromeOptions = new HashMap<String, Object>();
+			chromeOptions.put("mobileEmulation", mobileEmulation);
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+			driver = new ChromeDriver(capabilities);
+		}
 		//Headless
 		if (browser.equalsIgnoreCase("Headless")) {
-			// Declaring and initialising the HtmlUnitWebDriver
+			// Declaring and initializing the HtmlUnitWebDriver
 			HtmlUnitDriver driver = new HtmlUnitDriver();
 		}
 	}
@@ -111,8 +135,9 @@ public class Browser {
 	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			//FileUtils.copyFile(scrFile, new File("c:\\twmautomation\\FailureScreenshots\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png"));
+			//FileUtils.copyFile(scrFile, new File("c:\\FailureScreenshots\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
 			FileUtils.copyFile(scrFile, new File("C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
+			
 		}
 		driver.close();
 	}
