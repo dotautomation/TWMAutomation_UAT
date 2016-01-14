@@ -25,7 +25,7 @@ package com.totalwine.test.aml;
  * 			Quit webdriver
  */
 
-
+//This is a merge test
 import java.io.File;
 import java.io.IOException;
 

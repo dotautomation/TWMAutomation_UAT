@@ -12,11 +12,14 @@ package com.totalwine.test.trials;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,6 +30,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -38,7 +42,7 @@ import com.totalwine.test.config.ConfigurationFunctions;
 public class Browser {
 
 	protected WebDriver driver;
-	
+	protected String hubURL = "http://prt-6rkhd12.totalwine.com:5566/wd/hub";
 	
 	@BeforeMethod
 	
@@ -46,11 +50,19 @@ public class Browser {
 	public void openBrowser(String browser) {
 		//Firefox
 		if(browser.equalsIgnoreCase("FF")) {
+			ProfilesIni profile = new ProfilesIni();
+			//FirefoxProfile testProfile = profile.getProfile("WebDriver");
+			FirefoxProfile testProfile = profile.getProfile("Automation");
+			//FirefoxProfile automationProfile = new FirefoxProfile();
+			//File pathToBinary = new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+			//FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
+			//testProfile.setPreference("webdriver.load.strategy", "unstable");
 			driver = new FirefoxDriver();
+			//testProfile.setEnableNativeEvents(true);
 		}
 		//IE
 		if (browser.equalsIgnoreCase("IE")) {
-			File file = new File("C:/totalwine/Library/IEDriverServer.exe");
+			File file = new File(ConfigurationFunctions.IEDRIVERPATH);
 			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
 			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 			caps.setCapability("ignoreZoomSetting", true);
@@ -70,15 +82,13 @@ public class Browser {
 		}
 		//Chrome
 		if (browser.equalsIgnoreCase("Chrome")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-			DesiredCapabilities dc=new DesiredCapabilities();    
-			dc.setCapability("screen-resolution","1280x1024");
-			driver = new ChromeDriver(dc);
+			driver = new ChromeDriver();
 		}
 		//iOS (iPhone 6)
 		if (browser.equalsIgnoreCase("iOS")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			Map<String, String> mobileEmulation = new HashMap<String, String>();
 			mobileEmulation.put("deviceName", "Apple iPhone 6");
@@ -90,7 +100,7 @@ public class Browser {
 		}
 		//Android (Samsung Galaxy S4)
 		if (browser.equalsIgnoreCase("Android")) {
-			File file = new File("C:/totalwine/Library/chromedriver.exe");
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			Map<String, String> mobileEmulation = new HashMap<String, String>();
 			mobileEmulation.put("deviceName", "Samsung Galaxy S4");
@@ -105,13 +115,61 @@ public class Browser {
 			// Declaring and initialising the HtmlUnitWebDriver
 			HtmlUnitDriver driver = new HtmlUnitDriver();
 		}
+		//Grid - Firefox
+		if(browser.equalsIgnoreCase("GridFF")) {
+			DesiredCapabilities cap = DesiredCapabilities.firefox();
+		    cap.setBrowserName("firefox");
+		    cap.setPlatform(Platform.VISTA);
+		    try {
+				driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} 
+		}
+		//Grid - Chrome
+		if(browser.equalsIgnoreCase("GridChrome")) {
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+		    cap.setBrowserName("chrome");
+		    cap.setPlatform(Platform.VISTA);
+		    try {
+				driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} 
+		}
+		//Grid - IE
+		if(browser.equalsIgnoreCase("GridIE")) {
+			DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+		    cap.setBrowserName("internet explorer");
+		    cap.setPlatform(Platform.VISTA);
+		    try {
+				driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		//Grid - iOS (iPhone 6)
+				if (browser.equalsIgnoreCase("iOSGrid")) {
+					DesiredCapabilities cap = DesiredCapabilities.chrome();
+					Map<String, String> mobileEmulation = new HashMap<String, String>();
+					mobileEmulation.put("deviceName", "Apple iPhone 6");
+					Map<String, Object> chromeOptions = new HashMap<String, Object>();
+					chromeOptions.put("mobileEmulation", mobileEmulation);
+					cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+				    cap.setBrowserName("chrome");
+				    cap.setPlatform(Platform.VISTA);
+				    try {
+						driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
+					} catch (MalformedURLException e) {
+						e.printStackTrace();
+					} 
+				}
 	}
 	
 	@AfterMethod
 	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			//FileUtils.copyFile(scrFile, new File("c:\\twmautomation\\FailureScreenshots\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png"));
 			FileUtils.copyFile(scrFile, new File("C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
 		}
 		driver.close();
