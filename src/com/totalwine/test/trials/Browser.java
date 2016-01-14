@@ -42,7 +42,7 @@ public class Browser {
 	
 	
 	@BeforeMethod
-	
+	//
 	@Parameters("browser") 
 	public void openBrowser(String browser) {
 		//Firefox
