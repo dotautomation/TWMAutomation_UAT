@@ -254,4 +254,19 @@
 			<class name="com.totalwine.test.sitenav.LeftNavigation" />
 		</classes>
 	</test>
+	<!--Store Locator -->
+	<test name="Store Locator">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.storelocator.SLGeoLocate" />
+		</classes>
+	</test>
+	<test name="Store Locator Search">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.storelocator.SLSearch" />
+		</classes>
+	</test>
 </suite>
