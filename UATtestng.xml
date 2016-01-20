@@ -3,11 +3,11 @@
 
 <!--suite name="MultiBrowserSuite" verbose="2" parallel="tests"-->
 <suite name="MultiBrowserSuite" verbose="2">
-  <test name="Negative Inventory Test">
-	<parameter name="browser" value="Chrome">
-	</parameter>
-    <classes>
-	   <class name="com.totalwine.test.shoppinglist.ShoppingListBrowse"/>
-    </classes>
-  </test>
-</suite>	
+  <test name="Store Locator Browse by state dropdown">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.storelocator.SLPages" />
+		</classes>
+	</test>
+</suite>
