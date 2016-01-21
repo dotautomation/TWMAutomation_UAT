@@ -240,6 +240,21 @@
 			<class name="com.totalwine.test.pricingpromos.Promotion" />
 		</classes>
 	</test>
+	<!-- Brand Pages -->
+	<test name="Brand List Page on Chrome">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.brandpages.BrandList" />
+		</classes>
+	</test>
+	<test name="Brand Story Telling Page on Chrome">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.brandpages.BrandStoryTelling" />
+		</classes>
+	</test>
 	<test name="Email Signup">
 		<parameter name="browser" value="Chrome">
 		</parameter>
