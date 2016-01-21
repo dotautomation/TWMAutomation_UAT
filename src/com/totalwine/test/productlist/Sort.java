@@ -125,13 +125,4 @@ public class Sort extends Browser {
 	    Assert.assertEquals(ProductNameAlphaSort.startsWith("1"),true);
 	    Assert.assertEquals(ProductNameReverseAlphaSort.startsWith("Z"),true);
 	}
-	
-	@AfterMethod 
-	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException { 
-		if(testResult.getStatus() == ITestResult.FAILURE) { 
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File("c:\\totalwine\\TWMAutomation\\FailureScreenshots\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
-		}
-		driver.close();
-	}
 }
