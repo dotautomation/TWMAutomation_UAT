@@ -79,6 +79,14 @@
 			<class name="com.totalwine.test.aml.WebAccountRegistration" />
 		</classes>
 	</test>
+	<!-- Email/Password Combinations -->
+	<test name="Good/Bad Email/Password Combinations">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.aml.GoodBadPassword" />
+		</classes>
+	</test>
 	<!--ISP Checkout (Guest) -->
 	<test name="ISP Checkout on FF">
 		<parameter name="browser" value="Chrome">
