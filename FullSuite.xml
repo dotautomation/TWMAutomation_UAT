@@ -70,6 +70,13 @@
 			<class name="com.totalwine.test.mobile.MobileStoreLocator" />
 		</classes>
 	</test>
+	<test name="Mobile ISP Guest Checkout">
+		<parameter name="browser" value="iOS">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
+		</classes>
+	</test>
 	<!--End of Mobile -->
 	<!--Web Registration -->
 	<test name="Web Registration">
