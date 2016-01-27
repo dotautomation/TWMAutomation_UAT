@@ -4,10 +4,10 @@
 <!--suite name="MultiBrowserSuite" verbose="2" parallel="tests"-->
 <suite name="MultiBrowserSuite" verbose="2">
   <test name="Store Locator Browse by state dropdown">
-		<parameter name="browser" value="iOS">
+		<parameter name="browser" value="Android">
 		</parameter>
 		<classes>
-			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
+			<class name="com.totalwine.test.mobile.MobileShipCheckout" />
 		</classes>
 	</test>
 </suite>
