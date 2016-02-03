@@ -358,4 +358,11 @@
 			<class name="com.totalwine.test.storelocator.StoreDetail" />
 		</classes>
 	</test>
+	<test name="Top Level Menu">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.global.TopLevelMenu" />
+		</classes>
+	</test>
 </suite>
