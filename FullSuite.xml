@@ -358,6 +358,14 @@
 			<class name="com.totalwine.test.storelocator.StoreDetail" />
 		</classes>
 	</test>
+	<test name="Store Locator Radius Browse">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.storelocator.SLBrowseByRadius" />
+		</classes>
+	</test>
+	<!-- Global Site Navigation -->
 	<test name="Top Level Menu">
 		<parameter name="browser" value="Chrome">
 		</parameter>
