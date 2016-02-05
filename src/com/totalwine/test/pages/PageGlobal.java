@@ -24,5 +24,8 @@ import org.openqa.selenium.By;
 		//Top Level Menu
 		
 		//Footer
+		
+		//Location Intercept
+		public static final By LocationInterceptNo = By.cssSelector("div.ChooseStoreButtons > button.btn.btn-gray");
 	
 }

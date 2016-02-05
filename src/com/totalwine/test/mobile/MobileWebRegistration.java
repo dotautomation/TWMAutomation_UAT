@@ -127,8 +127,8 @@ public class MobileWebRegistration extends Browser {
 	    //Logout
 	    driver.findElement(By.linkText("Welcome, Automated")).click();
 	    driver.findElement(By.linkText("Log out")).click();
-	    Thread.sleep(3000);
-	    driver.findElement(By.id("btnYes")).click();
+	    //Thread.sleep(3000);
+	    //driver.findElement(By.id("btnYes")).click(); //Disabled as we are no longer presenting the age gate upon logging out - DPS-1937
 		Thread.sleep(5000);
 	    
 	    //Relogin using the credentials above
