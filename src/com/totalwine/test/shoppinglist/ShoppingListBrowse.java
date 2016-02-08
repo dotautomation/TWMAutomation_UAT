@@ -110,7 +110,7 @@ public class ShoppingListBrowse extends Browser {
 	    driver.findElement(By.linkText("Welcome, Rajat")).click();
 	    driver.findElement(By.linkText("Log out")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals(driver.findElements(By.linkText("Account")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.linkText("Sign In/Register")).isEmpty(),false);
 	}
 	
 	@AfterMethod

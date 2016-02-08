@@ -25,21 +25,15 @@ package com.totalwine.test.aml;
  * 			Quit webdriver
  */
 
-//This is a merge test
-import java.io.File;
 import java.io.IOException;
 
 import jxl.read.biff.BiffException;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -69,7 +63,7 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 	    Thread.sleep(5000);
 		
-	    driver.findElement(By.linkText("Account")).click();
+	    driver.findElement(By.linkText("Sign In/Register")).click();
 	    Thread.sleep(2000);
 	    
 	    try {
@@ -132,9 +126,11 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.xpath("//div[10]/div/div/div/div/div/ul/li[2]")).click();
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys("20817");
-	    driver.findElement(By.cssSelector("section.formbg.storepreferences")).click();
-	    driver.findElement(By.cssSelector("#storePreferenceText > label")).click();
+	    //driver.findElement(By.cssSelector("section.formbg.storepreferences")).click();
+	    //driver.findElement(By.cssSelector("section.formbg.storepreferences")).sendKeys(Keys.ARROW_DOWN);
+	    //driver.findElement(By.cssSelector("#storePreferenceText > label")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("input[name=preferredStoreDefault]")).isEmpty(),false);
+	    driver.findElement(By.cssSelector("input[name=ageCheck]")).sendKeys(Keys.ARROW_DOWN);;
 	    driver.findElement(By.cssSelector("input[name=ageCheck]")).click();
 	    driver.findElement(By.cssSelector("input[name=termsAndCondCheck]")).click();
 	    driver.findElement(By.id("btnnuregisteration")).click();
@@ -150,6 +146,7 @@ public class WebAccountRegistration extends Browser {
 	    Assert.assertEquals(driver.findElements(By.id("c0050")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("em.icon.birthday")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("em.icon.mobilephone")).isEmpty(),false);
+	    driver.findElement(By.id("btnSaveAccount")).sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("btnSaveAccount")).click();
 	    driver.findElement(By.cssSelector("div.ahp-heading")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);

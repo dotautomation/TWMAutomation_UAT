@@ -39,6 +39,7 @@ import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.*;
 import com.totalwine.test.trials.Browser;
 
 public class ISPCheckout extends Browser {
@@ -66,9 +67,9 @@ public class ISPCheckout extends Browser {
 		
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));

@@ -26,6 +26,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageGlobal;
+import com.totalwine.test.pages.PageSignInModal;
 import com.totalwine.test.trials.Browser;
 
 public class LARERules extends Browser {
@@ -55,7 +57,7 @@ public class LARERules extends Browser {
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("button#changeStoreBtn")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals("Towson (Beltway) , MD", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    Assert.assertEquals("Towson (Beltway), MD", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	    
 	    Actions action=new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -79,7 +81,7 @@ public class LARERules extends Browser {
 		Thread.sleep(3000);
 		driver.navigate().refresh();
 		Thread.sleep(2000);
-		Assert.assertEquals("McLean , VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+		Assert.assertEquals("McLean, VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	}
 		
 	@Test
@@ -88,21 +90,21 @@ public class LARERules extends Browser {
 		//Action: User accesses site and then logs in
 		//Validation: Global store header changes to the profile store marked as always use (rsud@totalwine.com/grapes123)
 		connect(IP);
-		driver.findElement(By.linkText("Account")).click();
+		driver.findElement(PageGlobal.TopNavAccount).click();
 		Thread.sleep(2000);
 	    driver.findElement(By.linkText("Sign into your account")).click();
 		Thread.sleep(3000);
 		driver.switchTo().frame("iframe-signin-overlay");
-		driver.findElement(By.id("j_username")).clear();
-		driver.findElement(By.id("j_username")).sendKeys("rsud@totalwine.com");
-		driver.findElement(By.id("j_password")).clear();
-		driver.findElement(By.id("j_password")).sendKeys("grapes123");
+		driver.findElement(PageSignInModal.ModalUsername).clear();
+		driver.findElement(PageSignInModal.ModalUsername).sendKeys("rsud@totalwine.com");
+		driver.findElement(PageSignInModal.ModalPassword).clear();
+		driver.findElement(PageSignInModal.ModalPassword).sendKeys("grapes123");
 		//driver.findElement(By.cssSelector("section#sign-in-overlay > div.sign-in-container > div.form-container > div.loginform-wrapper > div.form-left > input#j_username")).sendKeys("rsud@totalwine.com");
 	    //driver.findElement(By.cssSelector("section#sign-in-overlay > div.sign-in-container > div.form-container > div.loginform-wrapper > div.form-right> input#j_password")).sendKeys("grapes123");
 	    driver.findElement(By.cssSelector("button.btn.btn-red.anLoginSubmit")).click();
 	    Thread.sleep(5000);
 	    driver.switchTo().activeElement();
-	    Assert.assertEquals("Fairfax , VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    Assert.assertEquals("Fairfax, VA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	}
 	
 	@Test
@@ -115,9 +117,9 @@ public class LARERules extends Browser {
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
 		//Location Intercept
-		Assert.assertEquals(driver.findElements(By.cssSelector("div.ChooseStoreButtons > #btnNo")).isEmpty(),false);
+		Assert.assertEquals(driver.findElements(PageGlobal.LocationInterceptNo).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.id("btnSelectLocation")).isEmpty(),false);
-	    driver.findElement(By.cssSelector("div.ChooseStoreButtons > #btnNo")).click();
+	    driver.findElement(PageGlobal.LocationInterceptNo).click();
 	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 	    Assert.assertEquals("Sacramento (Arden), CA", driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	}

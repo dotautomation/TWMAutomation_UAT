@@ -30,7 +30,6 @@ import jxl.read.biff.BiffException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -72,6 +71,8 @@ public class PLPGridView extends Browser {
 		Thread.sleep(2000);
 		
 	    //Apply a facet on the default list view
+		driver.findElement(By.linkText("Wine Varietal & Type")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.id("check_box_showmoreCabernet Sauvignonvarietaltype")).click(); //Cabernet Sauvignon facet
 		Thread.sleep(3000);
 		Assert.assertEquals(driver.findElement(By.cssSelector("div.inner-items-wrapper > ul > li > a.filter-link > span.filter-value")).getText(), "Cabernet Sauvignon");

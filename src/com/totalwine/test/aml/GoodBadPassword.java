@@ -59,7 +59,7 @@ public class GoodBadPassword extends Browser {
 	    Thread.sleep(5000);
 	    
 	    //Access the sign in modal
-	    driver.findElement(By.linkText("Account")).click();
+	    driver.findElement(By.linkText("Sign In/Register")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn")).click();
 	    

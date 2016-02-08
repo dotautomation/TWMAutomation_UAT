@@ -43,7 +43,7 @@ import org.testng.annotations.Test;
 
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
-
+import com.totalwine.test.pages.*;
 public class ShoppingListAddItem extends Browser {
 	
 	public String IP = "71.193.51.0";
@@ -75,9 +75,9 @@ public class ShoppingListAddItem extends Browser {
 	    //Login to Account
 	    driver.switchTo().frame("iframe-signin-overlay");
 	    driver.findElement(By.id("j_username")).clear();
-	    driver.findElement(By.id("j_username")).sendKeys("rsud@live.com");
+	    driver.findElement(By.id("j_username")).sendKeys(ConfigurationFunctions.TESTLOGIN);
 	    driver.findElement(By.id("j_password")).clear();
-	    driver.findElement(By.id("j_password")).sendKeys("yoyo55");
+	    driver.findElement(By.id("j_password")).sendKeys(ConfigurationFunctions.TESTPWD);
 	    driver.findElement(By.xpath("//button[@type='button']")).click();
 	    Thread.sleep(8000);
 	    
@@ -114,7 +114,7 @@ public class ShoppingListAddItem extends Browser {
 	    driver.findElement(By.linkText("Welcome, Rajat")).click();
 	    driver.findElement(By.linkText("Log out")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals(driver.findElements(By.linkText("Account")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(PageGlobal.TopNavAccount).isEmpty(),false);
 	}
 		
 	//Add item to existing shopping list
@@ -139,9 +139,9 @@ public class ShoppingListAddItem extends Browser {
 		//Login to Account
 	    driver.switchTo().frame("iframe-signin-overlay");
 	    driver.findElement(By.id("j_username")).clear();
-	    driver.findElement(By.id("j_username")).sendKeys("rsud@live.com");
+	    driver.findElement(By.id("j_username")).sendKeys(ConfigurationFunctions.TESTLOGIN);
 	    driver.findElement(By.id("j_password")).clear();
-	    driver.findElement(By.id("j_password")).sendKeys("yoyo55");
+	    driver.findElement(By.id("j_password")).sendKeys(ConfigurationFunctions.TESTPWD);
 	    driver.findElement(By.xpath("//button[@type='button']")).click();
 	    Thread.sleep(8000);
 	    
@@ -171,6 +171,6 @@ public class ShoppingListAddItem extends Browser {
 	    driver.findElement(By.linkText("Welcome, Rajat")).click();
 	    driver.findElement(By.linkText("Log out")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals(driver.findElements(By.linkText("Account")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(PageGlobal.TopNavAccount).isEmpty(),false);
 	}
 }

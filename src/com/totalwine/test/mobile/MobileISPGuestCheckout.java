@@ -30,17 +30,15 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
-
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
-public class MobileShipCheckout extends Browser {
+public class MobileISPGuestCheckout extends Browser {
 	
-		private String IP="66.230.105.38";
+		private String IP="71.193.51.0";
 	
 	@Test
-	public void MobileShipCheckoutTest () throws InterruptedException {
+	public void MobileISPGuestCheckoutTest () throws InterruptedException {
 		
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
@@ -48,11 +46,9 @@ public class MobileShipCheckout extends Browser {
 		Thread.sleep(5000);
 		
 		//Navigate to test PDP
-		driver.findElement(By.cssSelector("a.btn.btn-red.analyticsLinkComp[title=Wine]")).click();
+		driver.findElement(By.cssSelector("a.btn.btn-red.analyticsLinkComp[title=Beer]")).click();
 		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("a.analyticsProductName[href*=\"142211750\"]")).sendKeys(Keys.ARROW_DOWN);
-		driver.findElement(By.cssSelector("a.analyticsProductName[href*=\"142211750\"]")).click();
-		//driver.get(ConfigurationFunctions.accessURL+"/wine/red-wine/cabernet-sauvignon/iter-cabernet-sauvignon-napa-valley/p/142211750");
+		driver.get(ConfigurationFunctions.accessURL+"/beer/lager/light-lager/bud-light/p/31123");
 		Thread.sleep(3000);
 		
 		//Add to Cart and access cart
@@ -61,21 +57,12 @@ public class MobileShipCheckout extends Browser {
 		driver.findElement(By.cssSelector("em.mobile-cart")).click();
 		Thread.sleep(3000);
 		
-		//Enter shipping zip and select shipping method
-		driver.findElement(By.cssSelector("input.cart-qty.numonly")).clear();
-		driver.findElement(By.cssSelector("input.cart-qty.numonly")).sendKeys("6");
-		driver.findElement(By.cssSelector("a.js-update-qty")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.cssSelector("input#zipCode")).clear();
-		driver.findElement(By.cssSelector("input#zipCode")).sendKeys("99501");
-		driver.findElement(By.cssSelector("input.anZipForm")).click();
-		Thread.sleep(5000);
-		new Select(driver.findElement(By.id("deliveryModeSelect"))).selectByVisibleText("Overnight");
-		Thread.sleep(6000);
-		
 		//Initiate Checkout
 		 // Shopping Cart
-	    driver.findElement(By.id("checkout")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.id("checkout")).sendKeys(Keys.PAGE_DOWN);
+	    //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).click();
+	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
 	    driver.findElement(By.id("checkout")).click();
 	    Thread.sleep(5000);
 	    
@@ -90,31 +77,19 @@ public class MobileShipCheckout extends Browser {
 	    Thread.sleep(3000);
 	    
 	    // Checkout Tab 1
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.shipping-tab")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.cssSelector("a.instorepickup-tab")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("section.instorepickup > h2")).isEmpty(),true); //Assert that ISP form is not displayed
+	    //Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsPromoCode")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.cssSelector("section.instorepickup > h2")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.giftmessage > div.checkStyle > label")).isEmpty(),false);
+	    Assert.assertEquals(driver.findElements(By.cssSelector("section.someoneelsepicking > div.checkStyle > label")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.checkStyle > label")).isEmpty(),false);
 	    driver.findElement(By.id("shipping-email")).click();
 	    driver.findElement(By.id("shipping-email")).clear();
 	    driver.findElement(By.id("shipping-email")).sendKeys("rsud@live.com");
-	    driver.findElement(By.id("shipping-phoneNumber")).sendKeys("410-428-2222");
-	    driver.findElement(By.id("firstName")).clear();
-	    driver.findElement(By.id("firstName")).sendKeys("Automated");
-	    driver.findElement(By.id("lastName")).clear();
-	    driver.findElement(By.id("lastName")).sendKeys("Tester");
-	    driver.findElement(By.id("companyName")).clear();
-	    driver.findElement(By.id("companyName")).sendKeys("TWM");
-	    driver.findElement(By.id("addressLine1")).clear();
-	    driver.findElement(By.id("addressLine1")).sendKeys("825 W 4th Ave");
-	    driver.findElement(By.id("city")).clear();
-	    driver.findElement(By.id("city")).sendKeys("Anchorage");
-	    driver.findElement(By.id("btnShipAuth1")).click();
-	    Thread.sleep(3000);
-	    
-	    
-	    //driver.findElement(By.id("btnPickup")).click();
-	    //Thread.sleep(5000);
+	    driver.findElement(By.id("pickup-phoneNumber")).sendKeys("410-428-2222");
+	    driver.findElement(By.id("btnPickup")).click();
+	    Thread.sleep(5000);
 	    
 	    // Checkout Tab 2
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.billing-tab")).isEmpty(),false);
@@ -130,10 +105,23 @@ public class MobileShipCheckout extends Browser {
 	    driver.findElement(By.cssSelector("select#expiryYear > option[value=\"18\"]")).click();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).clear();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).sendKeys("123");
-	    driver.findElement(By.id("billingaddress")).click();
-	    Thread.sleep(3000);
-	    //Assert.assertEquals(driver.findElement(By.id("ssl_last_name")).getText(),"Tester"); //Validate that last name is carried over
-	    //Assert.assertEquals(driver.findElement(By.id("ssl_avs_address")).getText(),"825 W 4th Ave"); //Validate that address is carried over
+	    driver.findElement(By.id("ssl_first_name")).clear();
+	    driver.findElement(By.id("ssl_first_name")).sendKeys("DOT Mobile");
+	    driver.findElement(By.id("ssl_last_name")).clear();
+	    driver.findElement(By.id("ssl_last_name")).sendKeys("Tester");
+	    driver.findElement(By.id("ssl_avs_address")).clear();
+	    driver.findElement(By.id("ssl_avs_address")).sendKeys("6600 rockledge dr");
+	    driver.findElement(By.id("ssl_company")).clear();
+	    driver.findElement(By.id("ssl_company")).sendKeys("TWM");
+	    driver.findElement(By.id("ssl_address2")).clear();
+	    driver.findElement(By.id("ssl_address2")).sendKeys("");
+	    driver.findElement(By.id("ssl_city")).clear();
+	    driver.findElement(By.id("ssl_city")).sendKeys("Bethesda");
+	    driver.findElement(By.cssSelector("select")).click();
+	    //driver.findElement(By.cssSelector("li[data-val=\"Alabama\"]")).click();
+	    driver.findElement(By.cssSelector("select#ssl_state > option[value=\"Maryland\"]")).click();
+	    driver.findElement(By.id("ssl_avs_zip")).clear();
+	    driver.findElement(By.id("ssl_avs_zip")).sendKeys("20817");
 	    driver.findElement(By.name("process")).click();
 	    Thread.sleep(10000);
 	    
@@ -154,5 +142,8 @@ public class MobileShipCheckout extends Browser {
 	    // Order Confirmation
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);
+		
+		
+		
 	}
 }

@@ -70,6 +70,20 @@
 			<class name="com.totalwine.test.mobile.MobileStoreLocator" />
 		</classes>
 	</test>
+	<test name="Mobile ISP Guest Checkout">
+		<parameter name="browser" value="iOS">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
+		</classes>
+	</test>
+	<test name="Mobile ISP Guest Checkout on Android">
+		<parameter name="browser" value="Android">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
+		</classes>
+	</test>
 	<!--End of Mobile -->
 	<!--Web Registration -->
 	<test name="Web Registration">
@@ -163,6 +177,13 @@
 		</parameter>
 		<classes>
 			<class name="com.totalwine.test.productlist.Sort" />
+		</classes>
+	</test>
+	<test name="PLP Grid View">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.productlist.PLPGridView" />
 		</classes>
 	</test>
 	<test name="Site Search on FF">
@@ -335,6 +356,21 @@
 		</parameter>
 		<classes>
 			<class name="com.totalwine.test.storelocator.StoreDetail" />
+		</classes>
+	</test>
+	<test name="Store Locator Radius Browse">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.storelocator.SLBrowseByRadius" />
+		</classes>
+	</test>
+	<!-- Global Site Navigation -->
+	<test name="Top Level Menu">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.global.TopLevelMenu" />
 		</classes>
 	</test>
 </suite>
