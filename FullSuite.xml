@@ -101,6 +101,17 @@
 			<class name="com.totalwine.test.aml.GoodBadPassword" />
 		</classes>
 	</test>
+	
+				<!--Preference Updates -->
+	<test name="Preference Updates">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.aml.PreferenceUpdates" />
+		</classes>
+	</test>
+	
+	
 	<!--ISP Checkout (Guest) -->
 	<test name="ISP Checkout on FF">
 		<parameter name="browser" value="Chrome">
@@ -181,9 +192,7 @@
 			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress" />
 		</classes>
 	</test>
-	
-	
-	
+
 	<!--Browse Events (executed on Cross-Browsers) -->
 	<test name="Browse Events on FF">
 		<parameter name="browser" value="FF">

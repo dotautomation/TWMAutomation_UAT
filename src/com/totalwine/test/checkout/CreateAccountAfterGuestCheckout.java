@@ -1,5 +1,4 @@
 package com.totalwine.test.checkout;
-
 /*
  *  Creating account after Guest Checkout flow
  *  Work flow : 
@@ -31,7 +30,6 @@ package com.totalwine.test.checkout;
  * 	5. AfterClass
  * 			Quit WebDriver
  */
-
 import java.io.IOException;
 import java.util.Random;
 import org.testng.Assert;
@@ -43,7 +41,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
-
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -82,7 +79,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 //	    logger.log(LogStatus.PASS, "The site is configured for a Shipping order");
 	    
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
-
+	    	    
 	    // **  Selecting a product from PDP
 		driver.get(ConfigurationFunctions.accessURL+PDP);
 		Thread.sleep(3000);
@@ -100,15 +97,18 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 //	    logger.log(LogStatus.PASS, "The test item is successfully added to cart");
 	    
 	    //  ** Shopping Cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));  
-	    scroll.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
-	    
-	    driver.findElement(By.cssSelector("input[id='zipCode']")).click();
+//	    WebElement scroll = driver.findElement(By.id("checkout")); 
+	    WebElement scroll0 = driver.findElement(By.cssSelector("input[id='zipCode']")); 
+	    scroll0.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
+
+	    WebElement element = driver.findElement(By.cssSelector("input[id='zipCode']"));  
+	    new Actions(driver).moveToElement(element).perform();  
+	    element.click();
+//	    driver.findElement(By.cssSelector("input[id='zipCode']")).click();
 	    driver.findElement(By.cssSelector("input[id='zipCode']")).clear();
 	    driver.findElement(By.cssSelector("input[id='zipCode']")).sendKeys(Zip);    
 	    Thread.sleep(2000);
-	    
-	    //driver.findElement(By.cssSelector("input.anZipForm")).click();
+
 	    driver.findElement(By.cssSelector("input.anZipForm[value='Submit']")).click();
 	    Thread.sleep(6000);
 	    	    
@@ -138,7 +138,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("addressLine1")).sendKeys(Address1);
 	    driver.findElement(By.id("city")).clear();
 	    driver.findElement(By.id("city")).sendKeys(City);
-	    
+
 	    // *** Creating Random Email
 	    driver.findElement(By.id("shipping-email")).clear();
 	    driver.findElement(By.id("shipping-email")).sendKeys("automatedtester_"+randomNum+"."+randomNum_2+"@totalwine.com");
@@ -151,7 +151,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("btnShipAuth1")).click();
 	    Thread.sleep(5000);
 //	    logger.log(LogStatus.PASS, "Creating account after Guest Checkout Tab 1");
-
+	    	    
 	    // ** Checkout Tab 2
 //	    WebElement radioBtn = driver.findElement(By.xpath(".//*[@value='DISCOVER']"));  //** If paid by Discover card
 //	    WebElement radioBtn = driver.findElement(By.cssSelector("input#custom_card_type[value='AMEX']"));  //** If paid by Amex card
@@ -187,7 +187,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.name("process")).click();
 	    Thread.sleep(5000);
 //	    logger.log(LogStatus.PASS, "Creating account after Guest Checkout Tab 2");
-
+	      
 	    // **  Checkout Tab 3
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-instore\"]")).isEmpty(),false);
@@ -197,7 +197,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_2\"]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total anTax\"]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total co-pr-item-total\"]")).isEmpty(),false);
-
+	    	    
 	    driver.findElement(By.id("check_box_age")).click();
 	    driver.findElement(By.cssSelector("button.btn-red.btn-place-order.anPlaceOrder")).click();
 	    Thread.sleep(3000);
@@ -219,15 +219,15 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 
 	    driver.findElement(By.xpath(".//*[@id='co-pass']")).sendKeys("grapes123");
 	    driver.findElement(By.xpath(".//*[@id='co-pass-re']")).sendKeys("grapes123");
-
+	    
 	    //Check for survey pop-up
 	    if (driver.findElements(By.xpath("//img[contains(@src,'https://qdistribution.qualtrics.com/WRQualtricsShared/Graphics//black_popup_x.png')]")).size()!=0)
 	    	driver.findElement(By.xpath("//img[contains(@src,'https://qdistribution.qualtrics.com/WRQualtricsShared/Graphics//black_popup_x.png')]")).click();
 	    Thread.sleep(2000);
-
-	    WebElement element = driver.findElement(By.xpath(".//*[@id='frmCOCreateAcc']/table/tbody/tr[5]/td[2]/div/div/div/span/span"));  
-        	new Actions(driver).moveToElement(element).perform();   //  ** Selecting element from drop-down
-        	element.click();
+	    
+	    WebElement element1 = driver.findElement(By.xpath(".//*[@id='frmCOCreateAcc']/table/tbody/tr[5]/td[2]/div/div/div/span/span"));  
+        	new Actions(driver).moveToElement(element1).perform();   //  ** Selecting element from drop-down
+        	element1.click();
 	    Thread.sleep(2000);
 
 	    driver.findElement(By.xpath(".//*[@id='frmCOCreateAcc']/table/tbody/tr[5]/td[2]/div/div/div/div/div/div[1]/ul/li[3]")).click();
@@ -252,7 +252,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("address2")).sendKeys("Suite 210");
 	    driver.findElement(By.id("city")).clear();
 	    driver.findElement(By.id("city")).sendKeys("Bethesda");
-
+	    
 	    WebElement scroll1 = driver.findElement(By.id("zipCode"));
 	 	scroll1.sendKeys(Keys.ARROW_DOWN);   //** Scrolling down the page upto a specific element 
 	    
@@ -288,9 +288,8 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    
 //	    logger.log(LogStatus.PASS, "Registration Completed");
 	   
-	    scroll = driver.findElement(By.id("btnSaveAccount"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    
+	    WebElement scroll = driver.findElement(By.id("btnSaveAccount"));
+	    scroll.sendKeys(Keys.ARROW_DOWN); //  ** Scrolling down page
 	    driver.findElement(By.id("btnSaveAccount")).click();
 	    driver.findElement(By.cssSelector("div.ahp-heading")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);
