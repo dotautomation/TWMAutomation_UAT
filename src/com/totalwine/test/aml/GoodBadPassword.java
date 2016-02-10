@@ -30,6 +30,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
 
 
@@ -53,13 +54,13 @@ public class GoodBadPassword extends Browser {
 	public void GoodBadPasswordTest (String email,String pwd,String valid) throws InterruptedException {
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    
 	    //Access the sign in modal
-	    driver.findElement(By.linkText("Sign In/Register")).click();
+	    driver.findElement(PageGlobal.TopNavAccount).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn")).click();
 	    

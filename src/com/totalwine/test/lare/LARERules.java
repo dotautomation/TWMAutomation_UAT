@@ -33,7 +33,7 @@ import com.totalwine.test.trials.Browser;
 public class LARERules extends Browser {
 	
 	private String IP="71.193.51.0"; //Sacramento
-	private String UnknownIP="12.71.77.208"; //Unknown IP
+	private String UnknownIP="10.125.18.63"; //Unknown IP
 	
 	@BeforeMethod
 	  public void setUp() throws Exception {
