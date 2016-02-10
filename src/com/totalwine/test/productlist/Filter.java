@@ -82,7 +82,7 @@ public class Filter extends Browser {
 		
 		//Varietal
 	    //driver.findElement(By.xpath("//li[4]/div/ul/li/a/span")).click();
-		driver.findElement(By.linkText("Wine Varietal & Type")).click();
+		//driver.findElement(By.linkText("Wine Varietal & Type")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("check_box_showmoreChardonnayvarietaltype")).click();
 		//driver.findElement(By.id("check_box_showmoreAlbarinovarietaltype")).click();
@@ -100,11 +100,8 @@ public class Filter extends Browser {
 	    	
 		//Country
 	    
-	    WebElement scroll_Country = driver.findElement(By.xpath("//a[contains(text(),'Country/State')]"));
-	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    scroll_Country.sendKeys(Keys.ARROW_DOWN);
+	    //WebElement scroll_Country = driver.findElement(By.xpath("//a[contains(text(),'Country/State')]"));
+	    driver.findElement(By.xpath("//a[contains(text(),'Country/State')]")).sendKeys(Keys.ARROW_DOWN);
 	    //driver.findElement(By.xpath("//a[contains(text(),'Country/State')]")).click();
 	    Thread.sleep(2000);
 	    //WebElement scroll_Country = driver.findElement(By.id("check_box_showmoreCaliforniastate"));
@@ -113,7 +110,7 @@ public class Filter extends Browser {
 	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
 	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
 	    
-	    driver.findElement(By.linkText("Country/State")).click();
+	    //driver.findElement(By.linkText("Country/State")).click();
 		Thread.sleep(2000);
 	    driver.findElement(By.id("check_box_showmoreCaliforniastate")).click();
 	    Thread.sleep(3000);

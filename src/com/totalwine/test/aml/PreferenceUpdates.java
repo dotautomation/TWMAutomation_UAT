@@ -26,17 +26,21 @@ package com.totalwine.test.aml;
  * 			Quit WebDriver
  */
 			import java.io.IOException;
-			import jxl.read.biff.BiffException;
-			import org.openqa.selenium.By;
-			import org.openqa.selenium.Keys;
-			import org.openqa.selenium.WebElement;
-			import org.testng.Assert;
-			import org.testng.annotations.BeforeMethod;
-			import org.testng.annotations.DataProvider;
-			import org.testng.annotations.Test;
+
+import jxl.read.biff.BiffException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 //			import com.relevantcodes.extentreports.LogStatus;
 			import com.totalwine.test.config.ConfigurationFunctions;
-			import com.totalwine.test.trials.Browser;
+import com.totalwine.test.pages.PageGlobal;
+import com.totalwine.test.trials.Browser;
 			
 			public class PreferenceUpdates extends Browser {
 
@@ -60,15 +64,15 @@ package com.totalwine.test.aml;
 
 					driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 					Thread.sleep(5000);
-					driver.findElement(By.id("btnYes")).click();
+					driver.findElement(PageGlobal.AgeGateYes).click();
 					Thread.sleep(5000);
 					
 //				    logger.log(LogStatus.PASS, "The site is configured for Preference Updates Test");
 				    
-				    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+				    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 				    Thread.sleep(5000);
 					
-				    driver.findElement(By.xpath("//header/div/div/ul/li/a[contains(text(),'Account')]")).click();
+				    driver.findElement(PageGlobal.TopNavAccount).click();
 				    Thread.sleep(2000);
 				    
 			    	Assert.assertEquals(driver.findElements(By.linkText("Sign into your account")).isEmpty(),false);

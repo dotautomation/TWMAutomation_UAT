@@ -23,11 +23,13 @@ import java.io.IOException;
 import jxl.read.biff.BiffException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
 
 public class BrandStoryTelling extends Browser {
@@ -49,9 +51,9 @@ public class BrandStoryTelling extends Browser {
 		
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    
 	    //Access Brand Story Telling page via PDP's View All link
@@ -75,6 +77,7 @@ public class BrandStoryTelling extends Browser {
 	    Assert.assertEquals(driver.findElements(By.id("plp-aty-tab")).isEmpty(),true);
 	    
 	    //Click the first link and validate that the PDP appears
+	    driver.findElement(By.cssSelector("a.analyticsProductName")).sendKeys(Keys.ARROW_DOWN);
 	    String BrandSPName = driver.findElement(By.cssSelector("a.analyticsProductName")).getText();
 	    driver.findElement(By.cssSelector("a.analyticsProductName")).click();
 	    Thread.sleep(3000);
