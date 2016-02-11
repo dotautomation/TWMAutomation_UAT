@@ -59,17 +59,12 @@ public class GuestShipCheckout extends Browser {
 			String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email, 
 			String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV)
 					throws InterruptedException, BiffException, IOException {
-		
-//		logger=report.startTest("Guest Ship Checkout Test");
-		
+
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-
-	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
-//	    logger.log(LogStatus.PASS, "The site is configured for an Guest Ship Checkout order");
-	    
+	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());    
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
     
 		// **  Add to Cart
@@ -85,8 +80,7 @@ public class GuestShipCheckout extends Browser {
 		
 	    driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    Thread.sleep(3000);
-//	    logger.log(LogStatus.PASS, "Item is added to cart");
-	    
+
 	    //  ** Shopping Cart
 	    WebElement scroll = driver.findElement(By.id("checkout"));
 	    scroll.sendKeys(Keys.PAGE_DOWN);
@@ -104,15 +98,11 @@ public class GuestShipCheckout extends Browser {
 	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
 	    driver.findElement(By.id("checkout")).click();
 	    Thread.sleep(3000);
-//	    logger.log(LogStatus.PASS, "Shopping cart elements");
-	    
+
 	    //  **  Next Page (Login/Checkout as Guest)
-	    
 	    driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")).click();
 	    Thread.sleep(3000);
-//	    logger.log(LogStatus.PASS, "Checkout as Guest/LoggedIn user");
-	    
-	    
+
 	    // **  Checkout Tab 1
 	    driver.findElement(By.id("firstName")).clear();
 	    driver.findElement(By.id("firstName")).sendKeys(FirstName);
@@ -124,22 +114,14 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.id("addressLine1")).sendKeys(Address1);
 	    driver.findElement(By.id("city")).clear();
 	    driver.findElement(By.id("city")).sendKeys(City);
-
 	    driver.findElement(By.id("shipping-email")).clear();
 	    driver.findElement(By.id("shipping-email")).sendKeys(Email);
-
 	    driver.findElement(By.id("shipping-phoneNumber")).clear();
 	    driver.findElement(By.id("shipping-phoneNumber")).sendKeys(Phone);
-
 	    driver.findElement(By.id("btnShipAuth1")).click();
 	    Thread.sleep(5000);
-//	    logger.log(LogStatus.PASS, "Guest Ship Checkout Tab 1");
-	    
-	    
+
 	    // ** Checkout Tab 2
-//	    WebElement radioBtn = driver.findElement(By.xpath(".//*[@value='DISCOVER']"));
-//	    WebElement radioBtn = driver.findElement(By.cssSelector("input#custom_card_type[value='AMEX']"));
-//	    radioBtn.click();
 	    driver.findElement(By.id("ssl_account_data")).click();
 	    driver.findElement(By.id("ssl_account_data")).clear();
 	    driver.findElement(By.id("ssl_account_data")).sendKeys(CreditCard);
@@ -167,7 +149,6 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.id("ssl_avs_zip")).sendKeys(Zip);
 	    driver.findElement(By.name("process")).click();
 	    Thread.sleep(10000);
-//	    logger.log(LogStatus.PASS, "Guest Ship Checkout Tab 2");
 
 	    // **  Checkout Tab 3
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false);
@@ -182,11 +163,9 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.id("check_box_age")).click();
 	    driver.findElement(By.cssSelector("button.btn-red.btn-place-order.anPlaceOrder")).click();
 	    Thread.sleep(10000);
-//	    logger.log(LogStatus.PASS, "Guest Ship Checkout Tab 3");
-	    
+
 	    //  ** Order Confirmation
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);
-//	    logger.log(LogStatus.PASS, "Guest Ship Checkout Order Confirmation");
 	}
 	}
