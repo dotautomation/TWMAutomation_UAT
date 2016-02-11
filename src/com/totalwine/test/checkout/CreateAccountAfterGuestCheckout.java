@@ -58,7 +58,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 		 }  
 	
 	@Test (dataProvider = "CheckoutParameters")
-	public void PostGuestCheckoutTestAccountCreation (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String FirstName,
+	public void CreateAccountAfterGuestCheckoutTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String FirstName,
 			String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email, 
 			String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV)
 					
