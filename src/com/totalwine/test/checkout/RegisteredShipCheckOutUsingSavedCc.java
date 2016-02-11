@@ -103,7 +103,7 @@ import jxl.read.biff.BiffException;
 			    
 			    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
 			    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
-			    Thread.sleep(2000);
+			    Thread.sleep(5000);
 			    
 			    Assert.assertEquals(driver.findElements(By.cssSelector("div[class=\"width-100 totalDotBorder noBorder ship-cost\"]")).isEmpty(),false); //Validate appearance of shipping cost
 			    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
