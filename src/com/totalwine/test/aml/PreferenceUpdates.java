@@ -26,27 +26,22 @@ package com.totalwine.test.aml;
  * 			Quit WebDriver
  */
 			import java.io.IOException;
-
-import jxl.read.biff.BiffException;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
-//			import com.relevantcodes.extentreports.LogStatus;
+			import jxl.read.biff.BiffException;
+			import org.openqa.selenium.By;
+			import org.openqa.selenium.Keys;
+			import org.openqa.selenium.WebElement;
+			import org.testng.Assert;
+			import org.testng.annotations.BeforeMethod;
+			import org.testng.annotations.DataProvider;
+			import org.testng.annotations.Test;
 			import com.totalwine.test.config.ConfigurationFunctions;
-import com.totalwine.test.pages.PageGlobal;
-import com.totalwine.test.trials.Browser;
+			import com.totalwine.test.trials.Browser;
 			
 			public class PreferenceUpdates extends Browser {
 
 				@DataProvider(name="amlParameters")
 			    public Object[][] createData() {
-			    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"aml", "PreferenceUpdatesBF");
+			    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"aml", "PreferenceUpdatesUAT");
 			        return(retObjArr);
 			    } 
 
@@ -56,23 +51,18 @@ import com.totalwine.test.trials.Browser;
 				}  
 
 				@Test (dataProvider = "amlParameters") 
-				public void PreferenceUpdatesTest (String Email,String Password)
+				public void PreferenceUpdatesTest (String Email,String Password,String StoreNumber )
 						
 						throws InterruptedException, BiffException, IOException {
-					
-//					logger=report.startTest("Preference Updates Test");
 
 					driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 					Thread.sleep(5000);
-					driver.findElement(PageGlobal.AgeGateYes).click();
+					driver.findElement(By.id("btnYes")).click();
 					Thread.sleep(5000);
-					
-//				    logger.log(LogStatus.PASS, "The site is configured for Preference Updates Test");
-				    
-				    driver.findElement(PageGlobal.NewSiteIntroClose).click();
+				    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 				    Thread.sleep(5000);
-					
-				    driver.findElement(PageGlobal.TopNavAccount).click();
+
+				    driver.findElement(By.linkText("Sign In/Register")).click();
 				    Thread.sleep(2000);
 				    
 			    	Assert.assertEquals(driver.findElements(By.linkText("Sign into your account")).isEmpty(),false);
@@ -84,7 +74,6 @@ import com.totalwine.test.trials.Browser;
 				    Assert.assertEquals(driver.findElements(By.linkText("Learn more")).isEmpty(),false);
 				    driver.findElement(By.linkText("Sign into your account")).click();
 				    Thread.sleep(1000);
-//				    logger.log(LogStatus.PASS, "Clicking on Sign into account");
 
 				    driver.switchTo().frame(driver.findElement(By.id("iframe-signin-overlay")));
 				    driver.findElement(By.id("j_username")).clear();
@@ -92,11 +81,9 @@ import com.totalwine.test.trials.Browser;
 				    driver.findElement(By.id("j_password")).sendKeys(Password);
 				    driver.findElement(By.cssSelector(".btn.btn-red.anLoginSubmit")).click();
 				    Thread.sleep(1000);
-//				    logger.log(LogStatus.PASS, "Login to Dashboard");
 				    				    
 				    driver.findElement(By.xpath("html/body/main/section/section[1]/div/aside/section/ul[1]/li[1]/ul/li[5]/a/span")).click();
 				    Thread.sleep(1000);
-//				    logger.log(LogStatus.PASS, "Clicking on Preference on the left navigation");
 				    
 				    // ** Selecting On/Off button using if/else statement
 			        if (driver.findElement(By.xpath(".//*[@id='firstPrefLogin']/div[2]/div[1]/div[1]/ul/li[2]/a")).isSelected()) {
@@ -126,15 +113,11 @@ import com.totalwine.test.trials.Browser;
 			            checkBox3.click();
 			        }
 				    Thread.sleep(2000);
-//				    logger.log(LogStatus.PASS, "Selecting Items checkbox ");
-				    
-			        driver.findElement(By.xpath(".//*[@id='prefFormSubmit']/div[3]/div/div[4]/div/div/span/span")).click();
-			        driver.findElement(By.xpath(".//*[@id='prefFormSubmit']/div[3]/div/div[4]/div/div/div/div/div[1]/ul/li[1]")).click();
-			        Thread.sleep(2000);
-//				    logger.log(LogStatus.PASS, "Selecting store from dropdown");
-			        
+//				    driver.findElement(By.xpath(".//*[@id='prefFormSubmit']/div[3]/div/div[4]/div/div/span")).click();
+//				    Select PreferredStore = new Select(driver.findElement(By.xpath(".//*[@id='prefFormSubmit']/div[3]/div/div[4]/div/div/span/span")));
+//				    PreferredStore.selectByVisibleText("Gilbert");
+				    driver.findElement(By.xpath(".//*[@id='prefFormSubmit']/div[3]/div/div[4]/div/div/span")).click();
 			        driver.findElement(By.cssSelector(".btn.btn-red.anPrefSave")).click();
-			        
 			        Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);
 				    Assert.assertEquals(driver.findElements(By.linkText("Your account")).isEmpty(),false);
 				    Assert.assertEquals(driver.findElements(By.linkText("Orders")).isEmpty(),false);
@@ -143,11 +126,9 @@ import com.totalwine.test.trials.Browser;
 				    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsUpdateAcc]")).isEmpty(),false);
 				    Assert.assertEquals(driver.findElements(By.linkText("Online order history")).isEmpty(),false);
 				    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsPrefStore]")).isEmpty(),false);
-//				    logger.log(LogStatus.PASS, "Left Navigation on Account home page");
 				    
 				    //** Logout
 				    driver.findElement(By.linkText("Welcome, Checkout")).click();
 				    driver.findElement(By.linkText("Log out")).click();
-//				    logger.log(LogStatus.PASS, "Successful logout");
 }
 }
