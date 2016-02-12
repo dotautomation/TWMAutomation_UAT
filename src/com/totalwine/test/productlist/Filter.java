@@ -38,6 +38,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageGlobal;
+import com.totalwine.test.pages.PagePLP;
 import com.totalwine.test.trials.Browser;
 
 public class Filter extends Browser {
@@ -59,10 +61,10 @@ public class Filter extends Browser {
 		logger=report.startTest("PLP Filter Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    //Thread.sleep(5000);
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
+	    Thread.sleep(5000);
 	    
 	    Actions action=new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -81,10 +83,10 @@ public class Filter extends Browser {
 		Thread.sleep(3000);
 		
 		//Varietal
-	    //driver.findElement(By.xpath("//li[4]/div/ul/li/a/span")).click();
-		//driver.findElement(By.linkText("Wine Varietal & Type")).click();
+		if (driver.findElement(PagePLP.WineVarietalFacetValue).isDisplayed()==false)
+			driver.findElement(PagePLP.WineVarietalFacet).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("check_box_showmoreChardonnayvarietaltype")).click();
+		driver.findElement(PagePLP.WineVarietalFacetValue).click();
 		//driver.findElement(By.id("check_box_showmoreAlbarinovarietaltype")).click();
 		
 	    Thread.sleep(3000);
@@ -99,20 +101,12 @@ public class Filter extends Browser {
 	    	Thread.sleep(3000);
 	    	
 		//Country
-	    
-	    //WebElement scroll_Country = driver.findElement(By.xpath("//a[contains(text(),'Country/State')]"));
-	    driver.findElement(By.xpath("//a[contains(text(),'Country/State')]")).sendKeys(Keys.ARROW_DOWN);
-	    //driver.findElement(By.xpath("//a[contains(text(),'Country/State')]")).click();
+	    driver.findElement(PagePLP.CountryStateFacet).sendKeys(Keys.ARROW_DOWN);
 	    Thread.sleep(2000);
-	    //WebElement scroll_Country = driver.findElement(By.id("check_box_showmoreCaliforniastate"));
-	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    //scroll_Country.sendKeys(Keys.ARROW_DOWN);
-	    
-	    //driver.findElement(By.linkText("Country/State")).click();
+	    if (driver.findElement(PagePLP.CountryStateFacetValue).isDisplayed()==false)
+	    	driver.findElement(PagePLP.CountryStateFacet).click();
 		Thread.sleep(2000);
-	    driver.findElement(By.id("check_box_showmoreCaliforniastate")).click();
+	    driver.findElement(PagePLP.CountryStateFacetValue).click();
 	    Thread.sleep(3000);
 	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
 	    Assert.assertEquals(facetValue, driver.findElement(By.cssSelector("a.analyticsCountryState")).getText());
