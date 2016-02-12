@@ -56,7 +56,7 @@ public class DefaultTabsBehavior extends Browser {
 	public void PLPDefaultTabsTest (String IP,String Store,String Wine,String WinePLP,String Beer,String BeerPLP,String Spirits,String SpiritsPLP,
 			String Acc,String AccPLP,String DefaultWine,String DefaultBeer,String DefaultSpirits,String DefaultAcc,String ATYWineSubTab,String ATYBeerSubTab,
 			String ATYSpiritsSubTab,String ATYAccSubTab) throws InterruptedException {
-		
+		logger=report.startTest("Default PLP Tabs Behavior Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();

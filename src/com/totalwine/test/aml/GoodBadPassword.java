@@ -52,6 +52,7 @@ public class GoodBadPassword extends Browser {
 	
 	@Test (dataProvider = "UserPwdParameters")
 	public void GoodBadPasswordTest (String email,String pwd,String valid) throws InterruptedException {
+		logger=report.startTest("Good/Bad Username/Password Combinations Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(PageGlobal.AgeGateYes).click();

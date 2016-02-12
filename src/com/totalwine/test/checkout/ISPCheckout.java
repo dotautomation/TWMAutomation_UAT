@@ -64,7 +64,7 @@ public class ISPCheckout extends Browser {
 	@Test (dataProvider = "CheckoutParameters")
 	public void ISPCheckoutTest (String Location,String StoreName,String PDP,String ISPOption,String Quantity,String Email,String CreditCard,String ExpirationMonth,String ExpirationYear,
 			String CVV,String FirstName,String LastName,String Company,String Address1,String Address2,String City,String State,String Zip) throws InterruptedException, BiffException, IOException {
-		
+		logger=report.startTest("ISP Guest Checkout Test");
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		Thread.sleep(5000);
 		driver.findElement(PageGlobal.AgeGateYes).click();

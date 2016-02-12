@@ -54,7 +54,7 @@ public class WebAccountRegistration extends Browser {
 		
 		StringBuffer errorBuffer = new StringBuffer();
 		//ConfigurationFunctions.initialStartUp("71.193.51.0");
-		
+		logger=report.startTest("Web Account Registration Test");
 		//driver.manage().window().maximize();
 		driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 		Thread.sleep(5000);

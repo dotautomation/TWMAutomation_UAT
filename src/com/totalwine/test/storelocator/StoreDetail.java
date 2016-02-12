@@ -53,6 +53,7 @@ public class StoreDetail extends Browser {
 	
 	@Test //Stores by State dropdown
 	public void StoreDetailTest () throws InterruptedException, AWTException {
+		logger=report.startTest("SL: Stores by State Dropdown Test");
 		String IP = "71.193.51.0";
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);

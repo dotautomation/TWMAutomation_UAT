@@ -42,7 +42,7 @@ public class LARERules extends Browser {
 	
 	@Test 
 	public void LAREUserEnteredLocationTest () throws InterruptedException {
-		
+		logger=report.startTest("LARE User Entered Location Test");
 		//Rule: User entered location/selected store or ship-to-state
 		//Action: User accesses site and changes store via global store selector
 		//Validation: Customer is shopping only in the globally selected store (store is 0.0 miles away in the Store Selector)
@@ -76,6 +76,7 @@ public class LARERules extends Browser {
 		//Rule: Deep Link
 		//Action: User accesses site via a deep link containing the store information
 		//Validation: Global store header should have the deep link's store
+		logger=report.startTest("LARE Deep Link Test");
 		connect(IP);
 		driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/null/j-lohr-arroyo-vista-chardonnay/p/91517750?s=205"); //McLean, VA
 		Thread.sleep(3000);
@@ -89,6 +90,7 @@ public class LARERules extends Browser {
 		//Rule: Profile Store set to Always Use
 		//Action: User accesses site and then logs in
 		//Validation: Global store header changes to the profile store marked as always use (rsud@totalwine.com/grapes123)
+		logger=report.startTest("LARE Profile Set to Always Use Test");
 		connect(IP);
 		driver.findElement(PageGlobal.TopNavAccount).click();
 		Thread.sleep(2000);
@@ -112,6 +114,7 @@ public class LARERules extends Browser {
 		//Rule: Default Web Store
 		//Action: User accesses the site from outside the US or user's location cannot be determined
 		//Validation: Global store header is DWS (1108)
+		logger=report.startTest("LARE DWS Test");
 		driver.get(ConfigurationFunctions.locationSet+UnknownIP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();

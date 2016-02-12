@@ -42,6 +42,7 @@ public class Promotion extends Browser {
 
 	@Test //Eligible WD Item
 	public void EligiblePromotion () throws InterruptedException {
+		logger=report.startTest("Promotions Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();

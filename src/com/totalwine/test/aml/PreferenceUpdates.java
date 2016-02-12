@@ -54,7 +54,6 @@ package com.totalwine.test.aml;
 				public void PreferenceUpdatesTest (String Email,String Password,String StoreNumber )
 						
 						throws InterruptedException, BiffException, IOException {
-
 					driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 					Thread.sleep(5000);
 					driver.findElement(By.id("btnYes")).click();

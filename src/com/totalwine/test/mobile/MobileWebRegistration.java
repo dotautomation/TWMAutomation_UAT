@@ -36,7 +36,7 @@ public class MobileWebRegistration extends Browser {
 	
 	@Test 
 	public void MobileWebRegistrationTest () throws InterruptedException {
-		
+		logger=report.startTest("Mobile Web Registration Test");
 		driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
