@@ -88,11 +88,11 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 
 	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div[class=\"width-100 totalDotBorder noBorder ship-cost\"]")).isEmpty(),false); //Validate appearance of shipping cost
 	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
