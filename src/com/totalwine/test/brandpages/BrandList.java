@@ -42,7 +42,7 @@ public class BrandList extends Browser {
 	
 	@Test 
 	public void BrandListPageTest () throws InterruptedException, BiffException, IOException, AWTException {
-		
+		logger=report.startTest("Brands List Page Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();

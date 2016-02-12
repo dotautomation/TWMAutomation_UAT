@@ -39,7 +39,7 @@ public class MobileISPGuestCheckout extends Browser {
 	
 	@Test
 	public void MobileISPGuestCheckoutTest () throws InterruptedException {
-		
+		logger=report.startTest("Mobile ISP Guest Checkout Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();

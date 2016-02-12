@@ -60,7 +60,7 @@ public class CatLandNav extends Browser {
 	
 	@Test (dataProvider = "CatLandParameters")
 	public void CatLandNavTest (String toplevel,String plp,String catlandpage) throws InterruptedException, BiffException, IOException {
-		
+		logger=report.startTest("Category Landing Page Test");
 		//ConfigurationFunctions.initialStartUp("71.193.51.0");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);

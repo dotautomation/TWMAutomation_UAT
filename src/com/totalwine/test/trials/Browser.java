@@ -37,13 +37,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.BeforeMethod;
 
+import com.relevantcodes.extentreports.DisplayOrder;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 
 public class Browser {
 
 	protected WebDriver driver;
 	protected String hubURL = "http://prt-6rkhd12.totalwine.com:5566/wd/hub";
-	
+	protected ExtentTest logger;
+	protected static ExtentReports report = getReporter(); //Reporting v2
+
 	@BeforeMethod
 	
 	@Parameters("browser") 
@@ -179,13 +185,29 @@ public class Browser {
 	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File("C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\FAIL "+testResult.getName()+"  "+ConfigurationFunctions.now()+".png")); 
+			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
+			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
+			File FailedFile = new File (scrFileName);
+			FileUtils.copyFile(scrFile, FailedFile);
+			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 
+			String screenshot = logger.addScreenCapture(relativePath);
+			logger.log(LogStatus.FAIL, testResult.getName()+" failed",screenshot);
 		}
+		report.endTest(logger);
+		report.flush();
 		driver.close();
 	}
 	
 	@AfterClass
 	public void quit() throws IOException { 
 		driver.quit();	
+	}
+	
+	public static synchronized ExtentReports getReporter() {
+		if (report == null) {
+			//report = new ExtentReports(ConfigurationFunctions.RESULTSPATH+"BugfixTestResults "+ConfigurationFunctions.now()+".html", true, DisplayOrder.NEWEST_FIRST);
+			report = new ExtentReports(ConfigurationFunctions.RESULTSPATH+"UATTestResults.html", true, DisplayOrder.NEWEST_FIRST);
+		}
+		return report;
 	}
 }
