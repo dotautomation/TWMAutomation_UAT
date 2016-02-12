@@ -137,7 +137,11 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("shipping-email")).sendKeys("autoemail_"+randomNum+"."+randomNum_2+"@totalwine.com");
 	    	String email = driver.findElement(By.id("shipping-email")).getAttribute("value");
 	    	System.out.println("Registered Email Address: "+email);
+	    
 	    	
+	    driver.findElement(By.id("shipping-emailmsg")).click();  // ** Need to Unsubscribe Marketing message only in UAT
+	    Thread.sleep(1000);
+	    
 	    driver.findElement(By.id("shipping-phoneNumber")).clear();
 	    driver.findElement(By.id("shipping-phoneNumber")).sendKeys(Phone);
 	    
@@ -221,68 +225,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("check_box_100")).click();
 	    driver.findElement(By.id("check_box_101")).click();
 	    Thread.sleep(2000);
-	    driver.findElement(By.cssSelector("form#frmCOCreateAcc > table.form-table > tbody > tr > td > button#btnCOSaveAuth.btn.btn-red")).click();
-//	    driver.findElement(By.id("btnCOSaveAuth")).click();
-	    Thread.sleep(2000);
-
-	    //  ** Creating online profile
-	    driver.findElement(By.id("firstName")).clear();
-	    driver.findElement(By.id("firstName")).sendKeys(FirstName);
-	    driver.findElement(By.id("lastName")).clear();
-	    driver.findElement(By.id("lastName")).sendKeys(LastName);
-	    driver.findElement(By.id("phone")).sendKeys(Phone);
-	    driver.findElement(By.id("compName")).clear();
-	    driver.findElement(By.id("compName")).sendKeys("Total Wine & More");
-	    driver.findElement(By.id("address1")).clear();
-	    driver.findElement(By.id("address1")).sendKeys("6600 Rockledge Dr.");
-	    driver.findElement(By.id("address2")).clear();
-	    driver.findElement(By.id("address2")).sendKeys("Suite 210");
-	    driver.findElement(By.id("city")).clear();
-	    driver.findElement(By.id("city")).sendKeys("Bethesda");
-	    
-	    WebElement scroll1 = driver.findElement(By.id("zipCode"));
-	 	scroll1.sendKeys(Keys.ARROW_DOWN);   //** Scrolling down the page upto a specific element 
-	    
-	    WebElement element2 = driver.findElement(By.xpath(".//*[@id='laneuserregistration']/section[2]/div[2]/div/div[10]/div/div/span/span"));  
-        	new Actions(driver).moveToElement(element2).perform();
-        	element2.click();   
-	    Thread.sleep(1000);
-	    driver.findElement(By.xpath(".//*[@id='laneuserregistration']/section[2]/div[2]/div/div[10]/div/div/div/div/div[1]/ul/li[3]")).click();
-	    
-	    driver.findElement(By.id("zipCode")).clear();
-	    driver.findElement(By.id("zipCode")).sendKeys("20817");
-
-	    WebElement scroll2 = driver.findElement(By.cssSelector("input[name=ageCheck]"));
-	 	scroll2.sendKeys(Keys.ARROW_DOWN);   //** Scrolling down the page upto a specific element 
-	    
-	    driver.findElement(By.cssSelector("input[name=ageCheck]")).click();
-	    driver.findElement(By.cssSelector("input[name=termsAndCondCheck]")).click();
-	    driver.findElement(By.id("btnlusrregisteration")).click();
-	    Thread.sleep(10000);
-	    
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.benefits-desc")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[2]/a/span")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[3]/a/span")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[4]/a/span")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Start shopping")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.id("c0010")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.id("c0020")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.id("c0030")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.id("c0050")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("em.icon.birthday")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("em.icon.mobilephone")).isEmpty(),false);
-
-	    WebElement scroll = driver.findElement(By.id("btnSaveAccount"));
-	    scroll.sendKeys(Keys.ARROW_DOWN); //  ** Scrolling down page
-	    driver.findElement(By.id("btnSaveAccount")).click();
-	    driver.findElement(By.cssSelector("div.ahp-heading")).click();
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.ahp-heading")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Your account")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Orders")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Your shopping lists")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.rewards-title")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsUpdateAcc]")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Online order history")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a[class=analyticsPrefStore]")).isEmpty(),false);
+	    driver.findElement(By.id("btnCOSaveAuth")).click();
+	    Thread.sleep(5000);
 	}
 	}
