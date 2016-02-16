@@ -34,6 +34,7 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.Cookie;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -58,7 +59,7 @@ public class CachedPages extends Browser {
 	  }  
 	
 	@Test (dataProvider = "CachedPages")
-	public void CachePagesTest (String pageURL) throws InterruptedException, IOException {
+	public void CachePagesTest (String pageURL,String loginFlag) throws InterruptedException, IOException {
 		logger=report.startTest("Cached Pages Test");
 		
 		driver.get(ConfigurationFunctions.locationSet+IP);
@@ -68,23 +69,25 @@ public class CachedPages extends Browser {
 	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    
-	    driver.get(ConfigurationFunctions.accessURL+pageURL);
-	    Thread.sleep(3000);
-	    driver.navigate().refresh();
+	    if(loginFlag.equals("Y")) {
+	    	//Login
+	    	
+	    }
 	    
 	    URL obj = new URL(ConfigurationFunctions.accessURL+pageURL);
 		URLConnection conn = obj.openConnection();
+		conn = obj.openConnection();
+		conn = obj.openConnection(); //HIT 
+		conn = obj.openConnection(); //HIT 
+		conn = obj.openConnection(); //HIT 
 		//Map<String, List<String>> map = conn.getHeaderFields();
+		String cacheCookie = driver.manage().getCookieNamed("cacheCookie").getValue();
+		System.out.println("cache cookie: "+cacheCookie);
 		String xcache = conn.getHeaderField("X-Cache");
 		String xcachehits = conn.getHeaderField("X-Cache-Hits");
 		String vary = conn.getHeaderField("Vary");
 		String xserver = conn.getHeaderField("X-Served-By");
-		System.out.println(pageURL);
-		System.out.println(xcache);
-		System.out.println(xcachehits);
-		System.out.println(vary);
-		System.out.println(xserver);
-		
+		System.out.println(pageURL+":"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
 	}
 		
 }
