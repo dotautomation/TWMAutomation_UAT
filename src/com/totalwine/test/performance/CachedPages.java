@@ -28,6 +28,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -39,7 +40,7 @@ import com.totalwine.test.trials.Browser;
 
 public class CachedPages extends Browser {
 	
-	private String IP="71.193.51.0";
+	//private String IP="71.193.51.0";
 	
 	@DataProvider(name="CachedPages")
     public Object[][] createData() {
@@ -52,15 +53,17 @@ public class CachedPages extends Browser {
 	    driver.manage().window().maximize();
 	  }  
 	
+	@SuppressWarnings("deprecation")
 	@Test (dataProvider = "CachedPages")
-	public void CachePagesTest (String pageURL,String loginFlag) throws InterruptedException, IOException {
+	public void CachePagesTest (String pageURL,String loginFlag,String IP,String x_cache) throws InterruptedException, IOException {
 		logger=report.startTest("Cached Pages Test");
 		
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
+	    if (driver.findElement(PageGlobal.NewSiteIntroClose).isDisplayed())
+	    		driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    
 	    if(loginFlag.equals("Y")) {
@@ -93,6 +96,7 @@ public class CachedPages extends Browser {
 		String vary = conn.getHeaderField("Vary");
 		String xserver = conn.getHeaderField("X-Served-By");
 		System.out.println("header: "+pageURL+":"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
+		Assert.assertTrue(x_cache.equals(xcache)); //Actual=Expected
 	}
 		
 }
