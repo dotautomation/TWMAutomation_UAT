@@ -23,24 +23,18 @@ package com.totalwine.test.performance;
  * 			Quit webdriver
  */
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
-import java.util.Map;
 
-import org.openqa.selenium.Cookie;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
+import com.totalwine.test.pages.PageSignInModal;
 import com.totalwine.test.trials.Browser;
 
 public class CachedPages extends Browser {
@@ -70,8 +64,19 @@ public class CachedPages extends Browser {
 	    Thread.sleep(5000);
 	    
 	    if(loginFlag.equals("Y")) {
-	    	//Login
-	    	
+	    	//Access the sign in modal
+		    driver.findElement(PageGlobal.TopNavAccount).click();
+		    Thread.sleep(2000);
+		    driver.findElement(By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn")).click();
+		    
+		    //Enter valid credentials for an account having an online and in-store order history
+		    driver.switchTo().frame("iframe-signin-overlay");
+		    driver.findElement(PageSignInModal.ModalUsername).clear();
+		    driver.findElement(PageSignInModal.ModalUsername).sendKeys(ConfigurationFunctions.TESTLOGIN);
+		    driver.findElement(PageSignInModal.ModalPassword).clear();
+		    driver.findElement(PageSignInModal.ModalPassword).sendKeys(ConfigurationFunctions.TESTPWD);
+		    driver.findElement(PageSignInModal.ModalSigninButton).click();
+		    Thread.sleep(6000);
 	    }
 	    
 	    URL obj = new URL(ConfigurationFunctions.accessURL+pageURL);
@@ -87,7 +92,7 @@ public class CachedPages extends Browser {
 		String xcachehits = conn.getHeaderField("X-Cache-Hits");
 		String vary = conn.getHeaderField("Vary");
 		String xserver = conn.getHeaderField("X-Served-By");
-		System.out.println(pageURL+":"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
+		System.out.println("header: "+pageURL+":"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
 	}
 		
 }
