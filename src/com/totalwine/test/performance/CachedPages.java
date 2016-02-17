@@ -91,11 +91,12 @@ public class CachedPages extends Browser {
 		//Map<String, List<String>> map = conn.getHeaderFields();
 		String cacheCookie = driver.manage().getCookieNamed("cacheCookie").getValue();
 		System.out.println("cache cookie: "+cacheCookie);
+		String cacheControl = conn.getHeaderField("Cache-Control");
 		String xcache = conn.getHeaderField("X-Cache");
 		String xcachehits = conn.getHeaderField("X-Cache-Hits");
 		String vary = conn.getHeaderField("Vary");
 		String xserver = conn.getHeaderField("X-Served-By");
-		System.out.println("header: "+pageURL+":"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
+		System.out.println("header: "+pageURL+":"+cacheControl+"|"+xcache+"|"+xcachehits+"|"+vary+"|"+xserver);
 		Assert.assertTrue(x_cache.equals(xcache)); //Actual=Expected
 	}
 		
