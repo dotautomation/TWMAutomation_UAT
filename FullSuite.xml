@@ -107,8 +107,7 @@
 			<class name="com.totalwine.test.aml.GoodBadPassword" />
 		</classes>
 	</test>
-	
-				<!--Preference Updates -->
+	<!--Preference Updates -->
 	<test name="Preference Updates">
 		<parameter name="browser" value="Chrome">
 		</parameter>
@@ -116,8 +115,31 @@
 			<class name="com.totalwine.test.aml.PreferenceUpdates" />
 		</classes>
 	</test>
-	
-	
+	<!--Account Home Updates -->
+	<test name="Account Home">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.aml.AccountHome"/>
+		</classes>
+	</test>
+	<!--Account Profile -->
+	<test name="Account Profile">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.aml.AccountProfile"/>
+		</classes>
+	</test>
+		<!--Address Book -->
+	<test name="Address Book">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.aml.AddressBook"/>
+		</classes>
+	</test>
+	<!--End of AML -->
 	<!--ISP Checkout (Guest) -->
 	<test name="ISP Checkout on FF">
 		<parameter name="browser" value="Chrome">
@@ -134,7 +156,6 @@
 			<class name="com.totalwine.test.checkout.ShipCheckout" />
 		</classes>
 	</test>
-		
 	<!--Shipping Checkout (Guest) -->
 	<test name="Guest Ship Checkout">
 		<parameter name="browser" value="Chrome">
@@ -143,8 +164,6 @@
 			<class name="com.totalwine.test.checkout.GuestShipCheckout" />
 		</classes>
 	</test>
-	
-	
 		<!--Creating Account After Guest Shipping Checkout -->
 	<test name="Creating account after Guest Checkout">
 		<parameter name="browser" value="Chrome">
@@ -153,7 +172,6 @@
 			<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout" />
 		</classes>
 	</test>
-	
 		<!--Registered user ISP Checkout using saved Credit card -->
 	<test name="Registered user ISP Checkout using saved Credit card">
 		<parameter name="browser" value="Chrome">
@@ -162,7 +180,6 @@
 			<class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc" />
 		</classes>
 	</test>
-	
 		<!--Registered user Ship Checkout using saved Credit card -->
 	<test name="Registered user Ship Checkout using saved Credit card">
 		<parameter name="browser" value="Chrome">
@@ -171,7 +188,6 @@
 			<class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc" />
 		</classes>
 	</test>
-
 		<!--Modifying shopping cart during Checkout -->
 	<test name="Modifying shopping cart during Checkout">
 		<parameter name="browser" value="Chrome">
@@ -180,7 +196,6 @@
 			<class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout" />
 		</classes>
 	</test>
-
 		<!--Registered ISP Checkout using saved address -->
 	<test name="Registered ISP Checkout using saved address">
 		<parameter name="browser" value="Chrome">
@@ -189,7 +204,6 @@
 			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress" />
 		</classes>
 	</test>
-
 		<!--Registered ISP Checkout using New address -->
 	<test name="Registered ISP Checkout using New address">
 		<parameter name="browser" value="Chrome">
@@ -198,7 +212,6 @@
 			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress" />
 		</classes>
 	</test>
-
 	<!--Browse Events (executed on Cross-Browsers) -->
 	<test name="Browse Events on FF">
 		<parameter name="browser" value="FF">
