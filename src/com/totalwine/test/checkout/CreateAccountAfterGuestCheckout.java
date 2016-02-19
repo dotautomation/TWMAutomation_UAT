@@ -41,6 +41,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
+
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -67,13 +69,16 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 		Random rand = new Random();
 	    int randomNum = rand.nextInt((1000 - 1) + 1) + 1;
 	    int randomNum_2 = rand.nextInt((1000 - 1) + 1) + 1;
-		    
+	    
+	    logger=report.startTest("Creating account after Guest Checkout");
+	    
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
 	    
-		Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());   
+		Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText()); 
+		logger.log(LogStatus.PASS, "The site is configured for a Shipping order");
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
 	    	    
 	    // **  Selecting a product from PDP

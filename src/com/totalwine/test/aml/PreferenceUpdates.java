@@ -34,6 +34,7 @@ package com.totalwine.test.aml;
 			import org.testng.annotations.BeforeMethod;
 			import org.testng.annotations.DataProvider;
 			import org.testng.annotations.Test;
+			import com.relevantcodes.extentreports.LogStatus;
 			import com.totalwine.test.config.ConfigurationFunctions;
 			import com.totalwine.test.trials.Browser;
 			
@@ -54,10 +55,12 @@ package com.totalwine.test.aml;
 				public void PreferenceUpdatesTest (String Email,String Password,String StoreNumber )
 						
 						throws InterruptedException, BiffException, IOException {
+					logger=report.startTest("Preference Updates Test");
 					driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
 					Thread.sleep(5000);
 					driver.findElement(By.id("btnYes")).click();
 					Thread.sleep(5000);
+					logger.log(LogStatus.PASS, "The site is configured for Preference Updates Test");
 				    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 				    Thread.sleep(5000);
 
