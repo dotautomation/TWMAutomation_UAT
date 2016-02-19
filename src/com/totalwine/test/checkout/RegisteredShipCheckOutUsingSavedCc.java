@@ -38,10 +38,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
-
 import jxl.read.biff.BiffException;
 
 		public class RegisteredShipCheckOutUsingSavedCc extends Browser {
@@ -63,13 +62,14 @@ import jxl.read.biff.BiffException;
 					String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV,String Password)
 							
 							throws InterruptedException, BiffException, IOException {
-
+				logger=report.startTest("Registered Ship Checkout using saved credit card Test");
 				driver.get(ConfigurationFunctions.locationSet+Location);
 				Thread.sleep(5000);
 				driver.findElement(By.id("btnYes")).click();
 				Thread.sleep(5000);
 
 			    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+			    logger.log(LogStatus.PASS, "The site is configured for an Ship order");
 			    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
 
 		   	 	// **  Selecting a product from PDP

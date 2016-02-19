@@ -26,9 +26,7 @@ package com.totalwine.test.checkout;
  */
 
 import java.io.IOException;
-
 import jxl.read.biff.BiffException;
-
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -36,7 +34,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
-
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
@@ -70,6 +68,7 @@ public class ShipCheckout extends Browser {
 	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    logger.log(LogStatus.PASS, "The site is configured for a Shipping order");
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
 		
 		// Add to Cart

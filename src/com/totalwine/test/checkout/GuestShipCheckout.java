@@ -38,6 +38,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -60,11 +61,14 @@ public class GuestShipCheckout extends Browser {
 			String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV)
 					throws InterruptedException, BiffException, IOException {
 
+		logger=report.startTest("Ship Registered Checkout Test");
+		
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
-	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());    
+	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    logger.log(LogStatus.PASS, "The site is configured for an Guest Ship Checkout order");
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
     
 		// **  Add to Cart

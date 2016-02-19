@@ -39,7 +39,9 @@ package com.totalwine.test.checkout;
 	import org.testng.annotations.BeforeMethod;
 	import org.testng.annotations.DataProvider;
 	import org.testng.annotations.Test;
-	import com.totalwine.test.config.ConfigurationFunctions;
+
+import com.relevantcodes.extentreports.LogStatus;
+import com.totalwine.test.config.ConfigurationFunctions;
 	import com.totalwine.test.trials.Browser;
 	import jxl.read.biff.BiffException;
 
@@ -61,14 +63,15 @@ package com.totalwine.test.checkout;
 						String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email, 
 						String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV,String Password,String ItemType)
 								
-								throws InterruptedException, BiffException, IOException {
-
+					throws InterruptedException, BiffException, IOException {
+					logger=report.startTest("Modifying Shopping Cart during checkout");
 					driver.get(ConfigurationFunctions.locationSet+Location);
 					Thread.sleep(5000);
 					driver.findElement(By.id("btnYes")).click();
 					Thread.sleep(5000);
 
 				    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+				    logger.log(LogStatus.PASS, "The site is configured for an ISP order");
 				    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
 
 			   	 	// **  Selecting a product from PDP
