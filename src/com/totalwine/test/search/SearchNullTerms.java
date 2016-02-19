@@ -75,6 +75,8 @@ public class SearchNullTerms {
 					writer.write(driver.findElement(By.cssSelector("div.result-count > a > span")).getText()+",");
 				else
 					writer.write(""+",");
+				driver.findElement(By.cssSelector("a#search-productfull-tabs")).click();
+				Thread.sleep(3000);
 				int searchResultsCount = driver.findElements(By.cssSelector("h2.plp-product-title > a.analyticsProductName")).size();//Extract results
 				String searchResult = "";
 				for (int elementCount=1;elementCount<=searchResultsCount;elementCount++) {
@@ -82,7 +84,8 @@ public class SearchNullTerms {
 							+"("
 							+driver.findElement(By.xpath("//li["+elementCount+"]/div/div/div/div/div[contains(@class,'plp-product-qty')]")).getText()
 							+")"
-							+",";
+							//+",";
+							+"\r";
 				}
 				//System.out.println(searchResult);
 				writer.write(searchResult);
