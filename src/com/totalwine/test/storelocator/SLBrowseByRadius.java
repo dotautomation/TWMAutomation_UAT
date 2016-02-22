@@ -60,7 +60,7 @@ public class SLBrowseByRadius extends Browser {
 	    driver.findElement(PageStoreLocator.DefaultRadiusDropdown).click();
 	    int availableRadii = driver.findElements(PageStoreLocator.RadiusDropdownValues).size();
 	    String[] expectedRadii = {"200 miles","150 miles","100 miles","50 miles"};
-	    int [] expectedStoreCount = {20,16,12,10}; //expected store counts with center set to 98.169.134.0
+	    int [] expectedStoreCount = {19,16,12,9}; //expected store counts with center set to 98.169.134.0
  	    for (int i=0;i<availableRadii;i++) {
 	    	Thread.sleep(2000);
 	    	Assert.assertEquals(driver.findElement(By.cssSelector("div.dist-dropdown > span:nth-child("+(i+1)+")")).getText(), expectedRadii[i]);

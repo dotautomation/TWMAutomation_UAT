@@ -86,8 +86,8 @@ public class SearchNullTerms {
 							+"("
 							+driver.findElement(By.xpath("//li["+elementCount+"]/div/div/div/div/div[contains(@class,'plp-product-qty')]")).getText()
 							+")"
-							//+",";
-							+"\r";
+							+",";
+							//+"\r";
 				}
 				//System.out.println(searchResult);
 				writer.write(searchResult);

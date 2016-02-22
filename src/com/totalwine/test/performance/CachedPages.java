@@ -53,7 +53,6 @@ public class CachedPages extends Browser {
 	    driver.manage().window().maximize();
 	  }  
 	
-	@SuppressWarnings("deprecation")
 	@Test (dataProvider = "CachedPages")
 	public void CachePagesTest (String pageURL,String loginFlag,String IP,String x_cache) throws InterruptedException, IOException {
 		logger=report.startTest("Cached Pages Test");
@@ -81,7 +80,8 @@ public class CachedPages extends Browser {
 		    driver.findElement(PageSignInModal.ModalSigninButton).click();
 		    Thread.sleep(6000);
 	    }
-	    
+	    driver.get(ConfigurationFunctions.accessURL+pageURL);
+	    Thread.sleep(2000);
 	    URL obj = new URL(ConfigurationFunctions.accessURL+pageURL);
 		URLConnection conn = obj.openConnection();
 		conn = obj.openConnection();

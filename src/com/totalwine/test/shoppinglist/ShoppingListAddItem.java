@@ -59,9 +59,9 @@ public class ShoppingListAddItem extends Browser {
 		logger=report.startTest("Create New Shopping List Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 	    
 		//Navigate to PDP
@@ -123,9 +123,9 @@ public class ShoppingListAddItem extends Browser {
 		logger=report.startTest("Add item to existing Shopping List Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
 	    Thread.sleep(5000);
 		
 		//Navigate to PDP
@@ -148,7 +148,8 @@ public class ShoppingListAddItem extends Browser {
 		//Add to existing shopping list
 	    driver.findElement(By.cssSelector("div#dWishListName > div.customselect")).click();
 	    //driver.findElement(By.cssSelector("div#dWishListName > div.customselect > div > div > div > ul > li[data-val=icongo]")).click();
-	    driver.findElement(By.xpath("//div/div/div/div/ul/li[2]")).click();
+	    //driver.findElement(By.xpath("//div/div/div/div/ul/li[2]")).click();
+	    driver.findElement(By.cssSelector("li[data-val=icongo]")).click();
 	    driver.findElement(By.cssSelector("button#addToList")).click();
 	    Thread.sleep(3000);
 	    
@@ -157,11 +158,12 @@ public class ShoppingListAddItem extends Browser {
 	    Thread.sleep(5000);
 	    Assert.assertEquals(driver.findElements(By.linkText("Cloud Break Chardonnay")).isEmpty(),false);
 	    
+	    
+	    
+	    
 	    //Delete item from Shopping List (so it can be added again)
-	    WebElement scroll_Price = driver.findElement(By.linkText("Cloud Break Chardonnay"));
-	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
-	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.xpath("//a[@onclick=\"setDeleteLineItemForm('110892750-1','205','icongo','Cloud Break Chardonnay')\"]")).click();
+	    driver.findElement(By.linkText("Cloud Break Chardonnay")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.cssSelector("a.icon-list-delete.analyticsDeleteList")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("#frmDeleteProduct > div.send-list-btn > button.btn-red")).click();
 	    Thread.sleep(2000);
