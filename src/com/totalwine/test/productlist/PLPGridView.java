@@ -71,7 +71,7 @@ public class PLPGridView extends Browser {
 		Thread.sleep(2000);
 		
 	    //Apply a facet on the default list view
-		//driver.findElement(By.linkText("Wine Varietal & Type")).click();
+		driver.findElement(By.linkText("Wine Varietal & Type")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("check_box_showmoreCabernet Sauvignonvarietaltype")).click(); //Cabernet Sauvignon facet
 		Thread.sleep(3000);
