@@ -12,6 +12,8 @@ package com.totalwine.test.trials;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -182,8 +184,10 @@ public class Browser {
 	}
 	
 	@AfterMethod
-	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
+	public void takeScreenShotOnFailure(ITestResult testResult,Throwable e) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
+			StringWriter sw = new StringWriter();
+			e.printStackTrace(new PrintWriter(sw));
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
 			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
@@ -192,6 +196,8 @@ public class Browser {
 			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 
 			String screenshot = logger.addScreenCapture(relativePath);
 			logger.log(LogStatus.FAIL, testResult.getName()+" failed",screenshot);
+			logger.log(LogStatus.FAIL,sw.toString());
+			System.out.println(sw.toString());
 		}
 		report.endTest(logger);
 		report.flush();
