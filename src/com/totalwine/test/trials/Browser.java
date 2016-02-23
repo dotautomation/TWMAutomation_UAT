@@ -184,10 +184,8 @@ public class Browser {
 	}
 	
 	@AfterMethod
-	public void takeScreenShotOnFailure(ITestResult testResult,Throwable e) throws IOException, InterruptedException { 
+	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
-			StringWriter sw = new StringWriter();
-			e.printStackTrace(new PrintWriter(sw));
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
 			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
@@ -195,9 +193,11 @@ public class Browser {
 			FileUtils.copyFile(scrFile, FailedFile);
 			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 
 			String screenshot = logger.addScreenCapture(relativePath);
+			System.out.println(testResult.getThrowable().toString().split(":")[0]); //Exception Handling & Reporting
+			String logOutput = ExceptionHandler(testResult.getThrowable().toString().split(":")[0]);
 			logger.log(LogStatus.FAIL, testResult.getName()+" failed",screenshot);
-			logger.log(LogStatus.FAIL,sw.toString());
-			System.out.println(sw.toString());
+			logger.log(LogStatus.FAIL,"Error Stack: "+testResult.getThrowable());
+			logger.log(LogStatus.FAIL,"Error Description: "+logOutput);
 		}
 		report.endTest(logger);
 		report.flush();
@@ -215,5 +215,16 @@ public class Browser {
 			report = new ExtentReports(ConfigurationFunctions.RESULTSPATH+"UATTestResults.html", true, DisplayOrder.NEWEST_FIRST);
 		}
 		return report;
+	}
+	
+	public static String ExceptionHandler (String exception) {
+		String log = null;
+		if (exception.contains("AssertionError"))
+			log = "An assertion failed indicating that an element was expected to be present or absent, but it wasn't" ;
+		else if (exception.contains("NoSuchElementException"))
+			log = "An expected element was not located on the page" ;
+		else if (exception.contains("StaleElementReferenceException"))
+			log = "An element no longer appears" ;
+		return log;
 	}
 }
