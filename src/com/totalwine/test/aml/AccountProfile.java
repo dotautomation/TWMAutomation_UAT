@@ -43,7 +43,7 @@ public class AccountProfile extends Browser {
 	  }  
 	
 	@Test
-	public void AccountHomeTest() throws InterruptedException {
+	public void AccountProfileTest() throws InterruptedException {
 		logger=report.startTest("AML - Registered users Account Home ( Dashboard) verification. ");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
