@@ -225,6 +225,8 @@ public class Browser {
 			log = "An expected element was not located on the page" ;
 		else if (exception.contains("StaleElementReferenceException"))
 			log = "An element no longer appears" ;
+		else if (exception.contains("ElementNotVisibleException"))
+			log = "Interaction with an expected element did not happen";
 		return log;
 	}
 }
