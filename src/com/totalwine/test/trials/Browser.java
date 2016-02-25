@@ -12,6 +12,8 @@ package com.totalwine.test.trials;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -191,8 +193,14 @@ public class Browser {
 			FileUtils.copyFile(scrFile, FailedFile);
 			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 
 			String screenshot = logger.addScreenCapture(relativePath);
+			System.out.println(testResult.getThrowable().toString().split(":")[0]); //Exception Handling & Reporting
+			String logOutput = ExceptionHandler(testResult.getThrowable().toString().split(":")[0]);
 			logger.log(LogStatus.FAIL, testResult.getName()+" failed",screenshot);
+			logger.log(LogStatus.FAIL,"Error Stack: "+testResult.getThrowable());
+			logger.log(LogStatus.FAIL,"Error Description: "+logOutput);
 		}
+		else if (testResult.getStatus() == ITestResult.SUCCESS)
+			logger.log(LogStatus.PASS,testResult.getName()+" passed");
 		report.endTest(logger);
 		report.flush();
 		driver.close();
@@ -209,5 +217,18 @@ public class Browser {
 			report = new ExtentReports(ConfigurationFunctions.RESULTSPATH+"UATTestResults.html", true, DisplayOrder.NEWEST_FIRST);
 		}
 		return report;
+	}
+	
+	public static String ExceptionHandler (String exception) {
+		String log = null;
+		if (exception.contains("AssertionError"))
+			log = "An assertion failed indicating that an element was expected to be present or absent, but it wasn't" ;
+		else if (exception.contains("NoSuchElementException"))
+			log = "An expected element was not located on the page" ;
+		else if (exception.contains("StaleElementReferenceException"))
+			log = "An element no longer appears" ;
+		else if (exception.contains("ElementNotVisibleException"))
+			log = "Interaction with an expected element did not happen";
+		return log;
 	}
 }
