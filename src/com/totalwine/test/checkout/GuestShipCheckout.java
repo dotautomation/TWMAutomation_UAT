@@ -135,30 +135,26 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]")).click();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).clear();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).sendKeys(CVV);
-	    driver.findElement(By.id("ssl_first_name")).clear();
-	    driver.findElement(By.id("ssl_first_name")).sendKeys(FirstName);
-	    driver.findElement(By.id("ssl_last_name")).clear();
-	    driver.findElement(By.id("ssl_last_name")).sendKeys(LastName);
-	    driver.findElement(By.id("ssl_avs_address")).clear();
-	    driver.findElement(By.id("ssl_avs_address")).sendKeys(Address1);
-	    driver.findElement(By.id("ssl_company")).clear();
-	    driver.findElement(By.id("ssl_company")).sendKeys(Company);
-	    driver.findElement(By.id("ssl_address2")).clear();
-	    driver.findElement(By.id("ssl_address2")).sendKeys(Address2);
-	    driver.findElement(By.id("ssl_city")).clear();
-	    driver.findElement(By.id("ssl_city")).sendKeys(City);
-	    driver.findElement(By.xpath("//table[@id='tblAddress']/tbody/tr[7]/td[2]/div/div/span")).click();
-	    driver.findElement(By.cssSelector("li[data-val=\""+State+"\"]")).click();
-	    driver.findElement(By.id("ssl_avs_zip")).clear();
-	    driver.findElement(By.id("ssl_avs_zip")).sendKeys(Zip);
+//	    driver.findElement(By.id("ssl_first_name")).clear();   // ** In UAT by default there information are selected
+//	    driver.findElement(By.id("ssl_first_name")).sendKeys(FirstName);
+//	    driver.findElement(By.id("ssl_last_name")).clear();
+//	    driver.findElement(By.id("ssl_last_name")).sendKeys(LastName);
+//	    driver.findElement(By.id("ssl_avs_address")).clear();
+//	    driver.findElement(By.id("ssl_avs_address")).sendKeys(Address1);
+//	    driver.findElement(By.id("ssl_company")).clear();
+//	    driver.findElement(By.id("ssl_company")).sendKeys(Company);
+//	    driver.findElement(By.id("ssl_address2")).clear();
+//	    driver.findElement(By.id("ssl_address2")).sendKeys(Address2);
+//	    driver.findElement(By.id("ssl_city")).clear();
+//	    driver.findElement(By.id("ssl_city")).sendKeys(City);
+//	    driver.findElement(By.xpath("//table[@id='tblAddress']/tbody/tr[7]/td[2]/div/div/span")).click();
+//	    driver.findElement(By.cssSelector("li[data-val=\""+State+"\"]")).click();
+//	    driver.findElement(By.id("ssl_avs_zip")).clear();
+//	    driver.findElement(By.id("ssl_avs_zip")).sendKeys(Zip);
 	    driver.findElement(By.name("process")).click();
 	    Thread.sleep(10000);
 
 	    // **  Checkout Tab 3
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-instore\"]")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-pymnt\"]")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw\"]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_1\"]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_2\"]")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total anTax\"]")).isEmpty(),false);
