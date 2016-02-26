@@ -7,7 +7,7 @@
 		<parameter name="browser" value="FF">
 		</parameter>
 		<classes>
-			<class name="com.totalwine.test.productlist.PLPListView" />
+			<class name="com.totalwine.test.brandpages.AllBrands" />
 		</classes>
 	</test>
 </suite>
