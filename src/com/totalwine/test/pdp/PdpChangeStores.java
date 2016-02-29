@@ -79,24 +79,7 @@ public class PdpChangeStores extends Browser {
 		driver.findElement(By.cssSelector("a.analyticsProductName")).click(); //Click the first item link in the PLP
 		Thread.sleep(5000);
 		
-		// **  Tab 1 - Overview
-		Assert.assertEquals(driver.findElements(By.cssSelector("section.pdp-tab-overview-prod-img > div.pdp-tab-overview-prod-img-bottle-img.pdp-img-zoom-modal-zoom-reset > img.anPDPImage")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("h1.product-name")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.pdp-tab-overview-desc-name > div.wine_details > ul.wine-right-details > li > h2 > a.analyticsCountryState")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li.sale-price-present > div > span.price-style-mid")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("#pdpTabs > section.item.pdp-tab-overview > section.pdp-tab-overview-type")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToCart")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToListInit")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div#overview-qty")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("#pdpTabs > section.item.pdp-tab-overview > section.pdp-tab-overview-type > #variantForm > #overview-mililitres > div.customselect > span.itemval")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.pdp-tabs-ind-left")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("img.anPDPImage.active")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.breadcrumbs")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.tabs-right.anPDPTab")).isEmpty(),false);
-	    logger.log(LogStatus.PASS, "Verified Tab-1");
-	    Thread.sleep(3000);
-	    
-	    // **  Add to Cart
+		// **  Add to Cart
 	 	String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 	 	System.out.println(productId);
 	 	Thread.sleep(2000);    

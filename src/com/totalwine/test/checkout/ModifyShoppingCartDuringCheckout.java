@@ -39,9 +39,8 @@ package com.totalwine.test.checkout;
 	import org.testng.annotations.BeforeMethod;
 	import org.testng.annotations.DataProvider;
 	import org.testng.annotations.Test;
-
-import com.relevantcodes.extentreports.LogStatus;
-import com.totalwine.test.config.ConfigurationFunctions;
+	import com.relevantcodes.extentreports.LogStatus;
+	import com.totalwine.test.config.ConfigurationFunctions;
 	import com.totalwine.test.trials.Browser;
 	import jxl.read.biff.BiffException;
 
