@@ -163,7 +163,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]")).click();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).clear();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).sendKeys(CVV);
-//	    driver.findElement(By.id("ssl_first_name")).clear();   // ** In UAT by default there information are selected
+//	    driver.findElement(By.id("ssl_first_name")).clear();   // ** In UAT by default these information are selected
 //	    driver.findElement(By.id("ssl_first_name")).sendKeys(FirstName);
 //	    driver.findElement(By.id("ssl_last_name")).clear();
 //	    driver.findElement(By.id("ssl_last_name")).sendKeys(LastName);
