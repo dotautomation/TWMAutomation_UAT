@@ -56,7 +56,7 @@ import jxl.read.biff.BiffException;
 				 }  
 
 			@Test (dataProvider = "CheckoutParameters")
-			public void RegisteredUserISPCheckOutUsingSavedCc (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String ISPOption,String FirstName,
+			public void RegisteredISPCheckOutUsingSavedCcTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String ISPOption,String FirstName,
 					String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email, 
 					String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV,String Password,String ItemType)
 							
