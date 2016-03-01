@@ -51,7 +51,7 @@ public class PdpChangeStores extends Browser {
 	
 	@Test (dataProvider = "PDPParameters")
 	public void PdpChangeStoresTest (String toplevel,String plp,String zip) throws InterruptedException, BiffException, IOException {
-		logger=report.startTest("Pdp Change Stores Test");
+		logger=report.startTest("Pdp Change Stores");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
