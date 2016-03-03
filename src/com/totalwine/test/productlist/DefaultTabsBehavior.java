@@ -64,7 +64,7 @@ public class DefaultTabsBehavior extends Browser {
 	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 	    Thread.sleep(5000);
 	    String storeName = driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText();
-	    Assert.assertEquals(storeName, Store);
+	    Assert.assertEquals(storeName, Store,"Site store session isn't set correctly");
 	    
 	    Actions action=new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -85,8 +85,8 @@ public class DefaultTabsBehavior extends Browser {
 		action.moveToElement(wineMove).build().perform(); 
 	    //Validate default tab
 		if (DefaultWine.equalsIgnoreCase("ATY")) {
-			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-aty-tab")).isEmpty(),false);
-			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-productfull-tabs")).isEmpty(),true);
+			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-aty-tab")).isEmpty(),false,"The ATY tab isn't defaulted");
+			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-productfull-tabs")).isEmpty(),true,"The All Stores tab isn't not defaulted");
 			//Validate ISP/Ship/Both sub-tab behavior
 			if (ATYWineSubTab.equalsIgnoreCase("ISP")) {
 				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),false);
@@ -155,21 +155,21 @@ public class DefaultTabsBehavior extends Browser {
 			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-productfull-tabs")).isEmpty(),true);
 			//Validate ISP/Ship/Both sub-tab behavior
 			if (ATYSpiritsSubTab.equalsIgnoreCase("ISP")) {
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),false);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),true);
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),false,"ATY > ISP was supposed to be active but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),true,"ATY > Ship was supposed to be inactive but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),true,"ATY > Both was supposed to be inactive but isn't");
 			} else if (ATYSpiritsSubTab.equalsIgnoreCase("ShipTo")) {
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),false);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),true);
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),true,"ATY > ISP was supposed to be inactive but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),false,"ATY > Ship was supposed to be active but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),true,"ATY > Both was supposed to be inactive but isn't");
 			} else if (ATYSpiritsSubTab.equalsIgnoreCase("Both")) {
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),false);
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_isp.active")).isEmpty(),true,"ATY > ISP was supposed to be inactive but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_shipTo.active")).isEmpty(),true,"ATY > Ship was supposed to be inactive but isn't");
+				Assert.assertEquals(driver.findElements(By.cssSelector("li > a.an_avBoth.active")).isEmpty(),false,"ATY > Both was supposed to be active but isn't");
 			}
 		} else {
-			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-aty-tab")).isEmpty(),true);
-			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-productfull-tabs")).isEmpty(),false);
+			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-aty-tab")).isEmpty(),true,"ATY tab was supposed to be inactive but isn't");
+			Assert.assertEquals(driver.findElements(By.cssSelector("li.active > h2 > a#plp-productfull-tabs")).isEmpty(),false,"All stores tab was supposed to be active but isn't");
 		}
 		
 	    //Access Accessories PLP
