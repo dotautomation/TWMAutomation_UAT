@@ -9,12 +9,12 @@ package com.totalwine.test.checkout;
  *  4. Access PDP for item
  *  5. Add to cart
  *  6. View Cart
- *  7. Initiate registered user Checkout
+ *  7. Initiate registered user Checkout, which has save credit card
  *  8. Tab 1 Checkout ( Delivery Address)
  *  9. Tab 2 Checkout (Billing)
  *  10. Tab 3 Checkout (Review and Submit)
  *  11. Order Confirmation Page
- *  12. Verify welcome message (We're happy you've joined the Total Discovery program, ---) displays
+ *  12. Verify welcome message.
 
  * Technical Modules:
  * 	1. DataProvider: Checkout test input parameters
