@@ -28,96 +28,177 @@ import java.io.IOException;
 import jxl.read.biff.BiffException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageHomepage;
+import com.totalwine.test.pages.PageProductList;
 import com.totalwine.test.trials.Browser;
 
 public class MobilePLPFilter extends Browser {
 
-	private String IP="71.193.51.0";
+	private String IP="98.169.134.0";
 
 	@Test 
 	public void MobileFilterTest () throws InterruptedException, BiffException, IOException {
-		logger=report.startTest("Mobile PLP Filter Test");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
 		
-		//Varietal
-		driver.findElement(By.id("check_box_showmoreChardonnayvarietaltype")).click();
-	    Thread.sleep(3000);
-	    String facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    String varietalType = driver.findElement(By.cssSelector("a[class=analyticsProductName]")).getText();
-	    System.out.println(facetValue);
-	    System.out.println(varietalType);
-	    	Assert.assertTrue(varietalType.contains(facetValue));
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
-	    	Thread.sleep(3000);
-	    	
-	    //Price Range
-	    //WebElement scroll = driver.findElement(By.linkText("Price Range"));
-	    WebElement scroll = driver.findElement(By.linkText("plppricevalue"));
-	 	scroll.sendKeys(Keys.PAGE_DOWN);
-	 	//driver.findElement(By.xpath("//a[contains(text(),'Price Range')]")).click();
-	 	driver.findElement(By.xpath("//a[contains(text(),'plppricevalue')]")).click();
-	    driver.findElement(By.id("check_box_showmoreUp to $10plppricevalue")).click();
-	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    String priceValue = driver.findElement(By.cssSelector("span.price")).getText();
-	    	System.out.println("Price Range: "+facetValue+"|"+priceValue);
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
-	    	 
-	    //Rating Source
-	    //scroll = driver.findElement(By.linkText("Rating Source"));
-	    scroll = driver.findElement(By.linkText("ratingsource"));
-	 	scroll.sendKeys(Keys.PAGE_DOWN);
-	    //driver.findElement(By.xpath("//a[contains(text(),'Rating Source')]")).click();
-	    driver.findElement(By.xpath("//a[contains(text(),'ratingsource')]")).click();
-	    driver.findElement(By.id("check_box_showmoreWine Spectatorratingsource")).click();
-	    //Assert.assertEquals(driver.findElements(By.linkText("Sign Into Your Account")).isEmpty(),false);
-	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    Assert.assertEquals(facetValue, driver.findElement(By.cssSelector("span.plp-product-desc-winespec-desc-title")).getText());
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
-	    
-	    //Rating Range
-	    //scroll = driver.findElement(By.linkText("Rating Range"));
-	    scroll = driver.findElement(By.linkText("Expert Rating"));
-	 	scroll.sendKeys(Keys.PAGE_DOWN);
-	    //driver.findElement(By.xpath("//a[contains(text(),'Rating Range')]")).click();
-	 	driver.findElement(By.xpath("//a[contains(text(),'Expert Rating')]")).click();
-	    driver.findElement(By.id("check_box_showmore89 and Belowratingrange")).click();
-	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    String ratingRange = driver.findElement(By.cssSelector("span.plp-product-desc-winespec-left-badge")).getText();
-	    	System.out.println("Rating Range: "+facetValue+"|"+ratingRange);
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
-	    
-	    //Country
-	    //scroll = driver.findElement(By.linkText("Country"));
-	    scroll = driver.findElement(By.linkText("state"));
-	 	//scroll.sendKeys(Keys.PAGE_DOWN);
-	    //driver.findElement(By.xpath("(//a[contains(text(),'Country')])[2]")).click();
-	 	//driver.findElement(By.xpath("(//a[contains(text(),'state')])")).click();
-	    //driver.findElement(By.id("check_box_showmoreArgentinastate")).click();
-	    //driver.findElement(By.id("check_box_showmoreArgentinabeerspiritscountrystate")).click();
-	    driver.findElement(By.id("check_box_showmoreCaliforniastate")).click();
-	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    Assert.assertEquals(facetValue, driver.findElement(By.cssSelector("a.analyticsCountryState")).getText());
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
-	    
-	    //Appellation
-	    //scroll = driver.findElement(By.linkText("Appellation"));
-	    scroll = driver.findElement(By.linkText("appellation"));
-	 	scroll.sendKeys(Keys.PAGE_DOWN);
-	    //driver.findElement(By.linkText("Appellation")).click();
-	    //driver.findElement(By.xpath("//a[contains(text(),'Appellation')]")).click();
-	    driver.findElement(By.xpath("//a[contains(text(),'appellation')]")).click();
-	    driver.findElement(By.id("check_box_showmoreRussian River Valleyappellation")).click();
-	    facetValue = driver.findElement(By.cssSelector("span.filter-value")).getText();
-	    Assert.assertEquals(facetValue, driver.findElement(By.xpath("(//a[contains(text(),'Russian River Valley')])[2]")).getText());
-	    driver.findElement(By.cssSelector("span.desc-text.clear-all")).click();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		logger=report.startTest("Mobile PLP Filter Test");
+		SiteAccess.ActionAccessMobileSite(driver, IP);
+		
+		//Access the Mobile PLP
+		driver.findElement(PageHomepage.MobileWineButton).click();
+		PageLoad(driver);
+		
+		//Click the Filter button
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		Thread.sleep(3000);
+		
+		//Validate available filters
+		Assert.assertEquals(driver.findElements(PageProductList.MobilePLPFilterApply).isEmpty(),false);
+		Assert.assertEquals(driver.findElements(PageProductList.MobilePLPFilterClear).isEmpty(),false);
+		
+		//STORES
+		Assert.assertTrue(driver.findElements(By.cssSelector("li[data-facet=storename] > div > ul > li > a > span > input[data-chk=yes]")).size()==5); //Validate that 5 stores are checked by default
+		
+		//CATEGORY
+		//driver.findElement(PageProductList.FacetCategory).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetCategory));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Rose & Blush Wine')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Blush')]]")).isEmpty(), false);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Rose')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//WINE VARIETAL & TYPE
+		//driver.findElement(PageProductList.FacetVarietal).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetVarietal));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Merlot')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Merlot')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//STYLE
+		//driver.findElement(PageProductList.FacetStyle).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetStyle));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Brut')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Brut')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//BRAND
+		//driver.findElement(PageProductList.FacetBrand).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetBrand));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'14 Hands')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'14 Hands')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//COUNTRY/STATE
+		//driver.findElement(PageProductList.FacetCountry).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetCountry));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Oregon')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Oregon')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//REGION
+		//driver.findElement(PageProductList.FacetRegion).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetRegion));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Alsace')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Alsace')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//APPELLATION
+		//driver.findElement(PageProductList.FacetAppellation).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetAppellation));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Pauillac')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@class,'analyticsProductName') and text()[contains(.,'Pauillac')]]")).isEmpty(), false);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//TOP RATED
+		//driver.findElement(PageProductList.FacetTopRated).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetTopRated));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'94 and')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElement(By.cssSelector("span.plp-list-img-wineSpec-badge > span")).getText(), "94");
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//RATING SOURCE
+		//driver.findElement(PageProductList.FacetRatingSource).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetRatingSource));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Galloni')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//span[contains(@class,'plp-list-img-wineSpec-text') and text()[contains(.,'Antonio Galloni')]]")).isEmpty(), false);
+		//Assert.assertEquals(driver.findElement(By.cssSelector("span.plp-list-img-wineSpec-text")).getText(), "Antonio Galloni");
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//PRICE RANGE
+		//driver.findElement(PageProductList.FacetPrice).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetPrice));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Up to $10')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElements(By.xpath("//span[contains(@class,'price') and text()[contains(.,'8.99')]]")).isEmpty(), false);
+		//Assert.assertEquals(driver.findElement(By.cssSelector("span.plp-list-img-wineSpec-text")).getText(), "Antonio Galloni");
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		
+		//SIZE
+		//driver.findElement(PageProductList.FacetSize).click();
+		js.executeScript("arguments[0].click();", driver.findElement(PageProductList.FacetSize));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//label[text()[contains(.,'Small Format')]]")));
+		driver.findElement(PageProductList.MobilePLPFilterApply).click();
+		PageLoad(driver);
+		Assert.assertEquals(driver.findElement(By.cssSelector("span.desc")).getText(), "187ml");
+		driver.findElement(PageProductList.MobilePLPFilter).click();
+		driver.findElement(PageProductList.MobilePLPFilterClear).click();
+		PageLoad(driver);
+		driver.findElement(PageProductList.MobilePLPFilter).click();
 	}
 }
