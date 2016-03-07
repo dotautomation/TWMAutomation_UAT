@@ -75,6 +75,11 @@ public class StoreDetail extends Browser {
 	    driver.findElement(By.cssSelector("a.analyticsStoreLink > p")).click(); //First result - McLean
 	    Thread.sleep(3000);
 	    
+	    //Validate the Get Directions link
+	    driver.findElement(By.cssSelector("a.getdir.analyticsGetDir")).click();
+	    Thread.sleep(2000);
+	    Assert.assertTrue(driver.findElement(By.cssSelector("input#SUBMIT")).isDisplayed(),"The map view didn't load upon clicking the Get Directions link");
+	    
 	    //Validate the presence of all elements
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div#notificationDiv")).isEmpty(), false); //State-wide notification
 	    Assert.assertEquals(driver.findElements(By.cssSelector("img.jumbo-image")).isEmpty(), false); //Store image
