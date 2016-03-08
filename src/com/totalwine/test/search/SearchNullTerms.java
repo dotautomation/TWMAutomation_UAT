@@ -10,12 +10,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -23,6 +29,8 @@ import jxl.*;
 import jxl.read.biff.BiffException;
 
 public class SearchNullTerms {
+	
+	WebDriver driver;
 	
 	@Test
 	public void SearchNullTermsTest () throws InterruptedException, IOException, BiffException {
@@ -223,5 +231,17 @@ public class SearchNullTerms {
 		writer.close(); //Close output file
 	    inputWorkbook.close(); //Close input excel file
 	}
+	
+	@AfterMethod
+	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
+		if(testResult.getStatus() == ITestResult.FAILURE) { 
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
+			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\Search\\"+scrName;
+			File FailedFile = new File (scrFileName);
+			FileUtils.copyFile(scrFile, FailedFile);
+		}
+	}
+	
 	
 }
