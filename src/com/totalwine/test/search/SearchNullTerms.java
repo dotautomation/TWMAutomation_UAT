@@ -233,7 +233,7 @@ public class SearchNullTerms {
 	}
 	
 	@AfterMethod
-	public void takeScreenShotOnFailure(ITestResult testResult,WebDriver driver) throws IOException, InterruptedException { 
+	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException, InterruptedException { 
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
