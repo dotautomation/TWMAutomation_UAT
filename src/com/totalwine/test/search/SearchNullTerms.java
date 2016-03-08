@@ -133,6 +133,14 @@ public class SearchNullTerms {
 		    	Thread.sleep(3000);
 		    	writer.write("HTTP500"); //Indicate HTTP500 occurrence for search term in output file 
 		    }
+		    //Check for Fastly error page
+		    else if (driver.getPageSource().contains("between 500 and 600")) { 
+		    	driver.get(ConfigurationFunctions.accessURL+"/?remoteTestIPAddress=71.193.51.0"); //Reaccess homepage
+		    	Thread.sleep(3000);
+		    	driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
+		    	Thread.sleep(3000);
+		    	writer.write("HTTP500 - Fastly Error Page"); //Indicate HTTP500 occurrence for search term in output file 
+		    }
 		  //Events search 
 		    else if (driver.findElements(By.cssSelector("div.js-event-item")).size()!=0) { 
 		    	writer.write(String.valueOf(driver.findElements(By.xpath("//div[contains(@class,'js-event-item')]")).size()));
