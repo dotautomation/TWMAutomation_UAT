@@ -135,6 +135,5 @@ package com.totalwine.test.checkout;
 				    
 				    driver.findElement(By.cssSelector(".btn-red.btn-place-order.anPlaceOrder")).click();
 				    Thread.sleep(2000);
-				    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
 				}
 			}
