@@ -41,6 +41,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 import com.totalwine.test.actions.*;
@@ -71,8 +72,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    logger=report.startTest("Creating account after Guest Checkout");
 	    
 		driver.get(ConfigurationFunctions.locationSet+Location);
-		Thread.sleep(5000);
-		
+		Browser.PageLoad(driver); // Will not trigger the control until loading the page
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
 	    	    
