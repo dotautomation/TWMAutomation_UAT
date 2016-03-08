@@ -31,7 +31,8 @@ import jxl.read.biff.BiffException;
 public class SearchNullTerms {
 	
 	WebDriver driver;
-	
+	BufferedWriter writer;
+	Workbook inputWorkbook;
 	@Test
 	public void SearchNullTermsTest () throws InterruptedException, IOException, BiffException {
 	
@@ -39,7 +40,7 @@ public class SearchNullTerms {
 		File logFile=new File(timeLog);
 		
 		//Instantiate output file
-		BufferedWriter writer = new BufferedWriter(new FileWriter(logFile));
+		writer = new BufferedWriter(new FileWriter(logFile));
 		writer.write("Search term,Search Type,All stores count,Did you mean?,Page Type,Top results,Categories");
 		writer.newLine();
 		
@@ -57,7 +58,7 @@ public class SearchNullTerms {
 	    
 	    
 	    //Input file (excel)
-	    Workbook inputWorkbook = Workbook.getWorkbook(new File("Search.xls"));
+	    inputWorkbook = Workbook.getWorkbook(new File("Search.xls"));
 	    Sheet inputSheet = inputWorkbook.getSheet(0);
 	    int rowCount = inputSheet.getRows();
 	    String SearchTerm,SearchType; //SearchType Options = all,product,event,content
@@ -248,8 +249,9 @@ public class SearchNullTerms {
 			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\Search\\"+scrName;
 			File FailedFile = new File (scrFileName);
 			FileUtils.copyFile(scrFile, FailedFile);
+			driver.close();
+			writer.close(); //Close output file
+		    inputWorkbook.close(); //Close input excel file
 		}
 	}
-	
-	
 }
