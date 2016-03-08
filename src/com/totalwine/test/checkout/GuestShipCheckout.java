@@ -45,7 +45,7 @@ public class GuestShipCheckout extends Browser {
 
 	@DataProvider(name="CheckoutParameters")
     public Object[][] createData() {
-    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"Checkout", "GuestShipCheckoutBF");
+    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"Checkout", "GuestShipCheckoutUAT");
         return(retObjArr);
     } 
 	
