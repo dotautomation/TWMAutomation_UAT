@@ -254,6 +254,4 @@ public class SearchNullTerms {
 		    inputWorkbook.close(); //Close input excel file
 		}
 	}
-	
-	
 }
