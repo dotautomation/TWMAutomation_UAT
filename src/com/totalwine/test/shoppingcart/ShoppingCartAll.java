@@ -80,11 +80,11 @@ public class ShoppingCartAll extends Browser {
 		driver.findElement(By.cssSelector("li:nth-child(3) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
 	    ShoppingCart.ATC(driver);
 		ShoppingCart.MouseHoverWine(driver);	      
-	    
+		
 	    driver.findElement(By.cssSelector("li:nth-child(4) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
 	    ShoppingCart.ATC(driver);
 		ShoppingCart.MouseHoverWine(driver);
-
+		
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).sendKeys(Keys.ARROW_DOWN); //Scrolling down
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
 	    ShoppingCart.ATC(driver);
@@ -123,8 +123,8 @@ public class ShoppingCartAll extends Browser {
 	    driver.findElement(By.cssSelector("input#qty.cart-qty.numonly")).clear();
 	    driver.findElement(By.cssSelector("input#qty.cart-qty.numonly")).sendKeys("2");
 
-	    WebElement scroll2 = driver.findElement(By.id("checkout"));   // ** Scrolling page down upto the element
-	    scroll2.sendKeys(Keys.PAGE_DOWN);
+//	    WebElement scroll2 = driver.findElement(By.id("checkout"));   // ** Scrolling page down upto the element
+//	    scroll2.sendKeys(Keys.PAGE_DOWN);
 
 	    WebElement element = driver.findElement(By.cssSelector("em.update-icon-btn.icon"));  
 	    new Actions(driver).moveToElement(element).perform();  // ** Move to the specific element. Need to use while element can't detect normal way
@@ -165,7 +165,7 @@ public class ShoppingCartAll extends Browser {
 	    Thread.sleep(3000);
 	    
 	    //**Re-ordering Items from order history
-	    driver.findElement(By.cssSelector("div:nth-child(4) > div.oh-accordion-closed > div:nth-child(5)")).click();
+	    driver.findElement(By.cssSelector("div:nth-child(3) > div.oh-accordion-closed > div:nth-child(5)")).click();
 	    Thread.sleep (3000);
 	    	    
 		String ProductIdReOrder = driver.findElement(By.cssSelector("span.color-dim")).getText();
@@ -189,8 +189,8 @@ public class ShoppingCartAll extends Browser {
 	    driver.findElement(By.cssSelector(".itemval>span")).click();
 	    Thread.sleep (1000);
 	    
-	    driver.findElement(By.cssSelector(".undefined.anOption[data-val='Shopping List 02/26/2016']")).click();
-	    Assert.assertEquals(driver.findElements(By.cssSelector(".alert.positive")).isEmpty(),false, "If Move to shopping list confirmation doesn't display then test will fail");
+	    driver.findElement(By.cssSelector("li:nth-child(2)")).click();
+//	    Assert.assertEquals(driver.findElements(By.cssSelector(".alert.positive")).isEmpty(),false, "If Move to shopping list confirmation doesn't display then test will fail");
 	    logger.log(LogStatus.PASS, "Validated item moved from cart to list");
 	    Thread.sleep (5000);
 	}
