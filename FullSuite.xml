@@ -324,6 +324,30 @@
 			<class name="com.totalwine.test.shoppinglist.ShoppingListAddItem" />
 		</classes>
 	</test>
+		<!--Shopping List Sorting -->
+	<test name="Shopping List Sorting">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListSorting"/>
+		</classes>
+	</test>
+		<!--Move to cart from Shopping list -->
+	<test name="Move to cart from Shopping list">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListMoveToCart"/>
+		</classes>
+	</test>
+		<!--Share Shopping list via email -->
+	<test name="Share Shopping list via email">
+		<parameter name="browser" value="Chrome">
+		</parameter>
+		<classes>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListSharing"/>
+		</classes>
+	</test>
 			<!--Shopping Cart all flows -->
 	<test name="Shopping Cart all flows">
 		<parameter name="browser" value="Chrome">
