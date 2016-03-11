@@ -72,7 +72,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    logger=report.startTest("Creating account after Guest Checkout");
 	    
 		driver.get(ConfigurationFunctions.locationSet+Location);
-		Browser.PageLoad(driver); // Will not trigger the control until loading the page
+		PageLoad(driver); // Will not trigger the next control until loading the page
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
 	    	    
