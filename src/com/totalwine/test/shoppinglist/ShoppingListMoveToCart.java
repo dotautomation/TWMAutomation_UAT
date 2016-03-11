@@ -51,7 +51,7 @@ public class ShoppingListMoveToCart extends Browser {
 					throws InterruptedException, BiffException, IOException {		    
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		logger=report.startTest("Shopping List - Item move to Cart Test");
-		Browser.PageLoad(driver); // Will not trigger the next control until loading the page
+		PageLoad(driver); // Will not trigger the next control until loading the page
 
 		//**By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);  
