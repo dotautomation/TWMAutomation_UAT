@@ -37,6 +37,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -53,15 +54,9 @@ public class WebAccountRegistration extends Browser {
 	public void RegistrationTest () throws InterruptedException, BiffException, IOException {
 		
 		StringBuffer errorBuffer = new StringBuffer();
-		//ConfigurationFunctions.initialStartUp("71.193.51.0");
 		logger=report.startTest("Web Account Registration Test");
-		//driver.manage().window().maximize();
-		driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
-		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+
+	    SiteAccess.ActionAccessSite(driver, "71.193.51.0");
 		
 	    driver.findElement(By.linkText("Sign In/Register")).click();
 	    Thread.sleep(2000);
