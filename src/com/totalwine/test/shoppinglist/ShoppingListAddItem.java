@@ -38,9 +38,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 import com.totalwine.test.pages.*;
+
 public class ShoppingListAddItem extends Browser {
 	
 	public String IP = "71.193.51.0";
@@ -54,12 +56,7 @@ public class ShoppingListAddItem extends Browser {
 	@Test
 	public void ShoppingListAddItemNewTest () throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Create New Shopping List Test");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(PageGlobal.AgeGateYes).click();
-		Thread.sleep(5000);
-	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
-	    Thread.sleep(5000);
+		SiteAccess.ActionAccessSite(driver, IP);
 	    
 		//Navigate to PDP
 	    driver.navigate().to(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/cloud-break-chardonnay/p/110892750");
@@ -118,12 +115,7 @@ public class ShoppingListAddItem extends Browser {
 	@Test
 	public void ShoppingListAddItemExistingTest () throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Add item to existing Shopping List Test");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(PageGlobal.AgeGateYes).click();
-		Thread.sleep(5000);
-	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
-	    Thread.sleep(5000);
+		SiteAccess.ActionAccessSite(driver, IP);
 		
 		//Navigate to PDP
 	    driver.navigate().to(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/cloud-break-chardonnay/p/110892750");

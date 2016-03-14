@@ -30,6 +30,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -57,12 +58,7 @@ public class DefaultTabsBehavior extends Browser {
 			String Acc,String AccPLP,String DefaultWine,String DefaultBeer,String DefaultSpirits,String DefaultAcc,String ATYWineSubTab,String ATYBeerSubTab,
 			String ATYSpiritsSubTab,String ATYAccSubTab) throws InterruptedException {
 		logger=report.startTest("Default PLP Tabs Behavior Test");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+		SiteAccess.ActionAccessSite(driver, IP);
 	    String storeName = driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText();
 	    Assert.assertEquals(storeName, Store,"Site store session isn't set correctly");
 	    

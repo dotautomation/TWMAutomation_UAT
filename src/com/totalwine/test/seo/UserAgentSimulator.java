@@ -14,22 +14,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.trials.Browser;
 
-public class UserAgentSimulator {
+public class UserAgentSimulator extends Browser{
 	
-	protected WebDriver driver;
+	//protected WebDriver driver;
 	BufferedWriter writer = null;
 	String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     File logFile = new File(timeLog);
@@ -41,17 +40,16 @@ public class UserAgentSimulator {
     
 	@DataProvider(name="BotsParameters")
     public Object[][] createData() {
-    	Object[][] retObjArr=ConfigurationFunctions.getTableArray("C:\\totalwine\\TWMAutomation\\Resources\\AutomatedFlows.xls","Bots", "botName");
+    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"Bots", "botNameTest");
         return(retObjArr);
     }
 	
 	@Test (dataProvider = "BotsParameters")
 	public void UserAgentValidation (String userAgent) throws InterruptedException, IOException {
-	    
+		logger=report.startTest("Google/Bing Bots Test");
 		File file = new File("C:/totalwine/Library/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		Map<String, String> mobileEmulation = new HashMap<String, String>();
-		//mobileEmulation.put("deviceName", "Samsung Galaxy S4");
 		mobileEmulation.put("userAgent", userAgent);
 		Map<String, Object> chromeOptions = new HashMap<String, Object>();
 		chromeOptions.put("mobileEmulation", mobileEmulation);
@@ -59,9 +57,12 @@ public class UserAgentSimulator {
 		capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 		driver = new ChromeDriver(capabilities);
 		
-		//driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
-		driver.get("http://uat.totalwine.com");
-		Thread.sleep(5000);
+		driver.get(ConfigurationFunctions.accessURL);
+		Browser.PageLoad(driver);
+		//Ensure that there's no HTTP500 for Bot traffic
+		if (driver.findElements(By.cssSelector("div.content > h1")).size()!=0)
+			if (driver.findElement(By.cssSelector("div.content > h1")).getText().contains("we are experiencing an issue with this page"))
+				Assert.assertTrue(false,"Webpage is not rendering correctly for Bot traffic and is generating a HTTP500");
 		writer.write(userAgent);
 		System.out.print(userAgent);
 		
@@ -96,17 +97,7 @@ public class UserAgentSimulator {
 			writer.write(" ,is BLOCKED");
 		}
 	}
-	
-	@AfterMethod
-	public void closeSession (ITestResult testResult) throws IOException, InterruptedException { 
-		if(testResult.getStatus() == ITestResult.FAILURE) { 
-			System.out.print(" ,is BLOCKED");
-			writer.write(" ,is BLOCKED");
-		}
-		driver.close();
-		writer.newLine();
-	}
-	
+
 	@AfterTest
 	public void closeWriter() throws IOException {
 		System.out.println(logFile.getCanonicalPath());

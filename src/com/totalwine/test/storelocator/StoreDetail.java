@@ -34,11 +34,14 @@ package com.totalwine.test.storelocator;
  */
 
 import java.awt.AWTException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -55,12 +58,7 @@ public class StoreDetail extends Browser {
 	public void StoreDetailTest () throws InterruptedException, AWTException {
 		logger=report.startTest("SL: Stores by State Dropdown Test");
 		String IP = "71.193.51.0";
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
+		SiteAccess.ActionAccessSite(driver, IP);
 		    
 	    //Navigate to the Store Locator page
 	    driver.findElement(By.cssSelector(StoreLink)).click();
@@ -90,7 +88,8 @@ public class StoreDetail extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("address.right-rail-typo")).isEmpty(), false);//Address
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsWeeklyAd[href*=\"totalwine.inserts2online.com/\"]")).isEmpty(), false);//Weekly ad
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.store-details-hours")).isEmpty(), false);//Hours
-	    driver.findElement(By.cssSelector("a.analyticsTastingHours")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();",driver.findElement(By.cssSelector("a.analyticsTastingHours")));
 	    Thread.sleep(2000);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.modal-body > div.hours-body")).isEmpty(), false);//Sampling hours
 	    driver.findElement(By.cssSelector("div.modal-body > div.hours-header > a.btn-close.analyticsCloseBtn")).click();

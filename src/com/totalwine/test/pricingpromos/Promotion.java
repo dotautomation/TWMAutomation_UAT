@@ -20,12 +20,14 @@ package com.totalwine.test.pricingpromos;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -43,12 +45,7 @@ public class Promotion extends Browser {
 	@Test //Eligible WD Item
 	public void EligiblePromotion () throws InterruptedException {
 		logger=report.startTest("Promotions Test");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
-	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    //Thread.sleep(5000);
+		SiteAccess.ActionAccessSite(driver, IP);
     
     	//Add eligible item to cart
     	driver.get(ConfigurationFunctions.accessURL+"/wine/white-wine/chardonnay/cloud-break-chardonnay/p/110892750");
@@ -80,12 +77,8 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your promotion has been applied successfully.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("RemoveProduct_0")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("RemoveProduct_0")));
 	    Thread.sleep(2000);
 	}
 	
@@ -128,12 +121,8 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("RemoveProduct_0")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("RemoveProduct_0")));
 	    Thread.sleep(2000);
 	}
 	
@@ -174,12 +163,8 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("RemoveProduct_0")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("RemoveProduct_0")));
 	    Thread.sleep(2000);
 	}
 	
@@ -222,12 +207,8 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("RemoveProduct_0")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("RemoveProduct_0")));
 	    Thread.sleep(2000);
 	}
 	
@@ -270,12 +251,8 @@ public class Promotion extends Browser {
 	    Assert.assertEquals("Your order doesn't qualify for this promotion. Please check your order to ensure that it meets the requirements.", driver.findElement(By.cssSelector("p.error-msg")).getText());
 
 	    //Empty the cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    scroll.sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("RemoveProduct_0")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("RemoveProduct_0")));
 	    Thread.sleep(2000);
 	}
 }
