@@ -43,6 +43,7 @@ import com.totalwine.test.actions.ShoppingCart;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 import jxl.read.biff.BiffException;
+
 public class RegisteredIspCheckOutUsingSavedAddress extends Browser {
 
 	@DataProvider(name="CheckoutParameters")

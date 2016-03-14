@@ -10,8 +10,8 @@ public class Checkout {
 	public static void AgeGateWelcome (WebDriver driver) throws InterruptedException {
 		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
-	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
-	    Thread.sleep(5000);
+//	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
+//	    Thread.sleep(5000);
 	}
 	
 	//** Guest Checkout Tab-1

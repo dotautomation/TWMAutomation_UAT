@@ -74,6 +74,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    
 		driver.get(ConfigurationFunctions.locationSet+Location);
 		PageLoad(driver); // Will not trigger the next control until loading the page
+		
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
 	    	    

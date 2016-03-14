@@ -80,7 +80,8 @@ public class ShoppingCartAll extends Browser {
 
 		driver.findElement(By.cssSelector("li:nth-child(3) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
 	    ShoppingCart.ATC(driver);
-		ShoppingCart.MouseHoverWine(driver);	      
+		ShoppingCart.MouseHoverWine(driver);
+		
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(4) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")));
 	    ShoppingCart.ATC(driver);
@@ -113,7 +114,6 @@ public class ShoppingCartAll extends Browser {
 	    //** Modify (remove) items in main cart
 	    JavascriptExecutor js5 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js5.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#RemoveProduct_0 > em")));
-	    
 	    Assert.assertEquals(driver.findElements(By.cssSelector(".text-arrow.analyticsChangeDM")).isEmpty(),false);
 	    logger.log(LogStatus.PASS, "Validated Item removed from main cart");
 	    Thread.sleep (3000);
@@ -125,7 +125,6 @@ public class ShoppingCartAll extends Browser {
 	    driver.findElement(By.cssSelector("input#qty.cart-qty.numonly")).sendKeys("2");
 	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js2.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("em.update-icon-btn.icon")));
-	    
 	    Assert.assertEquals(driver.findElements(By.cssSelector(".text-arrow.analyticsChangeDM")).isEmpty(),false);
 	    logger.log(LogStatus.PASS, "Validated Item modified (added) in main cart");
 	    Thread.sleep(5000);
@@ -144,7 +143,7 @@ public class ShoppingCartAll extends Browser {
 	    driver.findElement(PageSignInModal.ModalSigninButton).click();
 	    Thread.sleep(6000);
 	    
-	    //**Check for presence of merge cart modal
+	    //**Checking for presence of merge cart modal
 	    ShoppingList.MergeCartModal(driver);
 	    
 	    //**Navigate to the Online order history
