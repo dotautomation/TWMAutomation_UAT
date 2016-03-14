@@ -26,7 +26,9 @@ package com.totalwine.test.checkout;
  */
 
 import java.io.IOException;
+
 import jxl.read.biff.BiffException;
+
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -34,7 +36,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
+
 import com.relevantcodes.extentreports.LogStatus;
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
@@ -61,12 +65,7 @@ public class ShipCheckout extends Browser {
 	@Test (dataProvider = "CheckoutParameters")
 	public void ShipCheckoutTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String Email,String Password, String Phone,String FirstName,String LastName,String Company,String Address1,String Address2,String City,String State,String Zip) throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Registered Ship Checkout Test");
-		driver.get(ConfigurationFunctions.locationSet+Location);
-		Thread.sleep(5000);
-		driver.findElement(PageGlobal.AgeGateYes).click();
-		Thread.sleep(5000);
-	    driver.findElement(PageGlobal.NewSiteIntroClose).click();
-	    Thread.sleep(5000);
+	    SiteAccess.ActionAccessSite(driver, Location);
 	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
 	    logger.log(LogStatus.PASS, "The site is configured for a Shipping order");
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
