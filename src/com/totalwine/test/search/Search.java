@@ -53,7 +53,7 @@ public class Search extends Browser {
 	@Test (dataProvider = "SearchParameters")
 	public void SearchTest (String searchTerm) throws InterruptedException {
 		logger=report.startTest("Search Test");
-		SiteAccess.ActionAccessSite(driver, searchTerm);
+		SiteAccess.ActionAccessSite(driver, IP);
 		
 		driver.findElement(By.id("header-search-text")).clear();
 	    driver.findElement(By.id("header-search-text")).sendKeys(searchTerm);

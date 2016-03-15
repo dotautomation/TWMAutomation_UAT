@@ -54,7 +54,7 @@ public class GoodBadPassword extends Browser {
 	@Test (dataProvider = "UserPwdParameters")
 	public void GoodBadPasswordTest (String email,String pwd,String valid) throws InterruptedException {
 		logger=report.startTest("Good/Bad Username/Password Combinations Test");
-		SiteAccess.ActionAccessSite(driver, valid);
+		SiteAccess.ActionAccessSite(driver, IP);
 	    
 	    //Access the sign in modal
 	    driver.findElement(PageGlobal.TopNavAccount).click();

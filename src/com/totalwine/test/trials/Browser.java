@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
@@ -39,6 +40,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.BeforeMethod;
 
@@ -54,11 +56,12 @@ public class Browser {
 	protected String hubURL = "http://prt-dotautotest.totalwine.com:5566/wd/hub";
 	protected ExtentTest logger;
 	protected static ExtentReports report = getReporter(); //Reporting v2
-
+	protected JavascriptExecutor js = (JavascriptExecutor)driver;
+	
 	@BeforeMethod
 	
 	@Parameters("browser") 
-	public void openBrowser(String browser) {
+	public void openBrowser(@Optional String browser) {
 		//Firefox
 		if(browser.equalsIgnoreCase("FF")) {
 			ProfilesIni profile = new ProfilesIni();
