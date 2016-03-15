@@ -82,12 +82,7 @@ public class EmailSignup extends Browser {
 		Random rand = new Random();
 	    int randomNum = rand.nextInt((1000 - 1) + 1) + 1;
 	    int randomNum2 = rand.nextInt((1000 - 1) + 1) + 1;
-		driver.get(ConfigurationFunctions.locationSet+"71.193.51.0");
-		Thread.sleep(2000);
-		driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(2000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(2000);
+	    SiteAccess.ActionAccessSite(driver, "71.193.51.0");
     	driver.findElement(By.cssSelector("span.footer-Email-text.analyticsJoinOurEmail")).click();
     	Thread.sleep(2000);
     	driver.switchTo().frame(driver.findElement(By.id("iframe-signup-overlay")));
@@ -99,10 +94,5 @@ public class EmailSignup extends Browser {
 	    //driver.findElement(By.cssSelector("label")).click();
 	    driver.findElement(By.id("check_box_100")).click();
 	    driver.findElement(By.id("emailuserregister")).click();
-	    /*Actions action = new Actions(driver);
-	    //action.moveToElement(driver.findElement(By.id("emailuserregister"))).doubleClick().build().perform(); //Double-click
-	    action.moveToElement(driver.findElement(By.id("emailuserregister"))).click();*/ 
-	    //Thread.sleep(3000);
-	    //Assert.assertEquals("Thank you for signing up to receive emails from Total Wine & More!", driver.findElement(By.cssSelector("#email-signup-overlay-success > div.modal-dialog > div.modal-content > div.modal-body > div.heading-h1")).getText());
-	}
+	   	}
 }

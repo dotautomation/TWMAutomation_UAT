@@ -31,13 +31,17 @@ package com.totalwine.test.shoppinglist;
  */
 
 import java.io.IOException;
+
 import jxl.read.biff.BiffException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
@@ -77,7 +81,9 @@ public class ShoppingListAddItem extends Browser {
 	    
 		//Add to new shopping list
 	    driver.findElement(By.cssSelector("div#dWishListName > div.customselect")).click();
-	    driver.findElement(By.cssSelector("button.btn.btn-red.btn-create-list")).click();
+	    Thread.sleep(2000);
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("button.btn.btn-red.btn-create-list")));
 	    Thread.sleep(2000);
 	    Assert.assertEquals("Your new shopping list has been created!", driver.findElement(By.cssSelector("div.add-list-confirm-right > div.add-list-success")).getText());
 	    driver.findElement(By.cssSelector("button#addToList")).click();
