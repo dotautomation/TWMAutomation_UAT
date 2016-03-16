@@ -158,7 +158,8 @@ public class ShoppingListAddItem extends Browser {
 	    
 	    //Delete item from Shopping List (so it can be added again)
 	    driver.findElement(By.linkText("Cloud Break Chardonnay")).sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.cssSelector("a.icon-list-delete.analyticsDeleteList")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("a.icon-list-delete.analyticsDeleteList")));
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("#frmDeleteProduct > div.send-list-btn > button.btn-red")).click();
 	    Thread.sleep(2000);

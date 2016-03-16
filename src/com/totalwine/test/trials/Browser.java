@@ -133,6 +133,7 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		//iPad
 		if (browser.equalsIgnoreCase("iPad")) {
 			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());

@@ -7,7 +7,7 @@
 	<parameter name="browser" value="FF">
 	</parameter>
     <classes>
-       <class name="com.totalwine.test.pricingpromos.Pricing"/>
+       <class name="com.totalwine.test.checkout.ISPCheckout"/>
     </classes>
   </test>
 </suite>

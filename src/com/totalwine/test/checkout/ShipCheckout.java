@@ -84,15 +84,14 @@ public class ShipCheckout extends Browser {
 	    Thread.sleep(3000);
 	    
 	    // Shopping Cart
-	    //WebElement scroll = driver.findElement(By.id("salesTaxId"));
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.PAGE_DOWN);
+	    driver.findElement(By.id("checkout")).sendKeys(Keys.ARROW_DOWN);
 	    driver.findElement(By.id("zipCode")).click();
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
 	    Thread.sleep(3000);
-	  
+	    
+	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);;
 	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
 	    Thread.sleep(3000);
