@@ -33,6 +33,7 @@ import jxl.read.biff.BiffException;
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -83,13 +84,14 @@ public class ISPCheckout extends Browser {
 	    Thread.sleep(3000);
 	    
 	    // Shopping Cart
-	    WebElement scroll = driver.findElement(By.id("checkout"));
-	    scroll.sendKeys(Keys.PAGE_DOWN);
-	    driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);
+	    js.executeScript("arguments[0].click()", driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")));
 	    driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]")).click();
 	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
-	    driver.findElement(By.id("checkout")).click();
+	    Thread.sleep(2000);
+	    js.executeScript("arguments[0].click()", driver.findElement(By.id("checkout")));
 	    Thread.sleep(3000);
 	    
 	    // Next Page (Login/Checkout as Guest)
