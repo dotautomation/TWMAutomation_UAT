@@ -1,1 +1,1 @@
-java -cp bin;lib/* org.testng.TestNG FullSuite.xml
+java -cp bin;lib/* org.testng.TestNG ReFullSuite.xml

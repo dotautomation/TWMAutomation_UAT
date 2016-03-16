@@ -133,6 +133,17 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		if (browser.equalsIgnoreCase("iPad")) {
+			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
+			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+			Map<String, String> mobileEmulation = new HashMap<String, String>();
+			mobileEmulation.put("deviceName", "Apple iPad");
+			Map<String, Object> chromeOptions = new HashMap<String, Object>();
+			chromeOptions.put("mobileEmulation", mobileEmulation);
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+			driver = new ChromeDriver(capabilities);
+		}
 		//Headless
 		if (browser.equalsIgnoreCase("Headless")) {
 			// Declaring and initialising the HtmlUnitWebDriver
@@ -172,21 +183,21 @@ public class Browser {
 			}
 		}
 		//Grid - iOS (iPhone 6)
-				if (browser.equalsIgnoreCase("iOSGrid")) {
-					DesiredCapabilities cap = DesiredCapabilities.chrome();
-					Map<String, String> mobileEmulation = new HashMap<String, String>();
-					mobileEmulation.put("deviceName", "Apple iPhone 6");
-					Map<String, Object> chromeOptions = new HashMap<String, Object>();
-					chromeOptions.put("mobileEmulation", mobileEmulation);
-					cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-				    cap.setBrowserName("chrome");
-				    cap.setPlatform(Platform.VISTA);
-				    try {
-						driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
-					} catch (MalformedURLException e) {
-						e.printStackTrace();
-					} 
-				}
+		if (browser.equalsIgnoreCase("iOSGrid")) {
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			Map<String, String> mobileEmulation = new HashMap<String, String>();
+			mobileEmulation.put("deviceName", "Apple iPhone 6");
+			Map<String, Object> chromeOptions = new HashMap<String, Object>();
+			chromeOptions.put("mobileEmulation", mobileEmulation);
+			cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+		    cap.setBrowserName("chrome");
+		    cap.setPlatform(Platform.VISTA);
+		    try {
+				driver = new RemoteWebDriver(new URL(hubURL),cap); //Hub URL
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} 
+		}
 	}
 	
 	@AfterMethod
