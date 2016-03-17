@@ -66,8 +66,10 @@ public class SLGeoLocate extends Browser {
 	    //Navigate to the Store Locator page
 	    driver.findElement(By.cssSelector(StoreLink)).click();
 	    Thread.sleep(3000);
-	    Assert.assertEquals("We found no stores that match your search criteria.", driver.findElement(By.cssSelector("div.strlctr-top-search-wrapper > #globalMessages > div.twm-error-server > p.error-msg")).getText());
-	    Assert.assertEquals(driver.findElements(By.id("changeShippingState")).isEmpty(),false);
+	    Assert.assertEquals("We found no stores that match your search criteria.", 
+	    			driver.findElement(By.cssSelector("div.strlctr-top-search-wrapper > #globalMessages > div.twm-error-server > p.error-msg")).getText(),
+	    			"No stores in the BDR messaging isn't displayed");
+	    Assert.assertEquals(driver.findElements(By.id("changeShippingState")).isEmpty(),false,"The \"Use this location\" link wasn't displayed");
 	}
 	
 	@Test //International
