@@ -44,7 +44,7 @@ public class AccountProfile extends Browser {
 	
 	@Test
 	public void AccountProfileTest() throws InterruptedException {
-		logger=report.startTest("AML - Registered users Account Home ( Dashboard) verification. ");
+		logger=report.startTest("AML - Registered users Profile verification. ");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
 		//** By Passing Age Gate and Welcome Modal
