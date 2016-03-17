@@ -77,6 +77,7 @@ public class ShipCheckout extends Browser {
 		System.out.println(productId);
 		Thread.sleep(2000);
 	    //driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
+		Assert.assertEquals(driver.findElements(By.xpath("(//button[@id='"+productId+"'])[2]")).isEmpty(), false,"The ATC button isn't on the PDP indicating that the test item may be OOS");
 	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button
 		//driver.findElement(By.cssSelector("button.btn.btn-red.mini-cart-popup.anAddToCart")).click();
 		Thread.sleep (3000);
