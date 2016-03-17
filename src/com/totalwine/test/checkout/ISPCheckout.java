@@ -68,7 +68,7 @@ public class ISPCheckout extends Browser {
 			String CVV,String FirstName,String LastName,String Company,String Address1,String Address2,String City,String State,String Zip) throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("ISP Guest Checkout Test");
 	    SiteAccess.ActionAccessSite(driver, Location);
-	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
+	    sAssert.assertEquals(driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText(),StoreName,"ISP Store name isn't correctly displayed");
 	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
 		
 		// Add to Cart
@@ -87,10 +87,10 @@ public class ISPCheckout extends Browser {
 	    // Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;
 	    //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);
-	    js.executeScript("arguments[0].click()", driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")));
-	    driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]")).click();
-	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
+	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")));
+	    js.executeScript("arguments[0].click();",driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]")));
+	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false,"Promo code field isn't correctly displayed");
+	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false,"Quantity field isn't correctly displayed");
 	    Thread.sleep(2000);
 	    js.executeScript("arguments[0].click()", driver.findElement(By.id("checkout")));
 	    Thread.sleep(3000);
@@ -105,13 +105,13 @@ public class ISPCheckout extends Browser {
 	    Thread.sleep(3000);
 	    
 	    // Checkout Tab 1
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.instorepickup-tab")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false);
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.instorepickup-tab")).isEmpty(),false,"The in store pickup tab title isn't correctly displayed on Tab 1");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false,"The Edit Cart link isn't displayed on Tab 2");
 	    //Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsPromoCode")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("section.instorepickup > h2")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("section.giftmessage > div.checkStyle > label")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("section.someoneelsepicking > div.checkStyle > label")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.checkStyle > label")).isEmpty(),false);
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.instorepickup > h2")).isEmpty(),false,"In store pickup heading isn't correctly displayed");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.giftmessage > div.checkStyle > label")).isEmpty(),false,"Gift messaging section isn't correctly displayed");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.someoneelsepicking > div.checkStyle > label")).isEmpty(),false,"3rd party pickup section isn't correctly displayed");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.checkStyle > label")).isEmpty(),false);
 	    driver.findElement(By.id("shipping-email")).click();
 	    driver.findElement(By.id("shipping-email")).clear();
 	    driver.findElement(By.id("shipping-email")).sendKeys(Email);
@@ -120,9 +120,9 @@ public class ISPCheckout extends Browser {
 	    Thread.sleep(5000);
 	    
 	    // Checkout Tab 2
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.billing-tab")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.hover.icon-que")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false);
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.billing-tab")).isEmpty(),false,"The billing tab title isn't correctly displayed on Tab 2");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("span.hover.icon-que")).isEmpty(),false);
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false,"The Edit Cart link isn't displayed on Tab 2");
 	    driver.findElement(By.id("ssl_account_data")).click();
 	    driver.findElement(By.id("ssl_account_data")).clear();
 	    driver.findElement(By.id("ssl_account_data")).sendKeys(CreditCard);
@@ -155,23 +155,24 @@ public class ISPCheckout extends Browser {
 	    Thread.sleep(10000);
 	    
 	    // Checkout Tab 3
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-instore\"]")).isEmpty(),false,"In-store pickup section isn't displayed properly");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-pymnt\"]")).isEmpty(),false,"Payment details section isn't displayed properly");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-billing\"]")).isEmpty(),false,"Billing address section isn't displayed properly");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false,"The review tab isn't correctly displayed");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-instore\"]")).isEmpty(),false,"In-store pickup section isn't displayed properly");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-pymnt\"]")).isEmpty(),false,"Payment details section isn't displayed properly");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-billing\"]")).isEmpty(),false,"Billing address section isn't displayed properly");
 	    //Assert.assertEquals(driver.findElements(By.cssSelector("div.plp-list-img-wdlogo > img")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_1\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_2\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total anTax\"]")).isEmpty(),false,"The tax isn't displayed correctly on Checkout Tab 3");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total co-pr-item-total\"]")).isEmpty(),false,"The total order price isn't displayed correctly on Checkout Tab 3");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_1\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_2\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total anTax\"]")).isEmpty(),false,"The tax isn't displayed correctly on Checkout Tab 3");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total co-pr-item-total\"]")).isEmpty(),false,"The total order price isn't displayed correctly on Checkout Tab 3");
 	    driver.findElement(By.id("check_box_age")).click();
 	    driver.findElement(By.xpath("//form[@id='placeOrderForm1']/section/div/button")).click();
 	    Thread.sleep(10000);
 	    
 	    // Order Confirmation
 	    //Assert.assertEquals(driver.findElements(By.linkText("Post to Facebook")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-help-link")).isEmpty(),false,"The help link isn't displayed on the Order confirmation page");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false,"The thank-you text isn't displayed on the Order confirmation page");
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-help-link")).isEmpty(),false,"The help link isn't displayed on the Order confirmation page");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false,"The thank-you text isn't displayed on the Order confirmation page");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);
+	    sAssert.assertAll();
 	}
 }
