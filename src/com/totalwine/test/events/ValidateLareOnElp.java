@@ -5,10 +5,8 @@ package com.totalwine.test.events;
  * 	1. Log into an account which has pre-existing shopping list  
  * 	2. Click the "Classes & Events" link from the top level nav
  * 	3. Assert the presence of web elements on the Events landing page
- * 	4. Select several stores from the left navigation
- * 	5. Browse into available event and add the even into the shopping cart. 
- * 	6. Add multiple events in the shopping cart
- * 	6. Validated multiple events added into Shopping cart msg
+ * 	4. Click on change location and select a new shipping destination
+ * 	5. Assert the presence of web elements on the Events landing page after changing location
  * 
  *** Technical Modules:
  * BeforeMethod (Test Pre-requisites):
