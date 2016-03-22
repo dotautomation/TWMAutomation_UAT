@@ -73,7 +73,7 @@ public class PreferenceUpdates extends Browser {
 	    driver.findElement(By.cssSelector(".btn.btn-red.anLoginSubmit")).click();
 	    Thread.sleep(1000);
 	    driver.findElement(By.xpath("html/body/main/section/section[1]/div/aside/section/ul[1]/li[1]/ul/li[5]/a/span")).click();
-	    Thread.sleep(1000);
+	    Thread.sleep(3000);
 	    
 	    // ** Selecting On/Off button using if/else statement
         if (driver.findElement(By.xpath(".//*[@id='firstPrefLogin']/div[2]/div[1]/div[1]/ul/li[2]/a")).isSelected()) {

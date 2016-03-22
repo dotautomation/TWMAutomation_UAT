@@ -52,7 +52,7 @@ public class ValidateLareOnElp extends Browser {
 		//** Clicking on the Classes & Events
 	    driver.findElement(By.cssSelector("div.parent-header-wrapper > div > nav > ul > li:nth-child(6) > a")).click();
 	    Thread.sleep(3000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
 
 	    // **  Changing Store location
 	 	driver.findElement(PageChangingStore.YourStore).click();
@@ -78,8 +78,9 @@ public class ValidateLareOnElp extends Browser {
 	    Thread.sleep(3000);
 	    
 	    driver.findElement(By.cssSelector("#Email-Modal > div > div > div > div > div > div > ul > li:nth-child(2) > ul > div > div > li:nth-child(1) > a")).click();
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated LARE on ELP");
 	    Thread.sleep(3000);
+	    sAssert.assertAll();
 	}
 }

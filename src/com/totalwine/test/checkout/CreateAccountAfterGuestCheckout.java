@@ -168,8 +168,8 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
 
 	    //  ** Creating Account
-	    driver.findElement(By.id("btnCreateAcc")).sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("btnCreateAcc")).click();
+	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
+	    js2.executeScript("arguments[0].click();", driver.findElement(By.id("btnCreateAcc")));    
 
 	    //  ** Checking for survey pop-up
 	    Checkout.SurverPopup(driver);
