@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MultiBrowserSuite" verbose="2" parallel="tests" thread-count="5">
+   <test name="1">
+	<parameter name="browser" value="FF">
+	</parameter>
+    <classes>
+       <class name="com.totalwine.test.backoffice.C3Validation"/>
+    </classes>
+  </test>
+  <test name="2">
+	<parameter name="browser" value="GridEC">
+	</parameter>
+    <classes>
+       <class name="com.totalwine.test.backoffice.C3Validation"/>
+    </classes>
+  </test>
+  <test name="3">
+	<parameter name="browser" value="GridTC">
+	</parameter>
+    <classes>
+       <class name="com.totalwine.test.backoffice.C3Validation"/>
+    </classes>
+  </test>
+  <test name="4">
+	<parameter name="browser" value="GridMK">
+	</parameter>
+    <classes>
+       <class name="com.totalwine.test.backoffice.C3Validation"/>
+    </classes>
+  </test>
+  <test name="5">
+	<parameter name="browser" value="GridMdH">
+	</parameter>
+    <classes>
+       <class name="com.totalwine.test.backoffice.C3Validation"/>
+    </classes>
+  </test>
+</suite>
