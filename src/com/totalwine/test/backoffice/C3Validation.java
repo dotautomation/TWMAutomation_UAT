@@ -30,15 +30,16 @@ import org.testng.annotations.BeforeMethod;
 
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
+import com.totalwine.test.trials.ParallelBrowser;
 
-public class C3Validation extends Browser {
+public class C3Validation extends ParallelBrowser {
 	
 	@BeforeMethod
 	  public void setUp() throws Exception {
 	    driver.manage().window().maximize();
 	  }  
 	
-	@Test (invocationCount=10)
+	@Test (invocationCount=20)
 	public void C3LoginTest () throws InterruptedException {
 		logger=report.startTest("CS Cockpit Login Test");
 		driver.get(ConfigurationFunctions.backofficeURL+"/cscockpit");
