@@ -64,15 +64,16 @@ public class AddEventToShoppingList extends Browser {
 				
 	    //**Adding Event to Shopping List
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#addEventToListec36661")));
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(".btn.btn-brown-pattern.mini-add-list.anAddToListInit")));
 	    Thread.sleep (6000);
 	    driver.findElement(By.cssSelector("#dWishListName > div > span > i")).click();	    
 	    driver.findElement(By.cssSelector("#dWishListName > div > div > ul > li:nth-child(2)")).click();
 	    Thread.sleep (6000);
 	    driver.findElement(By.cssSelector("#addToList")).click();
 	    Thread.sleep (6000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector(".add-top-redmsg-caps.msg-success")).isEmpty(),false, "If Event title not appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector(".add-top-redmsg-caps.msg-success")).isEmpty(),false, "If Event title not appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated event added into Shopping list");
 	    Thread.sleep (3000);
+	    sAssert.assertAll();
 	}
 }

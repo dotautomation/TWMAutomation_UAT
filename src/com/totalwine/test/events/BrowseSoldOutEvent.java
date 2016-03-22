@@ -61,7 +61,7 @@ public class BrowseSoldOutEvent extends Browser {
 	    // **  Selecting a Event from PDP
 		driver.get(ConfigurationFunctions.accessURL+Event);
 		Thread.sleep(3000);
-		Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");	
+		sAssert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");	
 				
 	    //**Sold out event verification
 		WebElement element = driver.findElement(By.cssSelector(".search-sold-out-msg"));  
@@ -69,8 +69,9 @@ public class BrowseSoldOutEvent extends Browser {
 		Thread.sleep(8000);
 //	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 //	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(".search-sold-out-msg")));
-		Assert.assertEquals(driver.findElements(By.cssSelector(".search-sold-out-msg")).isEmpty(),false, "If Event's Soldout message doesn't not appear then test will fail");	
+		sAssert.assertEquals(driver.findElements(By.cssSelector(".search-sold-out-msg")).isEmpty(),false, "If Event's Soldout message doesn't not appear then test will fail");	
 		logger.log(LogStatus.PASS, "Event sold out message verification");
 		Thread.sleep(4000);
+		sAssert.assertAll();
 	}
 }

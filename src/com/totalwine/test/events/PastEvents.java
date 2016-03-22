@@ -46,7 +46,7 @@ public class PastEvents extends Browser {
 		//** Clicking on the Classes & Events
 	    driver.findElement(By.cssSelector("div.parent-header-wrapper > div > nav > ul > li:nth-child(6) > a")).click();
 	    Thread.sleep(3000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
 	    
 	    //** Clicking on Past Event Link
 //	    driver.findElement(By.cssSelector("section.span-4 > aside > section > ul > li:nth-child(4) > a")).click();
@@ -54,6 +54,7 @@ public class PastEvents extends Browser {
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("li:nth-child(4) > div > ul > li > a > span > label")).click();
 	    Thread.sleep(5000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector(".search-qty-left")).isEmpty(),false, "Test will fail if past event msg doesn't appear" );
+	    sAssert.assertEquals(driver.findElements(By.cssSelector(".search-qty-left")).isEmpty(),false, "Test will fail if past event msg doesn't appear" );
+	    sAssert.assertAll();
 	}
 }

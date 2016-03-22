@@ -37,7 +37,7 @@ import com.totalwine.test.actions.*;
 public class AddMultiEventsSameStoreToCart extends Browser {
 	
 	public String IP = "72.66.119.61";
-	public String Event = "/events/mar-2016/virginia/mclean?storestatename=205&pagesize=200";
+	public String Event = "/events/mar-2016/virginia/mclean?storestatename=205";
 
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -64,7 +64,7 @@ public class AddMultiEventsSameStoreToCart extends Browser {
 				
 	    //**Adding multiple events from same store to cart
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(2) > div > div.search-main-cont > div:nth-child(1) > div.search-desc > div.search-title > p > span > a")));
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(1) > div > div.search-main-cont > div.tasting-beer.js-event-item > div.search-desc > div.search-title > h2 > a")));
 	    Thread.sleep (3000);
 	    
 	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
@@ -75,7 +75,7 @@ public class AddMultiEventsSameStoreToCart extends Browser {
 		Thread.sleep(3000);
 		
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(3) > div > div.search-main-cont > div.tasting-wine.js-event-item > div.search-desc > div.search-title > p > span > a")));
+	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(2) > div > div.search-main-cont > div.tasting-wine.js-event-item > div.search-desc > div.search-title > h2 > a")));
 	    Thread.sleep (3000);
 	    
 	    JavascriptExecutor js4 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
