@@ -92,18 +92,22 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    js.executeScript("arguments[0].click();", driver.findElement(By.id("zipCode")));  
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
+	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(7000);
+	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(7000);
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
+	    PageLoad(driver); 
   
 	    //  **  Next Page (Login/Checkout as Guest)
 	    driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")).click();
 	    Thread.sleep(3000);
+	    PageLoad(driver); 
 
 	    // **  Checkout Tab 1
 	    driver.findElement(By.id("firstName")).clear();
