@@ -106,7 +106,8 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    PageLoad(driver); 
   
 	    //  **  Next Page (Login/Checkout as Guest)
-	    driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")).click();
+	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
+	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")));     
 	    Thread.sleep(3000);
 	    PageLoad(driver); 
 
@@ -170,7 +171,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    Checkout.GuestCheckoutTab3(driver);
 
 	    //  ** Order Confirmation
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
 
 	    //  ** Creating Account
 	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
@@ -199,5 +200,6 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("btnCOSaveAuth")).click();
 	    Thread.sleep(5000);
 //	    Assert.assertEquals(driver.findElements(By.cssSelector(".ahp-welcomeHeading")).isEmpty(),false, "If account doesn't create then test will fail");
+	    sAssert.assertAll();
 		}
 	}

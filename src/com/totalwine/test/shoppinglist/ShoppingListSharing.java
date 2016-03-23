@@ -26,6 +26,7 @@ import org.testng.Assert;
 import jxl.read.biff.BiffException;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import com.totalwine.test.config.ConfigurationFunctions;
@@ -58,7 +59,8 @@ public class ShoppingListSharing extends Browser {
 		Checkout.AgeGateWelcome(driver);  
 		
 	    //**Accessing Shopping List
-	    driver.findElement(By.cssSelector("li.shipping-cont.loggedin-not-list > a > span.list-text")).click();
+		driver.findElement(By.cssSelector("li.shipping-cont.loggedin-not-list > a > span.list-text")).click();
+		Thread.sleep(2000);
 				
 	    //**Enter valid credentials for an account having Pre-created shopping list
 	    driver.switchTo().frame("iframe-signin-overlay");
