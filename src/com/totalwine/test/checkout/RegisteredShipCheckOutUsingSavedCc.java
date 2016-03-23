@@ -85,14 +85,17 @@ public class RegisteredShipCheckOutUsingSavedCc extends Browser {
 	    js.executeScript("arguments[0].click();", driver.findElement(By.id("zipCode")));  
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
+	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(7000);
+	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(7000);
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
+	    PageLoad(driver); 
 
 	    // **  Login
 	    driver.findElement(By.id("j_username")).clear();
@@ -121,8 +124,9 @@ public class RegisteredShipCheckOutUsingSavedCc extends Browser {
 	    // **  Checkout Tab-3
 	    WebElement scroll4 = driver.findElement(By.cssSelector(".btn-red.btn-place-order.anPlaceOrder")); //  ** Scrolling down page
 	    scroll4.sendKeys(Keys.PAGE_DOWN);
-	    Thread.sleep(1000);
+	    Thread.sleep(2000);
 	    Checkout.GuestCheckoutTab3(driver);
+	    Thread.sleep(3000);
 	    
 	    //  ** Order Confirmation
 //	    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
