@@ -69,22 +69,28 @@ public class RegisteredISPCheckOutUsingSavedCc extends Browser {
 		
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
-   	 	
+		PageLoad(driver); // Will not trigger the next control until loading the page
+		
 		// **  Selecting a product from PDP
 		driver.get(ConfigurationFunctions.accessURL+PDP);
-		Thread.sleep(3000);
+		Thread.sleep(7000);
+		PageLoad(driver); // Will not trigger the next control until loading the page
 
 		// **  Adding item to Cart
 		ShoppingCart.ATC(driver);
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 
 	    //  ** Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]"))); 
+	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]")));
+	    Thread.sleep(3000);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
-	    PageLoad(driver); 
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout")));
+	    Thread.sleep(3000);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 
 	    // **  Login
 	    driver.findElement(By.id("j_username")).clear();
@@ -113,6 +119,7 @@ public class RegisteredISPCheckOutUsingSavedCc extends Browser {
 	    scroll4.sendKeys(Keys.PAGE_DOWN);
 	    Thread.sleep(1000);
 	    Checkout.GuestCheckoutTab3(driver);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 	    
 	    //  ** Order Confirmation
 //		Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
