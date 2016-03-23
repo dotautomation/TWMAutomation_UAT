@@ -41,8 +41,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 import com.totalwine.test.actions.*;
@@ -77,15 +75,18 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 		
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
-	    	    
+		PageLoad(driver); // Will not trigger the next control until loading the page
+		
 	    // **  Selecting a product from PDP
 		driver.get(ConfigurationFunctions.accessURL+PDP);
-		Thread.sleep(3000);
+		Thread.sleep(7000);
+		PageLoad(driver); // Will not trigger the next control until loading the page
 				
 		// **  Adding item to Cart
 		ShoppingCart.ATC(driver);
 	    driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 
 	    //  ** Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
