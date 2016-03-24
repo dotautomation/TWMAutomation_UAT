@@ -28,6 +28,7 @@
 <class name="com.totalwine.test.events.BrowseSoldOutEvent"/>
 <class name="com.totalwine.test.events.PastEvents"/>    
 <class name="com.totalwine.test.events.ValidateLareOnElp"/>
+<class name="com.totalwine.test.pricingpromos.RemovePromoCode"/> 
 </classes>
 </test>
 <!-- End of Desktop -->

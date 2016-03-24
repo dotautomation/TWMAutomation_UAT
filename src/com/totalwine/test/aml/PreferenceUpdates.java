@@ -86,6 +86,6 @@ public class PreferenceUpdates extends Browser {
 	    //** Logout
         driver.findElement(By.cssSelector(".analyticsHeaderLink[data-modal-id='loggedin-wrapper']")).click();
 	    driver.findElement(By.linkText("Log out")).click();
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }

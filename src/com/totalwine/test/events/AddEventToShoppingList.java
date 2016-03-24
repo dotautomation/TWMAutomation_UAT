@@ -74,6 +74,6 @@ public class AddEventToShoppingList extends Browser {
 	    sAssert.assertEquals(driver.findElements(By.cssSelector(".add-top-redmsg-caps.msg-success")).isEmpty(),false, "If Event title not appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated event added into Shopping list");
 	    Thread.sleep (3000);
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }

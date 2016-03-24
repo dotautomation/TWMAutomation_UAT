@@ -55,6 +55,6 @@ public class PastEvents extends Browser {
 	    driver.findElement(By.cssSelector("li:nth-child(4) > div > ul > li > a > span > label")).click();
 	    Thread.sleep(5000);
 	    sAssert.assertEquals(driver.findElements(By.cssSelector(".search-qty-left")).isEmpty(),false, "Test will fail if past event msg doesn't appear" );
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }

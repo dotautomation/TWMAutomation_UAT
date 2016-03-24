@@ -81,6 +81,6 @@ public class ValidateLareOnElp extends Browser {
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated LARE on ELP");
 	    Thread.sleep(3000);
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }

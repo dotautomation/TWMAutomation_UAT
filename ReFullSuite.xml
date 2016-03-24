@@ -54,6 +54,7 @@
 			<class name="com.totalwine.test.lare.LARERules" />
 			<class name="com.totalwine.test.productlist.PLPListView" />
 			<class name="com.totalwine.test.pricingpromos.Pricing"/>
+			 
 		</classes>
 	</test>
 	<!-- Chrome Tests -->
@@ -95,6 +96,7 @@
 			<class name="com.totalwine.test.productlist.DefaultTabsBehavior" />
 			<class name="com.totalwine.test.lare.LARERules" />
 			<class name="com.totalwine.test.pricingpromos.Promotion" />
+			<class name="com.totalwine.test.pricingpromos.RemovePromoCode"/>
 			<class name="com.totalwine.test.brandpages.BrandList" />
 			<class name="com.totalwine.test.brandpages.BrandStoryTelling" />
 			<class name="com.totalwine.test.brandpages.AllBrands" />

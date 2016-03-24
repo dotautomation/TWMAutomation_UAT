@@ -85,6 +85,6 @@ public class AddMultiEventsDifferentStoreToCart extends Browser {
 	    sAssert.assertEquals(driver.findElements(By.cssSelector(".itemsInCart.textAlignCenter")).isEmpty(),false, "If item added in your cart msg doesn't appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated multiple events added into Shopping cart");
 	    Thread.sleep (3000);
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }
