@@ -73,7 +73,8 @@ public class GuestShipCheckout extends Browser {
 		// **  Add to Cart	
 		ShoppingCart.ATC(driver);
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
+	    PageLoad(driver); // Will not trigger the next control until loading the page
 
 	    //  ** Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
