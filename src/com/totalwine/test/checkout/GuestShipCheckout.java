@@ -61,18 +61,20 @@ public class GuestShipCheckout extends Browser {
 		logger=report.startTest("Guest Ship Checkout");
 		
 		driver.get(ConfigurationFunctions.locationSet+Location);
-		Thread.sleep(5000);
+		PageLoad(driver); // Will not trigger the next control until loading the page
 		
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
-    
+		PageLoad(driver); // Will not trigger the next control until loading the page
+		
 	    // **  Selecting a product from PDP
 		driver.get(ConfigurationFunctions.accessURL+PDP);
-		Thread.sleep(3000);
-		
-		// **  Add to Cart	
+		Thread.sleep(7000);
+		PageLoad(driver); // Will not trigger the next control until loading the page
+				
+		// **  Adding item to Cart
 		ShoppingCart.ATC(driver);
-		driver.get(ConfigurationFunctions.accessURL+"/cart");
+	    driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    Thread.sleep(7000);
 	    PageLoad(driver); // Will not trigger the next control until loading the page
 
@@ -93,10 +95,11 @@ public class GuestShipCheckout extends Browser {
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
 	    Thread.sleep(5000);
 	    PageLoad(driver); 
-
+  
 	    //  **  Next Page (Login/Checkout as Guest)
-	    driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")).click();
-	    Thread.sleep(5000);
+	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
+	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")));     
+	    Thread.sleep(3000);
 	    PageLoad(driver); 
 
 	    // **  Checkout Tab 1
