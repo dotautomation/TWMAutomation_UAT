@@ -200,6 +200,6 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    driver.findElement(By.id("btnCOSaveAuth")).click();
 	    Thread.sleep(5000);
 //	    Assert.assertEquals(driver.findElements(By.cssSelector(".ahp-welcomeHeading")).isEmpty(),false, "If account doesn't create then test will fail");
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 		}
 	}

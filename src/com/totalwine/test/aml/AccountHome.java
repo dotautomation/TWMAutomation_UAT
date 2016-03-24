@@ -60,6 +60,7 @@ public class AccountHome extends Browser {
 	    
 	    //**Checking for presence of merge cart modal
 	    ShoppingList.MergeCartModal(driver);
+	    Thread.sleep(3000);
 	    
 	    //**Navigate to the Account home link
 	    driver.findElement(PageAccountHome.AccountHome).click();  
@@ -100,6 +101,6 @@ public class AccountHome extends Browser {
 	    driver.navigate().back();
 	    Thread.sleep(6000);
 	    logger.log(LogStatus.PASS, "Browser events link verified");
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 }

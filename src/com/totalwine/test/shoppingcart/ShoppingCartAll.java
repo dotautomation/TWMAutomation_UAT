@@ -166,14 +166,14 @@ public class ShoppingCartAll extends Browser {
 		Thread.sleep(2000);
 	    JavascriptExecutor js6 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js6.executeScript("arguments[0].click();", driver.findElement(By.xpath(".//*[@id='"+ProductIdReOrder+"']")));
-		Thread.sleep (5000);
+		Thread.sleep (7000);
 		
 	    String ProductIdReOrder1 = driver.findElement(By.cssSelector("div.pdp-product-nos")).getText();
 		System.out.println(ProductIdReOrder1);
 		Thread.sleep(2000);   
 	    driver.findElement(By.xpath(".//*[@id='"+ProductIdReOrder1+"']")).click(); //Clicking the ATC button
 	    logger.log(LogStatus.PASS, "Validated re-order from order history");
-	    Thread.sleep (5000);
+	    Thread.sleep (7000);
 		
 	    //**Back to main Shopping Cart
 	    JavascriptExecutor js7 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
