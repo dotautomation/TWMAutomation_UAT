@@ -32,7 +32,6 @@ package com.totalwine.test.checkout;
  */
 import java.io.IOException;
 import java.util.Random;
-import org.testng.Assert;
 import jxl.read.biff.BiffException;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -98,6 +97,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    Thread.sleep(7000);
 	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
+	    Thread.sleep(7000);
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
 	    Thread.sleep(7000);
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
