@@ -1,8 +1,8 @@
 package com.totalwine.test.events;
 
 /*
- *** Workflow:
- * 	1. Log into an account which has pre-existing shopping list  
+ *** Work flow:
+ * 	1. Log into an account which has Pre-existing shopping list  
  * 	2. Click the "Classes & Events" link from the top level nav
  * 	3. Assert the presence of web elements on the Events landing page
  * 	4. Click on the "Save to list" link in a future event
@@ -60,7 +60,7 @@ public class AddEventToShoppingList extends Browser {
 	    // **  Selecting a Event from PDP
 		driver.get(ConfigurationFunctions.accessURL+Event);
 		Thread.sleep(3000);
-		Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");	
+//		Assert.assertEquals(driver.findElements(By.cssSelector("div.event-title")).isEmpty(),false, "If Event title not appear then test will fail");	
 				
 	    //**Adding Event to Shopping List
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
