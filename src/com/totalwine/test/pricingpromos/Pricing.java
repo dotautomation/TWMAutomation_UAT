@@ -103,6 +103,7 @@ public class Pricing extends Browser {
 		//Navigate to ELP
 	    driver.findElement(By.linkText("Classes & Events")).click();
 	    PageLoad(driver);
+	    Thread.sleep (3000);
 	    String elpPrice = driver.findElement(By.cssSelector("span.price")).getText();
 	    		
 		//Click through to first available EDP and validate pricing match on EDP against ELP
