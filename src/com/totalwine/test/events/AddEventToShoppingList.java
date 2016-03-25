@@ -1,8 +1,8 @@
 package com.totalwine.test.events;
 
 /*
- *** Workflow:
- * 	1. Log into an account which has pre-existing shopping list  
+ *** Work flow:
+ * 	1. Log into an account which has Pre-existing shopping list  
  * 	2. Click the "Classes & Events" link from the top level nav
  * 	3. Assert the presence of web elements on the Events landing page
  * 	4. Click on the "Save to list" link in a future event
