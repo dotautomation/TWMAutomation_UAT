@@ -62,7 +62,7 @@ public class NegativeInventoryTest extends Browser {
 	}
 	
 	@Test (dataProvider = "CheckoutParameters",invocationCount=70)
-	public void ISPCheckoutTest (String Location,String StoreName,String PDP,String ISPOption,String Quantity,String Email,String CreditCard,String ExpirationMonth,String ExpirationYear,
+	public void ISPCheckoutNegTest (String Location,String StoreName,String PDP,String ISPOption,String Quantity,String Email,String CreditCard,String ExpirationMonth,String ExpirationYear,
 			String CVV,String FirstName,String LastName,String Company,String Address1,String Address2,String City,String State,String Zip) throws InterruptedException, BiffException, IOException {
 		String[] ProductURL = {"/wine/red-wine/red-blend/bevan-proprietary-red-sugarloaf-mountain-oscar/p/129666750",
 				"/wine/red-wine/merlot/duckhorn-merlot-napa/p/3809750",

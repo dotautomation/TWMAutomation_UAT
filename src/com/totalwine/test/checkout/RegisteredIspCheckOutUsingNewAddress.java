@@ -128,6 +128,7 @@ public class RegisteredIspCheckOutUsingNewAddress extends Browser {
 	    driver.findElement(By.id("addressLineOne")).sendKeys(Address1);
 	    WebElement scroll6 = driver.findElement(By.id("city")); //  ** Scrolling down page
 	    scroll6.sendKeys(Keys.PAGE_DOWN);
+	    Thread.sleep(3000);
 	    driver.findElement(By.id("city")).click();
 	    driver.findElement(By.id("city")).clear();
 	    driver.findElement(By.id("city")).sendKeys(City);
