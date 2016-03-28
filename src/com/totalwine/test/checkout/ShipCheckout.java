@@ -86,22 +86,39 @@ public class ShipCheckout extends Browser {
 	    Thread.sleep(3000);
 	    
 	    // Shopping Cart
-	    driver.findElement(By.id("checkout")).sendKeys(Keys.ARROW_DOWN);
-	    driver.findElement(By.id("zipCode")).click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+	    js.executeScript("arguments[0].click();", driver.findElement(By.id("zipCode")));  
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
+	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
-	    Thread.sleep(3000);
-	    JavascriptExecutor js = (JavascriptExecutor)driver;
-	    //driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);;
-	    js.executeScript("arguments[0].click();",driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")));
+	    Thread.sleep(9000);
+	    PageLoad(driver); 
+	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
+	    Thread.sleep(7000);
 	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
-	    Thread.sleep(3000);
-	    sAssert.assertEquals(driver.findElements(By.cssSelector("div[class=\"width-100 totalDotBorder noBorder ship-cost\"]")).isEmpty(),false,"Shipping cost isn't displayed correctly in cart"); //Validate appearance of shipping cost
-	    sAssert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false,"Promo code field isn't displayed correctly");
-	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false,"Quantity field isn't displayed correctly");
-	    driver.findElement(By.id("checkout")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
+	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
+	    Thread.sleep(5000);
+	    PageLoad(driver); 
+	    
+//	    driver.findElement(By.id("checkout")).sendKeys(Keys.ARROW_DOWN);
+//	    driver.findElement(By.id("zipCode")).click();
+//	    driver.findElement(By.id("zipCode")).clear();
+//	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
+//	    driver.findElement(By.cssSelector("input.anZipForm")).click();
+//	    Thread.sleep(3000);
+//	    JavascriptExecutor js = (JavascriptExecutor)driver;
+//	    //driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);;
+//	    js.executeScript("arguments[0].click();",driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")));
+//	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
+//	    Thread.sleep(3000);
+//	    sAssert.assertEquals(driver.findElements(By.cssSelector("div[class=\"width-100 totalDotBorder noBorder ship-cost\"]")).isEmpty(),false,"Shipping cost isn't displayed correctly in cart"); //Validate appearance of shipping cost
+//	    sAssert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false,"Promo code field isn't displayed correctly");
+//	    Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false,"Quantity field isn't displayed correctly");
+//	    driver.findElement(By.id("checkout")).click();
+//	    Thread.sleep(3000);
 	    
 	    // Next Page (Login/Checkout as a registered user)
 	    Assert.assertEquals(driver.findElements(By.id("j_username")).isEmpty(),false,"Username field isn't displayed correctly");

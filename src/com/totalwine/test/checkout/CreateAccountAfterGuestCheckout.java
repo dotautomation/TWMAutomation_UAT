@@ -169,6 +169,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 
 	    // **  Checkout Tab 3
 	    Checkout.GuestCheckoutTab3(driver);
+	    Thread.sleep(5000);
 
 	    //  ** Order Confirmation
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false, "If Order confirmation msg doesn't appear then test will fail");
