@@ -78,7 +78,7 @@ public class ShoppingListMoveToCart extends Browser {
 	    
 	    //**Inserting item from the Shopping-list into the Shopping Cart
 			    
-	    String ATC1 = driver.findElement(By.cssSelector("li:nth-child(3) > div > div.plp-product-desc-wrap > div.plp-product-row1.plp-product-row1-products > div.plp-product-desc > div > span.plp-product-qty.color-5b5b5b")).getText();
+	    String ATC1 = driver.findElement(By.cssSelector("li:nth-child(2) > div > div.plp-product-desc-wrap > div.plp-product-row1.plp-product-row1-products > div.plp-product-desc > div > span.plp-product-qty.color-5b5b5b")).getText();
 		System.out.println(ATC1);
 		Thread.sleep(2000);
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of site

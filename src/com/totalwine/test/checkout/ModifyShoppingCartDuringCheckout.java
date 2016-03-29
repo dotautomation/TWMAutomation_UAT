@@ -77,8 +77,9 @@ public class ModifyShoppingCartDuringCheckout extends Browser {
 
 		// **  Adding item to Cart
 		ShoppingCart.ATC(driver);
+		Thread.sleep(3000);
 	    driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
 
 	    //  ** Shopping Cart Modification during checkout  		    
 	    WebElement scroll = driver.findElement(By.cssSelector("form#updateCartForm0 > input#qty.cart-qty.numonly"));

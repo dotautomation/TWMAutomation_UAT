@@ -67,11 +67,12 @@ public class AccountProfile extends Browser {
 	    //**Check for presence of merge cart modal
 	    if (driver.findElements(By.cssSelector("button.btn.btn-red.cartMergeBtn")).size()!=0) {
 	    	driver.findElement(By.cssSelector("button.btn.btn-red.cartMergeBtn")).click();
-	    	Thread.sleep(2000);
+	    	Thread.sleep(3000);
 	    }
 	    
 	    //**Navigate to the User Profile link
-	    driver.findElement(PageAccountHome.YourProfile).click();  
+	    driver.findElement(PageAccountHome.YourProfile).click(); 
+	    Thread.sleep(1000);
 	    
 	    //** Editing and verifying "Personal information" 
 	    driver.findElement(PageAccountHome.EditPersonalInfo).click();

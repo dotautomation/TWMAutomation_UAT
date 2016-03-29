@@ -77,6 +77,7 @@ public class ShoppingListSharing extends Browser {
 	    
 	    //** Checking for survey pop-up
 	    Checkout.SurverPopup(driver);
+	    Thread.sleep (3000);
 	    
 	    //**Clicking on E-mail link
 	    driver.findElement(By.cssSelector(".analyticsEmailList")).click();
