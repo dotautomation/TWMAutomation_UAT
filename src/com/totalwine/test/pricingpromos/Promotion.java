@@ -53,11 +53,11 @@ public class Promotion extends Browser {
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 	    //Access cart and apply promotion
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    driver.findElement(By.name("qty")).clear();
 	    driver.findElement(By.name("qty")).sendKeys("12");
 	    
@@ -97,7 +97,7 @@ public class Promotion extends Browser {
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 	    //Access cart and apply promotion
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
@@ -141,7 +141,7 @@ public class Promotion extends Browser {
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 	    //Access cart and apply promotion
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
@@ -183,7 +183,7 @@ public class Promotion extends Browser {
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 	    //Access cart and apply promotion
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
@@ -227,7 +227,7 @@ public class Promotion extends Browser {
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 	    //Access cart and apply promotion
 		driver.get(ConfigurationFunctions.accessURL+"/cart");

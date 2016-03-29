@@ -83,7 +83,7 @@ public class ShipCheckout extends Browser {
 		//driver.findElement(By.cssSelector("button.btn.btn-red.mini-cart-popup.anAddToCart")).click();
 		Thread.sleep (3000);
 	    driver.get(ConfigurationFunctions.accessURL+"/cart");
-	    Thread.sleep(3000);
+	    Thread.sleep(7000);
 	    
 	    // Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight

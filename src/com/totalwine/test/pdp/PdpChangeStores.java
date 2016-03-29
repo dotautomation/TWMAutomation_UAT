@@ -83,7 +83,7 @@ public class PdpChangeStores extends Browser {
 	 	System.out.println(productId);
 	 	Thread.sleep(2000);    
 	 	driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button
-	 	Thread.sleep (3000);
+	 	Thread.sleep (5000);
 	 	driver.get(ConfigurationFunctions.accessURL+"/cart");
 	 	Thread.sleep(3000);
 	 	driver.findElement(By.cssSelector("div.search-right-cont-add-to-cart.analyticsViewCart")).click();

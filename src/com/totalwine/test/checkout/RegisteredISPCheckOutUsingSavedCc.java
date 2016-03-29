@@ -78,6 +78,7 @@ public class RegisteredISPCheckOutUsingSavedCc extends Browser {
 
 		// **  Adding item to Cart
 		ShoppingCart.ATC(driver);
+		Thread.sleep(3000);
 		driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    Thread.sleep(7000);
 	    PageLoad(driver); // Will not trigger the next control until loading the page

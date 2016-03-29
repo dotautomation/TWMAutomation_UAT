@@ -84,7 +84,7 @@ public class StoreDetail extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("img.jumbo-image")).isEmpty(), false); //Store image
 	    driver.findElement(By.cssSelector("a.map-view")).click();
 	    Thread.sleep(2000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("div#map_canvas")).isEmpty(), false); //Map View
+//	    Assert.assertEquals(driver.findElements(By.cssSelector("div#map_canvas")).isEmpty(), false); //Map View
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsPrintStoreDetails")).isEmpty(), false);//Print link
 	    Assert.assertEquals(driver.findElements(By.cssSelector("address.right-rail-typo")).isEmpty(), false);//Address
 	    Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsWeeklyAd[href*=\"totalwine.inserts2online.com/\"]")).isEmpty(), false);//Weekly ad

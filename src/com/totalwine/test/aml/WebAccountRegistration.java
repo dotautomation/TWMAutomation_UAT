@@ -130,7 +130,7 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.cssSelector("input[name=termsAndCondCheck]")).click();
 	    driver.findElement(By.id("btnnuregisteration")).click();
 	    Thread.sleep(6000);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.benefits-desc")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.cssSelector("span.benefits-desc")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[2]/a/span")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[3]/a/span")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.xpath("//form[@id='registerConfForm']/main/section[2]/section/section/div[2]/div[3]/ul/li[4]/a/span")).isEmpty(),false);

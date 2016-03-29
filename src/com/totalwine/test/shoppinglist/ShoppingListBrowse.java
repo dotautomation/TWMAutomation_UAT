@@ -88,7 +88,7 @@ public class ShoppingListBrowse extends Browser {
 	    	driver.findElement(By.xpath("//img[contains(@src,'https://qdistribution.qualtrics.com/WRQualtricsShared/Graphics//black_popup_x.png')]")).click();
 	    Thread.sleep(2000);
 	    
-	    Assert.assertEquals(driver.findElements(By.cssSelector("a.plp-product-title")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.cssSelector("a.plp-product-title")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span.an_ListName")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Store")).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.linkText("Department")).isEmpty(),false);

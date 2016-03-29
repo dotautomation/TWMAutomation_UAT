@@ -53,6 +53,7 @@ public class PreferenceUpdates extends Browser {
 	    
 	    //**Checking for presence of merge cart modal
 	    ShoppingList.MergeCartModal(driver);
+	    Thread.sleep(1000);
 	    
 	    driver.findElement(By.xpath("html/body/main/section/section[1]/div/aside/section/ul[1]/li[1]/ul/li[5]/a/span")).click();
 	    Thread.sleep(1000);

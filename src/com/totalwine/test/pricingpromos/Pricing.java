@@ -93,7 +93,7 @@ public class Pricing extends Browser {
 		//Add to cart, navigate to cart and validate pricing in Cart
 		//String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
 	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button
-	    Thread.sleep (2000);
+	    Thread.sleep (5000);
 	    driver.get(ConfigurationFunctions.accessURL+"/cart");
 	    PageLoad(driver);
 	    String cartUnitPrice = driver.findElement(By.cssSelector("span.price-text")).getText();
