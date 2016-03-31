@@ -52,11 +52,7 @@ public class PdpChangeStores extends Browser {
 	@Test (dataProvider = "PDPParameters")
 	public void PdpChangeStoresTest (String toplevel,String plp,String zip) throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Pdp Change Stores");
-		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
-		
-		//** By Passing Age Gate and Welcome Modal
-		Checkout.AgeGateWelcome(driver);
+		SiteAccess.ActionAccessSite(driver, IP);
 		
 	    Actions action=new Actions(driver);
 		
@@ -71,8 +67,8 @@ public class PdpChangeStores extends Browser {
 		// **  Access the PDP
 		WebElement plpmove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(plpmove).build().perform();
-		driver.findElement(By.cssSelector("a.btn.btn-red.clpviewall")).click();
-		Thread.sleep(5000);
+		//driver.findElement(By.cssSelector("a.btn.btn-red.clpviewall")).click();
+		//Thread.sleep(5000);
 		String winename = driver.findElement(By.cssSelector("a.analyticsProductName")).getText();
 		System.out.println(winename);
 		driver.findElement(By.cssSelector("a.analyticsProductName")).click(); //Click the first item link in the PLP
@@ -83,7 +79,7 @@ public class PdpChangeStores extends Browser {
 	 	System.out.println(productId);
 	 	Thread.sleep(2000);    
 	 	driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button
-	 	Thread.sleep (5000);
+	 	Thread.sleep (3000);
 	 	driver.get(ConfigurationFunctions.accessURL+"/cart");
 	 	Thread.sleep(3000);
 	 	driver.findElement(By.cssSelector("div.search-right-cont-add-to-cart.analyticsViewCart")).click();
