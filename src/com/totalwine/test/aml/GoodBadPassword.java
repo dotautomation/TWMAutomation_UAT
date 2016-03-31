@@ -53,7 +53,7 @@ public class GoodBadPassword extends Browser {
 	
 	@Test (dataProvider = "UserPwdParameters")
 	public void GoodBadPasswordTest (String email,String pwd,String valid) throws InterruptedException {
-		logger=report.startTest("Good/Bad Username/Password Combinations Test");
+		logger=report.startTest("Good/Bad Password Combinations Test");
 		SiteAccess.ActionAccessSite(driver, IP);
 	    
 	    //Access the sign in modal
@@ -80,8 +80,8 @@ public class GoodBadPassword extends Browser {
 	    	Assert.assertEquals(driver.findElement(By.cssSelector(AMLPageHeading)).getText(), "Account Home");
 	    else {
 	    	Assert.assertEquals(driver.findElements(By.cssSelector(AMLPageHeading)).isEmpty(), true);
-//	    	Assert.assertEquals(driver.findElement(By.cssSelector("p.error-msg")).getText(), 
-//	    			"Sorry, the user name or password entered is incorrect. Please try again."); // Invalid password validation
+	    	Assert.assertEquals(driver.findElement(By.cssSelector("p.error-msg")).getText(), 
+	    			"Sorry, the user name or password entered is incorrect. Please try again."); // Invalid password validation
 	    }
 	}
 

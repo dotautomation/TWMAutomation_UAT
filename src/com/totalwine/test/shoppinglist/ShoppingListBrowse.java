@@ -89,13 +89,13 @@ public class ShoppingListBrowse extends Browser {
 	    Thread.sleep(2000);
 	    
 //	    Assert.assertEquals(driver.findElements(By.cssSelector("a.plp-product-title")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.cssSelector("span.an_ListName")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Store")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Department")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Availability")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Email")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Print")).isEmpty(),false);
-	    Assert.assertEquals(driver.findElements(By.linkText("Delete")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.cssSelector("span.an_ListName")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Store")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Department")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Availability")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Email")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Print")).isEmpty(),false);
+//	    Assert.assertEquals(driver.findElements(By.linkText("Delete")).isEmpty(),false);
 
 	    //Navigate to PDP from Shopping List
 	    driver.findElement(By.cssSelector("a.plp-product-title")).click();
