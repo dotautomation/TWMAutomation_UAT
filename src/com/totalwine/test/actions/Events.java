@@ -1,7 +1,6 @@
 package com.totalwine.test.actions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.WebDriver;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.pages.PageSignInModal;
 
@@ -12,7 +11,7 @@ public class Events {
 	    
 	    driver.findElement(PageGlobal.TopNavAccount).click();
 	    Thread.sleep(2000);
-	    driver.findElement(By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn")).click();
+	    driver.findElement(PageGlobal.SignInto).click();
 	    Thread.sleep(2000);
 
 		driver.switchTo().frame("iframe-signin-overlay");
