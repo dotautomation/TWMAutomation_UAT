@@ -31,7 +31,7 @@ import org.openqa.selenium.By;
 		
 		//Account Management
 		//Not logged in
-			public static final By SignUp = By.cssSelector("a.btn.btn-redanalyticsSignUp");
+			public static final By SignUp = By.cssSelector(".btn.btn-red.analyticsSignUp");
 			public static final By SignInto = By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn");
 		//Logged in
 			public static final By LogOut = By.cssSelector("a.analyticsHeaderLink[href*=\"/logout\"]");
