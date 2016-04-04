@@ -108,17 +108,16 @@ public class RegisteredShipCheckOutUsingSavedCc extends Browser {
 	    Thread.sleep(3000);
 
 	    // **  Checkout Tab-1    
-	    driver.findElement(By.cssSelector("div.shippingaddress-option > span#shiporderhere_8863762284567.twm-radio.anShipOrderHere")).click();
+	    driver.findElement(By.cssSelector(".shippingaddress-option>span")).click();
 	    WebElement scroll2 = driver.findElement(By.id("btnShipAuth1")); //  ** Scrolling down page
 	    scroll2.sendKeys(Keys.PAGE_DOWN);
 	    driver.findElement(By.id("btnShipAuth1")).click();
 	    Thread.sleep(2000);
 
-	    // **  Checkout Tab-2
-	    driver.findElement(By.id("card_8813001375786")).click();
-	    Thread.sleep(3000);
-	    WebElement scroll3 = driver.findElement(By.cssSelector(".btn.btn-red.anContinue")); //  ** Scrolling down page
-	    scroll3.sendKeys(Keys.PAGE_DOWN);
+	    // **  Checkout Tab-2 [ Checkout using saved billing address ]
+	    driver.findElement(By.cssSelector(".shippingaddress-option>span")).click();
+	    WebElement scroll6 = driver.findElement(By.cssSelector(".btn.btn-red.anContinue")); //  ** Scrolling down page
+	    scroll6.sendKeys(Keys.PAGE_DOWN);
 	    Thread.sleep(1000);
 	    driver.findElement(By.cssSelector(".btn.btn-red.anContinue")).click();
 	    Thread.sleep(2000);

@@ -50,7 +50,7 @@ public class ConfigurationFunctions {
 	public static final String IEDRIVERPATH = "C:/twmautomation/lib/lib/IEDriverServer.exe";
 	public static final String RESULTSPATH = "C:\\autoreports\\";
 	public static final String TESTLOGIN = "rsud@live.com";
-	public static final String TESTPWD = "yoyo55";
+	public static final String TESTPWD = "grapes123";
 	
 	
 	public static void DeleteCookies() {

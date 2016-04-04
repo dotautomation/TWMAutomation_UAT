@@ -120,7 +120,7 @@ public class ModifyShoppingCartDuringCheckout extends Browser {
 	    Thread.sleep(2000);
 
 	    // **  Checkout Tab-2
-	    driver.findElement(By.id("card_8813001375786")).click();
+	    driver.findElement(By.cssSelector(".shippingaddress-option>span")).click();
 	    
 	    WebElement scroll6 = driver.findElement(By.cssSelector(".btn.btn-red.anContinue")); //  ** Scrolling down page
 	    scroll6.sendKeys(Keys.PAGE_DOWN);
