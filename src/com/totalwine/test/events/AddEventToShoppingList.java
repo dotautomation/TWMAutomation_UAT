@@ -37,7 +37,7 @@ import com.totalwine.test.actions.*;
 public class AddEventToShoppingList extends Browser {
 	
 	public String IP = "72.66.119.61";
-	public String Event = "/events/jun-2016/virginia/mclean?storestatename=214,203,202,201,205";
+	public String Event = "/events/jun-2016/virginia/mclean?storestatename=205,203,201,402,401";
 
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -66,6 +66,8 @@ public class AddEventToShoppingList extends Browser {
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(".btn.btn-brown-pattern.mini-add-list.anAddToListInit")));
 	    Thread.sleep (6000);   
+	    driver.findElement(By.cssSelector("#dWishListName > div > span > i")).click();
+	    Thread.sleep (6000);
 	    driver.findElement(By.cssSelector("#dWishListName > div > div > div > div.jspPane > ul > li:nth-child(2)")).click();
 	    Thread.sleep (6000);
 	    driver.findElement(By.cssSelector("#addToList")).click();

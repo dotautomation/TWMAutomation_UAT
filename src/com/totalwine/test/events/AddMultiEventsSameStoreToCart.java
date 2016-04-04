@@ -37,7 +37,7 @@ import com.totalwine.test.actions.*;
 public class AddMultiEventsSameStoreToCart extends Browser {
 	
 	public String IP = "72.66.119.61";
-	public String Event = "/events/mar-2016/virginia/mclean?storestatename=205";
+	public String Event = "/events/may-2016/virginia/mclean?storestatename=205";
 
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -64,25 +64,31 @@ public class AddMultiEventsSameStoreToCart extends Browser {
 				
 	    //**Adding multiple events from same store to cart
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(1) > div > div.search-main-cont > div.tasting-beer.js-event-item > div.search-desc > div.search-title > h2 > a")));
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(1) > div > div.search-main-cont > div:nth-child(1) > div.search-desc > div.search-title > h2 > a")));
 	    Thread.sleep (3000);
 	    
 	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js2.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(".btn.btn-red.add-to-cart-event.anAddToCart")));
 	    Thread.sleep (3000);
 	    
+	    //**Checking for presence of merge cart modal
+	    ShoppingList.MergeCartModal(driver);
+	    
 		driver.get(ConfigurationFunctions.accessURL+Event);
 		Thread.sleep(3000);
 		
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(2) > div > div.search-main-cont > div.tasting-wine.js-event-item > div.search-desc > div.search-title > h2 > a")));
+	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(2) > div > div.search-main-cont > div.tasting-beer.js-event-item > div.search-desc > div.search-title > h2 > a")));
 	    Thread.sleep (3000);
 	    
 	    JavascriptExecutor js4 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js4.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(".btn.btn-red.add-to-cart-event.anAddToCart")));
 	    Thread.sleep (3000);
+	    
+	    //**Checking for presence of merge cart modal
+	    ShoppingList.MergeCartModal(driver);
 
-	    Assert.assertEquals(driver.findElements(By.cssSelector(".itemsInCart.textAlignCenter")).isEmpty(),false, "If item added in your cart msg doesn't appear then test will fail");
+	    sAssert.assertEquals(driver.findElements(By.cssSelector(".itemsInCart.textAlignCenter")).isEmpty(),false, "If item added in your cart msg doesn't appear then test will fail");
 	    logger.log(LogStatus.PASS, "Validated multiple events added into Shopping cart");
 	    Thread.sleep (3000);
 	}

@@ -108,7 +108,7 @@ public class RegisteredISPCheckOutUsingSavedCc extends Browser {
 	    Thread.sleep(2000);
 
 	    // **  Checkout Tab-2
-	    driver.findElement(By.id("card_8813001375786")).click();
+	    driver.findElement(By.cssSelector(".shippingaddress-option>span")).click();
 	    WebElement scroll3 = driver.findElement(By.cssSelector(".btn.btn-red.anContinue")); //  ** Scrolling down page
 	    scroll3.sendKeys(Keys.PAGE_DOWN);
 	    Thread.sleep(1000);
