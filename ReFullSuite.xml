@@ -7,7 +7,7 @@
 		<classes>
 			<class name="com.totalwine.test.trials.Results" />
 		</classes>
-	</test >
+	</test>
 	<!-- Android Tests -->
 	<test name="Mobile Tests on Android">
 		<parameter name="browser" value="Android">
