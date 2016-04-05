@@ -97,7 +97,7 @@
 			<class name="com.totalwine.test.storelocator.SLPages" />
 			<class name="com.totalwine.test.storelocator.StoreDetail" />
 			<class name="com.totalwine.test.storelocator.SLBrowseByRadius" />
-			<class name="com.totalwine.test.global.TopLevelMenu" />
+			
 			<class name="com.totalwine.test.seo.UserAgentSimulator" />
 		</classes>
 	</test>
