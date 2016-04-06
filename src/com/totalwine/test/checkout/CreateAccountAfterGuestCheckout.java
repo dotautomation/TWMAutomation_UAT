@@ -107,7 +107,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    PageLoad(driver); 
   
 	    //  **  Next Page (Login/Checkout as Guest)
-	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
+	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")));     
 	    Thread.sleep(3000);
 	    PageLoad(driver); 
