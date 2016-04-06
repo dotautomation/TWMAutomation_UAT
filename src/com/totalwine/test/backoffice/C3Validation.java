@@ -22,6 +22,7 @@ package com.totalwine.test.backoffice;
  */
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,8 +40,14 @@ public class C3Validation extends ParallelBrowser {
 	    driver.manage().window().maximize();
 	  }  
 	
-	@Test (invocationCount=20)
-	public void C3LoginTest () throws InterruptedException {
+	@DataProvider(name="CSParameters")
+    public Object[][] createData() {
+    	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"CS", "CSParameters");
+        return(retObjArr);
+    } 
+	
+	@Test (invocationCount=5,dataProvider = "CSParameters")
+	public void C3LoginTest (String customer,String order) throws InterruptedException {
 		logger=report.startTest("CS Cockpit Login Test");
 		driver.get(ConfigurationFunctions.backofficeURL+"/cscockpit");
 		Thread.sleep(5000);
@@ -60,9 +67,9 @@ public class C3Validation extends ParallelBrowser {
 		driver.findElement(By.linkText("Find Customer")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).clear();
-		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).sendKeys("Rajat");
-		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[2]")).clear();
-		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[2]")).sendKeys("Sud");
+		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).sendKeys(customer);
+		//driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[2]")).clear();
+		//driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[2]")).sendKeys("Sud");
 		driver.findElement(By.xpath("//td[text()[contains(.,'Search')]]")).click();
 		Thread.sleep(2000);
 		while (driver.findElements(By.cssSelector("div.z-loading-indicator")).size()!=0)
@@ -82,7 +89,7 @@ public class C3Validation extends ParallelBrowser {
 		driver.findElement(By.linkText("Find Order")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).clear();
-		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).sendKeys("28122029");
+		driver.findElement(By.xpath("//div[contains(@class, 'csSearchPane')]/input[1]")).sendKeys(order);
 		driver.findElement(By.xpath("//td[text()[contains(.,'Search')]]")).click();
 		Thread.sleep(2000);
 		while (driver.findElements(By.cssSelector("div.z-loading-indicator")).size()!=0)

@@ -21,7 +21,9 @@ public class PageProductList {
 	public static final By ListView = By.cssSelector("a.analyticsViewAsList"); //View as list
 	public static final By ListViewDefault = By.cssSelector("a.analyticsViewAsList.active.activeicon"); //Default list view
 	public static final By GridView = By.cssSelector("a.analyticsViewAsGrid"); //View as grid
-	
+	//Messaging
+	public static final By GlobalMessaging = By.cssSelector("section.plp-product-tabs > p.msg-noitems");
+	public static final By PLPMessaging = By.cssSelector("section#plp-product-tab1 > p.msg-noitems");
 	
 	
 	//List View
