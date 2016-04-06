@@ -18,5 +18,10 @@ public class PagePLP {
 	
 	//PLP Grid
 	
-	
+	//Messaging
+	public static final By GlobalMessaging = By.cssSelector("section.plp-product-tabs > p.msg-noitems");
+	public static final By PLPMessaging = By.cssSelector("section#plp-product-tab1 > p.msg-noitems");
+			
+			
+			
 }

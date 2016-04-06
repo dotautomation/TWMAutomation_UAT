@@ -108,6 +108,7 @@
 			<class name="com.totalwine.test.storelocator.SLBrowseByRadius" />
 			<class name="com.totalwine.test.global.TopLevelMenu" />
 			<class name="com.totalwine.test.seo.UserAgentSimulator" />
+			<class name="com.totalwine.test.productlist.PLPMessaging" />
 		</classes>
 	</test>
 	<!-- IE Tests -->
