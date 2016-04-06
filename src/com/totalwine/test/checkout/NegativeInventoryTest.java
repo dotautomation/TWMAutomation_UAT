@@ -39,6 +39,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.Keys;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.trials.Browser;
 
@@ -72,15 +73,7 @@ public class NegativeInventoryTest extends Browser {
 				"/spirits/gin//tanqueray-gin/p/718175",
 				"/beer/ale/stout/irish-dry-stout/guinness-extra-stout/p/3376126"
 				};
-		driver.get(ConfigurationFunctions.locationSet+Location);
-		Thread.sleep(5000);
-		if (driver.findElements(By.id("btnYes")).size()!=0)
-			driver.findElement(By.id("btnYes")).click();
-		Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
-	    Thread.sleep(5000);
-	    Assert.assertEquals(StoreName, driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText());
-	    ConfigurationFunctions.highlightElement(driver,driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")));
+		SiteAccess.ActionAccessSite(driver, Location);
 		
 		// Add to Cart
 		driver.get(ConfigurationFunctions.accessURL+PDP);
