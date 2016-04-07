@@ -59,7 +59,8 @@ public class NegativeInventoryTest extends Browser {
 				"/spirits/tequila/blanco-silver/sauza-hornitos-plata-tequila/p/103361750",
 				"/wine/red-wine/rhone-blend/domaine-fontanyl-cotes-de-provence/p/100452750",
 				"/wine/white-wine/chardonnay/muirwood-chardonnay-arroyo-seco/p/94390750",
-				"/spirits/gin//tanqueray-gin/p/718175",
+				//"/spirits/gin//tanqueray-gin/p/718175",
+				"/rum/aged-rum/ron-zacapa-23yr-centenario-rum/p/15593750-1",
 				"/beer/ale/stout/irish-dry-stout/guinness-extra-stout/p/3376126"
 				};
 		logger=report.startTest("Negative Inventory Test");
