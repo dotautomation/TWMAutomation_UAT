@@ -69,6 +69,7 @@ public class NegativeInventoryTest extends Browser {
 		if (driver.findElements(By.id("btnYes")).size()!=0)
 			driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
+
 		
 		// Add to Cart
 		driver.get(ConfigurationFunctions.accessURL+"/spirits/liqueurs-cordials-schnapps/herbal-spice/herbal-blend/drambuie-15-yr/p/120661750");
