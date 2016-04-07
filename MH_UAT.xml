@@ -6,6 +6,7 @@
 <test name="MH_UAT_Scripts">
 <parameter name="browser" value="Chrome"> </parameter>
 <classes>
+
 <class name="com.totalwine.test.checkout.GuestShipCheckout"/>
 <class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
 <class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
@@ -29,6 +30,9 @@
 <class name="com.totalwine.test.events.PastEvents"/>    
 <class name="com.totalwine.test.events.ValidateLareOnElp"/>
 <class name="com.totalwine.test.pricingpromos.RemovePromoCode"/> 
+<class name="com.totalwine.test.review.CustomerReview"/>
+<class name="com.totalwine.test.review.SocialWidget"/>
+
 </classes>
 </test>
 <!-- End of Desktop -->
