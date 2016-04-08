@@ -12,6 +12,7 @@
 <class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
 <class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc"/>
 <class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout"/>
+<class name="com.totalwine.test.checkout.NewUserRegistration"/>
 <class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/> 
 <class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
 <class name="com.totalwine.test.aml.PreferenceUpdates"/> 
