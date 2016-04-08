@@ -135,7 +135,10 @@ public class CustomerReview extends Browser {
 	    WebElement element2 = driver.findElement(By.cssSelector(".opt-ship-state-data.anOption[data-val='1005']"));  
 	    new Actions(driver).moveToElement(element2).perform();  
 	    element2.click();
-
+    
+//	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+//	    js2.executeScript("arguments[0].click;", driver.findElement(By.cssSelector("div:nth-child(2) > div > div > div > div > div.jspPane > ul > li:nth-child(1)")));
+	    
 	    driver.findElement(By.cssSelector("#checkbox2")).click();
 	    driver.findElement(By.cssSelector("#checkbox3")).click();
 	    
