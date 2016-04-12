@@ -80,10 +80,10 @@ public class CustomerReview extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.css-details-pd")).isEmpty(),false);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 
 	    driver.findElement(By.cssSelector("#BVRRRatingSummaryLinkWriteID>a")).click();
 	    Thread.sleep(6000);
@@ -120,25 +120,29 @@ public class CustomerReview extends Browser {
 	    scroll2.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
 	    driver.findElement(By.cssSelector("#address1")).sendKeys(Address1);
 	    driver.findElement(By.cssSelector("#city")).sendKeys(City);
+	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("div:nth-child(10) > div > div > span > i")).click();
-	    Thread.sleep(1000);
+	    Thread.sleep(3000);
 	    WebElement element1 = driver.findElement(By.cssSelector("div:nth-child(10) > div > div > div > div > div.jspPane > ul > li:nth-child(54)"));  
 	    new Actions(driver).moveToElement(element1).perform();  
+	    Thread.sleep(2000);
 	    element1.click();
+	    Thread.sleep(2000);
 
 	    driver.findElement(By.cssSelector("#zipCode")).sendKeys(Zip);
+	    Thread.sleep(1000);
 	    WebElement scroll3 = driver.findElement(By.cssSelector("#btnnuregisteration"));  
 	    scroll3.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
+	    Thread.sleep(2000);
 	    
 	    driver.findElement(By.cssSelector("div.form_field-elements > div:nth-child(2) > div > div > span > i")).click();
 	    Thread.sleep(5000);
 	    WebElement element2 = driver.findElement(By.cssSelector(".opt-ship-state-data.anOption[data-val='1005']"));  
 	    new Actions(driver).moveToElement(element2).perform();  
+	    Thread.sleep(2000);
 	    element2.click();
-    
-//	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-//	    js2.executeScript("arguments[0].click;", driver.findElement(By.cssSelector("div:nth-child(2) > div > div > div > div > div.jspPane > ul > li:nth-child(1)")));
-	    
+	    Thread.sleep(2000);
+
 	    driver.findElement(By.cssSelector("#checkbox2")).click();
 	    driver.findElement(By.cssSelector("#checkbox3")).click();
 	    
@@ -167,7 +171,8 @@ public class CustomerReview extends Browser {
 	    driver.findElement(By.cssSelector("#BVProTextBox1ID")).sendKeys(DescribeItem);
 	    Thread.sleep(1000);
 
-	    driver.findElement(By.cssSelector("#BVFieldUsernicknameID")).sendKeys(NickName);
+//	    driver.findElement(By.cssSelector("#BVFieldUsernicknameID")).sendKeys(NickName);
+	    driver.findElement(By.cssSelector("#BVFieldUsernicknameID")).sendKeys("nick"+randomNum+"name"+randomNum_2+"test");
 	    Thread.sleep(1000);
 
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of site
