@@ -121,7 +121,7 @@ public class ShipCheckout extends Browser {
 	    scroll6.sendKeys(Keys.PAGE_DOWN);
 	    Thread.sleep(1000);
 	    driver.findElement(By.cssSelector("#btnShipAuth1")).click();
-	    Thread.sleep(2000);
+	    Thread.sleep(5000);
 
 	    // Checkout Tab 2
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.billing-tab")).isEmpty(),false,"Shipping Tab 2 isn't displayed correctly");
@@ -131,9 +131,9 @@ public class ShipCheckout extends Browser {
 	    driver.findElement(By.cssSelector(".shippingaddress-option>span")).click();	    
 	    WebElement scroll7 = driver.findElement(By.cssSelector(".btn.btn-red.anContinue")); //  ** Scrolling down page
 	    scroll7.sendKeys(Keys.PAGE_DOWN);
-	    Thread.sleep(1000);
-	    driver.findElement(By.cssSelector(".btn.btn-red.anContinue")).click();
 	    Thread.sleep(2000);
+	    driver.findElement(By.cssSelector(".btn.btn-red.anContinue")).click();
+	    Thread.sleep(5000);
 	    
 	    // Checkout Tab 3
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.review-tab")).isEmpty(),false,"Shipping Tab 3 isn't displayed correctly");
@@ -147,7 +147,7 @@ public class ShipCheckout extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total co-pr-item-total\"]")).isEmpty(),false,"Total Price isn't displayed correctly on Tab 3");
 	    driver.findElement(By.id("check_box_age")).click();
 	    driver.findElement(By.cssSelector("button.btn-red.btn-place-order.anPlaceOrder")).click();
-	    Thread.sleep(10000);
+	    Thread.sleep(5000);
 	    
 	    // Order Confirmation 
 //	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-help-link")).isEmpty(),false,"The help link isn't displayed on the Order confirmation page");
