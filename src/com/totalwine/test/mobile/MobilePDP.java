@@ -3,9 +3,9 @@ package com.totalwine.test.mobile;
 /*
  * Browse Event Workflow
  * Workflow:
- * 	1. Click the "Classes & Events" link from the top level nav
- * 	2. Assert the presence of web elements on the Events landing page
- * 	3. Click on the first event displaying on the Events landing page, navigating to the Events detail page.
+ * 	1. Access to PDP from the top navigation
+ * 	2. Access Mobile PDP for first item on PLP
+ * 	3. Validate contents of Mobile PLP
  * 	4. Assert the presence of web elements on on the Events detail page.
  *  
  * Technical Modules:
@@ -23,13 +23,12 @@ package com.totalwine.test.mobile;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import com.totalwine.test.config.ConfigurationFunctions;
+import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
-
 
 public class MobilePDP extends Browser {
 	
@@ -40,9 +39,7 @@ public class MobilePDP extends Browser {
 		logger=report.startTest("Mobile PDP Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		if (driver.findElement(By.id("btn-continue")).isDisplayed())
-			driver.findElement(By.id("btn-continue")).click();
-		driver.findElement(By.id("btnYes")).click();
+		driver.findElement(PageGlobal.AgeGateYes).click();
 		Thread.sleep(5000);
 		
 		//Click on Wine

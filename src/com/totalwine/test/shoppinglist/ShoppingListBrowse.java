@@ -67,7 +67,7 @@ public class ShoppingListBrowse extends Browser {
         WebElement webelement= driver.switchTo().activeElement();
 	    webelement.click();
 	    driver.findElement(By.id("j_username")).clear();
-	    driver.findElement(By.id("j_username")).sendKeys("rsud@totalwine.com");
+	    driver.findElement(By.id("j_username")).sendKeys("mhossain@totalwine.com");
 	    driver.findElement(By.id("j_password")).clear();
 	    driver.findElement(By.id("j_password")).sendKeys("grapes123");
 	    driver.findElement(By.xpath("//button[@type='button']")).click();
@@ -102,8 +102,8 @@ public class ShoppingListBrowse extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.pdp-wrapper")).isEmpty(),false);
 	    
 	    //Validate Login and then Log out
-	    Assert.assertEquals(driver.findElements(By.linkText("Welcome, Rajat")).isEmpty(),false);
-	    driver.findElement(By.linkText("Welcome, Rajat")).click();
+	    Assert.assertEquals(driver.findElements(By.linkText("Welcome, Md")).isEmpty(),false);
+	    driver.findElement(By.linkText("Welcome, Md")).click();
 	    driver.findElement(By.linkText("Log out")).click();
 	    Thread.sleep(5000);
 	    Assert.assertEquals(driver.findElements(By.linkText("Sign In/Register")).isEmpty(),false);

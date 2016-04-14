@@ -24,13 +24,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
-import com.totalwine.test.pages.PageSignInModal;
 import com.totalwine.test.trials.Browser;
+import com.totalwine.test.actions.*;
 
 public class LARERules extends Browser {
 	
@@ -92,25 +90,16 @@ public class LARERules extends Browser {
 	public void LAREAlwaysUseProfileTest () throws InterruptedException {
 		//Rule: Profile Store set to Always Use
 		//Action: User accesses site and then logs in
-		//Validation: Global store header changes to the profile store marked as always use (rsud@totalwine.com/grapes123)
+		//Validation: Global store header changes to the profile store marked as always use (mhossain@totalwine.com/grapes123)
 		logger=report.startTest("LARE Profile Set to Always Use Test");
 		connect(IP);
-		driver.findElement(PageGlobal.TopNavAccount).click();
-		Thread.sleep(2000);
-	    driver.findElement(By.linkText("Sign into your account")).click();
-		Thread.sleep(3000);
-		driver.switchTo().frame("iframe-signin-overlay");
-		driver.findElement(PageSignInModal.ModalUsername).clear();
-		driver.findElement(PageSignInModal.ModalUsername).sendKeys("rsud@totalwine.com");
-		driver.findElement(PageSignInModal.ModalPassword).clear();
-		driver.findElement(PageSignInModal.ModalPassword).sendKeys("grapes123");
-		//driver.findElement(By.cssSelector("section#sign-in-overlay > div.sign-in-container > div.form-container > div.loginform-wrapper > div.form-left > input#j_username")).sendKeys("rsud@totalwine.com");
-	    //driver.findElement(By.cssSelector("section#sign-in-overlay > div.sign-in-container > div.form-container > div.loginform-wrapper > div.form-right> input#j_password")).sendKeys("grapes123");
-	    driver.findElement(By.cssSelector("button.btn.btn-red.anLoginSubmit")).click();
+		
+		//** By Passing Age Gate and Welcome Modal
+		Events.CustomLogin(driver);
+		PageLoad(driver); // Will not trigger the next control until loading the page
 	    Thread.sleep(5000);
 	    driver.switchTo().activeElement();
-//	    sAssert.assertEquals(driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText(),"Fairfax, VA","The site session wasn't correctly displayed");
-	    sAssert.assertAll();
+//	    sAssert.assertAll();
 	}
 	
 	@Test
@@ -123,11 +112,11 @@ public class LARERules extends Browser {
 		Thread.sleep(5000);
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
+		
 		//Location Intercept
 		Assert.assertEquals(driver.findElements(PageGlobal.LocationInterceptNo).isEmpty(),false);
 	    Assert.assertEquals(driver.findElements(By.id("btnSelectLocation")).isEmpty(),false);
 	    driver.findElement(PageGlobal.LocationInterceptNo).click();
-	    //driver.findElement(By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close")).click();
 //	    sAssert.assertEquals(driver.findElement(By.cssSelector("span.store-details-store-name.flyover-src")).getText(),"Sacramento (Arden), CA","The site session wasn't correctly displayed");
 //	    sAssert.assertAll();
 	}
