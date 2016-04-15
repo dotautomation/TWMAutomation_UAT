@@ -27,21 +27,15 @@ package com.totalwine.test.checkout;
  */
 
 import java.io.IOException;
-
 import jxl.read.biff.BiffException;
-
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
-import org.openqa.selenium.Keys;
-
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
-import com.totalwine.test.pages.*;
 import com.totalwine.test.trials.Browser;
 
 public class ISPCheckout extends Browser {
@@ -54,14 +48,13 @@ public class ISPCheckout extends Browser {
     public Object[][] createData() {
     	Object[][] retObjArr=ConfigurationFunctions.getTableArray(ConfigurationFunctions.resourcePath,"Checkout", "ISPcheckoutUAT");
         return(retObjArr);
-    } 
+    }
 	
 	@BeforeMethod
 	  public void setUp() throws Exception {
 		//driver = new FirefoxDriver(testProfile);
 	    driver.manage().window().maximize();	
-		   
-	  }  
+	  } 
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void ISPCheckoutTest (String Location,String StoreName,String PDP,String ISPOption,String Quantity,String Email,String CreditCard,String ExpirationMonth,String ExpirationYear,
@@ -75,18 +68,14 @@ public class ISPCheckout extends Browser {
 		driver.get(PDP);
 		Thread.sleep(3000);
 		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
-	    //driver.findElement(By.xpath("(//button[@id='"+productId+"'])[3]")).click(); //Clicking the ATC button
 		Assert.assertEquals(driver.findElements(By.xpath("(//button[@id='"+productId+"'])[2]")).isEmpty(), false,"The ATC button isn't on the PDP indicating that the test item may be OOS");
 		driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click();
-
 	    Thread.sleep (2000);
-	    //driver.findElement(By.cssSelector("div.cart-popup")).click();
 	    driver.get("http://twmuatwebserver:webserveruattwm@uat.totalwine.com/cart");
 	    Thread.sleep(3000);
 	    
 	    // Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;
-	    //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).sendKeys(Keys.ARROW_DOWN);
 	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")));
 	    js.executeScript("arguments[0].click();",driver.findElement(By.cssSelector("li[data-val="+ISPOption+"]")));
 	    Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false,"Promo code field isn't correctly displayed");
@@ -107,7 +96,6 @@ public class ISPCheckout extends Browser {
 	    // Checkout Tab 1
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.instorepickup-tab")).isEmpty(),false,"The in store pickup tab title isn't correctly displayed on Tab 1");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("a.analyticsEditCart")).isEmpty(),false,"The Edit Cart link isn't displayed on Tab 2");
-	    //Assert.assertEquals(driver.findElements(By.cssSelector("a.analyticsPromoCode")).isEmpty(),false);
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.instorepickup > h2")).isEmpty(),false,"In store pickup heading isn't correctly displayed");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.giftmessage > div.checkStyle > label")).isEmpty(),false,"Gift messaging section isn't correctly displayed");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("section.someoneelsepicking > div.checkStyle > label")).isEmpty(),false,"3rd party pickup section isn't correctly displayed");
@@ -128,13 +116,11 @@ public class ISPCheckout extends Browser {
 	    driver.findElement(By.id("ssl_account_data")).sendKeys(CreditCard);
 	    driver.findElement(By.id("custom_card_type")).click();
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder month\"]")).click();
-	    //driver.findElement(By.xpath("//td[2]/div/div/div/div/div/div/ul/li[2]")).click();
 	    Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("div.contSelect.jspScrollable > div > div > ul > li[data-val=\"02\"]")).click(); //February
+	    driver.findElement(By.xpath("//td[2]/div/div/div/div/div/div/ul/li[2]")).click();
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder year\"]")).click();
-	    //driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]")).click();
 	    Thread.sleep(5000);
-	    driver.findElement(By.cssSelector("div.contSelect.jspScrollable > div > div > ul > li[data-val=\"18\"]")).click(); //2018
+	    driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]")).click();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).clear();
 	    driver.findElement(By.id("ssl_cvv2cvc2")).sendKeys(CVV);
 	    driver.findElement(By.id("ssl_first_name")).clear();
@@ -161,7 +147,6 @@ public class ISPCheckout extends Browser {
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-instore\"]")).isEmpty(),false,"In-store pickup section isn't displayed properly");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-pymnt\"]")).isEmpty(),false,"Payment details section isn't displayed properly");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("li[class=\"co-rvw co-rvw-billing\"]")).isEmpty(),false,"Billing address section isn't displayed properly");
-	    //Assert.assertEquals(driver.findElements(By.cssSelector("div.plp-list-img-wdlogo > img")).isEmpty(),false);
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_1\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[data-attr=\"itemPrice_2\"]")).isEmpty(),false,"The item price isn't displayed correctly on Checkout Tab 3");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("span[class=\"price-text item-total anTax\"]")).isEmpty(),false,"The tax isn't displayed correctly on Checkout Tab 3");
@@ -171,7 +156,6 @@ public class ISPCheckout extends Browser {
 	    Thread.sleep(10000);
 	    
 	    // Order Confirmation
-	    //Assert.assertEquals(driver.findElements(By.linkText("Post to Facebook")).isEmpty(),false);
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-help-link")).isEmpty(),false,"The help link isn't displayed on the Order confirmation page");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false,"The thank-you text isn't displayed on the Order confirmation page");
 	    sAssert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);
