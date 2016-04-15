@@ -1,6 +1,6 @@
 package com.totalwine.test.aml;
 /*
- **** Account Home
+ **** Address Book
  **** Work flow : 
  *  Click on "Account" > "Sign into your account"  (from the header) or "Account info" > "Account login" in footer section 
  *  In the Sign in popup > Signin using registered email and Password.
