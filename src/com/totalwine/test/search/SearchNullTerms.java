@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -59,7 +60,7 @@ public class SearchNullTerms {
 	    SiteAccess.ActionAccessSite(driver, "71.193.51.0");
 	    
 	    //Input file (excel)
-	    inputWorkbook = Workbook.getWorkbook(new File("Search.xls"));
+	    inputWorkbook = Workbook.getWorkbook(new File("BlankDebug.xls"));
 	    Sheet inputSheet = inputWorkbook.getSheet(0);
 	    int rowCount = inputSheet.getRows();
 	    String SearchTerm,SearchType; //SearchType Options = all,product,event,content
@@ -114,6 +115,9 @@ public class SearchNullTerms {
 				for (int elementCount=1;elementCount<=searchResultsCount;elementCount++) {
 					for (int catCount=1;catCount<=driver.findElements(By.xpath("//li["+elementCount+"]/div/div/div/div/a")).size();catCount++) {
 						facetResult+=driver.findElement(By.xpath("//li["+elementCount+"]/div/div/div/div/a["+catCount+"]")).getText()+"|";
+						//Debugging
+						if (facetResult.equals("")) Assert.assertTrue(false);
+						//
 					}
 					searchResult+=driver.findElement(By.xpath("//li["+elementCount+"]/div/div/div/h2/a")).getText().replaceAll(",", "")
 							+"("
