@@ -34,9 +34,10 @@ public void MobileStoreLocatorTest () throws InterruptedException {
 	driver.get(ConfigurationFunctions.locationSet+IP);
 	Thread.sleep(5000);
 	driver.findElement(PageGlobal.AgeGateYes).click();
-	Thread.sleep(5000);
+	Thread.sleep(7000);
 	//Click "Find a store" from top nav
 	driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
+//	driver.findElement(By.cssSelector("div.parent-header-wrapper > div > ul > li.hide-on-scroll > a")).click();
 	Thread.sleep(3000);
 
 	//Store Finder
