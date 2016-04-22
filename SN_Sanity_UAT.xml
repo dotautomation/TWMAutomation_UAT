@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SN Sanity Test - UAT" verbose="2">
+
+	<!-- IE Tests -->
+	<test name="Tests on IE 11">
+		<parameter name="browser" value="IE">
+		</parameter>
+		<classes>
+			
+			<!-- agegating -->
+			<class name="com.totalwine.test.agegating.AgeGate"/>
+			
+			<!-- aml -->
+			<class name="com.totalwine.test.aml.GoodBadPassword"/>
+			<class name="com.totalwine.test.aml.PreferenceUpdates"/>
+			<class name="com.totalwine.test.aml.AccountHome"/>
+			<class name="com.totalwine.test.aml.AccountProfile"/>
+			<class name="com.totalwine.test.aml.AddressBook"/>
+			<class name="com.totalwine.test.aml.LoginLogout"/>
+			<class name="com.totalwine.test.aml.EmailSignup" />
+			
+			<!-- brandpages -->
+			<class name="com.totalwine.test.brandpages.BrandList" />
+			<class name="com.totalwine.test.brandpages.BrandStoryTelling"/>
+			<class name="com.totalwine.test.brandpages.AllBrands"/>
+			
+			<!-- checkout -->
+			<class name="com.totalwine.test.checkout.ShipCheckout"/>
+			<class name="com.totalwine.test.checkout.ISPCheckout"/>
+			<class name="com.totalwine.test.checkout.GuestShipCheckout"/>
+			<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
+			<class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc"/>
+			<class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
+			<class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout"/>
+			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/>
+			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
+			<class name="com.totalwine.test.checkout.NewUserRegistration"/>
+			
+			<!-- categorylanding -->
+			<class name="com.totalwine.test.categorylanding.CatLandNav"/>
+			
+			<!-- events -->
+			<class name="com.totalwine.test.events.BrowseEvent"/>
+			<class name="com.totalwine.test.events.AddEventToShoppingList"/>
+			<class name="com.totalwine.test.events.AddMultiEventsDifferentStoreToCart"/>
+			<class name="com.totalwine.test.events.AddMultiEventsSameStoreToCart"/>
+			<class name="com.totalwine.test.events.BrowseSoldOutEvent"/>
+			<class name="com.totalwine.test.events.PastEvents"/>    
+			<class name="com.totalwine.test.events.ValidateLareOnElp"/>
+			
+			<!-- global -->
+			<class name="com.totalwine.test.global.TopLevelMenu"/>
+			
+			<!-- lare -->
+			<class name="com.totalwine.test.lare.LARERules"/>
+			
+			<!-- pdp -->
+			<class name="com.totalwine.test.pdp.PDPTabs"/>
+			<class name="com.totalwine.test.pdp.PdpChangeStores"/>
+			
+			<!-- productlist -->
+			<class name="com.totalwine.test.productlist.PLPMessaging"/>
+			<class name="com.totalwine.test.productlist.PLPGridView"/>
+			<class name="com.totalwine.test.productlist.DefaultTabsBehavior"/>
+			
+			<!-- pricingpromos -->
+			<class name="com.totalwine.test.pricingpromos.Pricing"/>
+			<class name="com.totalwine.test.pricingpromos.Promotion"/>
+			<class name="com.totalwine.test.pricingpromos.RemovePromoCode"/>
+
+			<!-- review -->
+			<class name="com.totalwine.test.review.CustomerReview"/>
+			<class name="com.totalwine.test.review.SocialWidget"/>
+			
+			<!-- search -->
+			<class name="com.totalwine.test.search.Search" />
+			<class name="com.totalwine.test.search.SearchNullTerms"/>
+			
+			<!-- shoppinglist -->
+			<class name="com.totalwine.test.shoppinglist.ShoppingListAddItem"/>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListSorting"/>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListMoveToCart"/>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListSharing"/>
+			<class name="com.totalwine.test.shoppinglist.ShoppingListBrowse"/>
+			
+			<!-- shoppingcart -->
+			<class name="com.totalwine.test.shoppingcart.ShoppingCartAll"/>
+
+			<!-- sitenav -->
+			<class name="com.totalwine.test.sitenav.LeftNavigation"/>
+			
+			<!-- storelocator -->
+			<class name="com.totalwine.test.storelocator.SLGeoLocate"/>
+			<class name="com.totalwine.test.storelocator.SLSearch"/>
+			<class name="com.totalwine.test.storelocator.SLBrowseState"/>
+			<class name="com.totalwine.test.storelocator.SLPages"/>
+			<class name="com.totalwine.test.storelocator.StoreDetail"/>
+			<class name="com.totalwine.test.storelocator.SLBrowseByRadius"/>
+			
+			<!-- seo -->
+			<class name="com.totalwine.test.seo.UserAgentSimulator"/>
+
+		</classes>
+	</test>
+	
+</suite>
