@@ -2,65 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="DOT Desktop Regression Test Suite" verbose="2">
-	<!-- Results Archiving -->
-	<test name="Archiving Results">
-		<classes>
-			<class name="com.totalwine.test.trials.Results" />
-		</classes>
-	</test>
-	<!-- Android Tests -->
-	<test name="Mobile Tests on Android">
-		<parameter name="browser" value="Android">
+
+	<!-- IE Tests -->
+	<test name="Tests on IE">
+		<parameter name="browser" value="IE">
 		</parameter>
 		<classes>
-			<class name="com.totalwine.test.mobile.MobileHomePage" />
-			<class name="com.totalwine.test.mobile.MobilePDP" />
-			<class name="com.totalwine.test.mobile.MobileBrowseEvent" />
-			<class name="com.totalwine.test.mobile.MobileStoreLocator" />
-			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
-		</classes>
-	</test>
-	<!-- iPhone (iOS) Tests -->
-	<test name="Mobile Tests on iOS">
-		<parameter name="browser" value="iOS">
-		</parameter>
-		<classes>
-			<class name="com.totalwine.test.mobile.MobileHomePage" />
-			<class name="com.totalwine.test.mobile.MobilePDP" />
-			<class name="com.totalwine.test.mobile.MobilePLPSort" />
-			<class name="com.totalwine.test.mobile.MobilePLPFilter" />
-			<class name="com.totalwine.test.mobile.MobileBrowseEvent" />
-			<class name="com.totalwine.test.mobile.MobileWebRegistration" />
-			<class name="com.totalwine.test.mobile.MobileStoreLocator" />
-			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout" />
-		</classes>
-	</test>
-	<!-- End of Mobile -->
-	<!-- Firefox Tests -->
-	<test name="Tests on FF">
-		<parameter name="browser" value="FF">
-		</parameter>
-		<classes>
-			<class name="com.totalwine.test.aml.WebAccountRegistration" />
 			<class name="com.totalwine.test.events.BrowseEvent" />
-			<class name="com.totalwine.test.productlist.Filter" />
-			<class name="com.totalwine.test.checkout.ISPCheckout" />
-			<class name="com.totalwine.test.productlist.Sort" />
-			<class name="com.totalwine.test.search.Search" />
-			<class name="com.totalwine.test.categorylanding.CatLandNav" />
-			<class name="com.totalwine.test.shoppinglist.ShoppingListBrowse" />
-			<class name="com.totalwine.test.agegating.AgeGate" />
-			<class name="com.totalwine.test.pdp.PDPTabs" />
-			<class name="com.totalwine.test.lare.LARERules" />
-			<class name="com.totalwine.test.productlist.PLPListView" />
-			<class name="com.totalwine.test.pricingpromos.Pricing"/>
-		</classes>
-	</test>
-	<!-- Chrome Tests -->
-	<test name="Tests on Chrome">
-		<parameter name="browser" value="Chrome">
-		</parameter>
-		<classes>
 			<class name="com.totalwine.test.aml.GoodBadPassword" />
 			<class name="com.totalwine.test.aml.PreferenceUpdates" />
 			<class name="com.totalwine.test.aml.AccountHome"/>
@@ -75,7 +23,6 @@
 			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress" />
 			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress" />
 			<class name="com.totalwine.test.checkout.NewUserRegistration" />
-			<class name="com.totalwine.test.events.BrowseEvent" />
 			<class name="com.totalwine.test.events.AddEventToShoppingList"/>
 			<class name="com.totalwine.test.events.AddMultiEventsDifferentStoreToCart"/>
 			<class name="com.totalwine.test.events.AddMultiEventsSameStoreToCart"/>
@@ -111,22 +58,15 @@
 			<class name="com.totalwine.test.global.TopLevelMenu" />
 			<class name="com.totalwine.test.seo.UserAgentSimulator" />
 			<class name="com.totalwine.test.productlist.PLPMessaging" />
+			<class name="com.totalwine.test.aml.WebAccountRegistration" />
+			<class name="com.totalwine.test.productlist.Filter" />
+			<class name="com.totalwine.test.checkout.ISPCheckout" />
+			<class name="com.totalwine.test.productlist.Sort" />
+			<class name="com.totalwine.test.shoppinglist.ShoppingListBrowse" />
+			<class name="com.totalwine.test.pdp.PDPTabs" />
+			<class name="com.totalwine.test.productlist.PLPListView" />
+			<class name="com.totalwine.test.pricingpromos.Pricing"/>
 		</classes>
 	</test>
-	<!-- IE Tests -->
-	<test name="Tests on IE">
-		<parameter name="browser" value="IE">
-		</parameter>
-		<classes>
-			<class name="com.totalwine.test.events.BrowseEvent" />
-		</classes>
-	</test>
-	<!-- iPad Tests -->
-	<test name="Tests on iPad">
-		<parameter name="browser" value="iPad">
-		</parameter>
-		<classes>
-			<class name="com.totalwine.test.pricingpromos.Pricing" />
-		</classes>
-	</test>
+
 </suite>
