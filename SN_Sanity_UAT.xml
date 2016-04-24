@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="SN Sanity Test - UAT" verbose="2">
+<suite name="SNSanityTest-UAT" verbose="2">
 
 	<!-- IE Tests -->
 	<test name="Tests on IE 11">
