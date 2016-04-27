@@ -25,4 +25,14 @@ public class SiteAccess {
 		driver.findElement(By.id("btnYes")).click();
 		Thread.sleep(5000);
 	}
+
+	public static void ActionAccessMobileAgeGate(WebDriver driver) throws InterruptedException {	
+		if (driver.findElement(PageGlobal.AgeGateYes).isDisplayed())
+			driver.findElement(PageGlobal.AgeGateYes).click();
+		else {
+            System.out.println("Age gate is not displaying");
+		}
+		Thread.sleep(4000);
+	}
+	
 }

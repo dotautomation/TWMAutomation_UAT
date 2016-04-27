@@ -115,9 +115,11 @@ public class ISPCheckout extends Browser {
 	    driver.findElement(By.id("ssl_account_data")).clear();
 	    driver.findElement(By.id("ssl_account_data")).sendKeys(CreditCard);
 	    driver.findElement(By.id("custom_card_type")).click();
+	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder month\"]")).click();
 	    Thread.sleep(5000);
-	    driver.findElement(By.xpath("//td[2]/div/div/div/div/div/div/ul/li[2]")).click();
+	    driver.findElement(By.xpath("//td[2]/div/div/div/div/div/div/ul/li[2]")).click();	    
+	    Thread.sleep(3000);
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder year\"]")).click();
 	    Thread.sleep(5000);
 	    driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]")).click();
@@ -136,7 +138,9 @@ public class ISPCheckout extends Browser {
 	    driver.findElement(By.id("ssl_city")).clear();
 	    driver.findElement(By.id("ssl_city")).sendKeys(City);
 	    driver.findElement(By.xpath("//table[@id='tblAddress']/tbody/tr[7]/td[2]/div/div/span")).click();
+	    Thread.sleep(3000);
 	    driver.findElement(By.cssSelector("li[data-val=\""+State+"\"]")).click();
+	    Thread.sleep(2000);
 	    driver.findElement(By.id("ssl_avs_zip")).clear();
 	    driver.findElement(By.id("ssl_avs_zip")).sendKeys(Zip);
 	    driver.findElement(By.name("process")).click();
