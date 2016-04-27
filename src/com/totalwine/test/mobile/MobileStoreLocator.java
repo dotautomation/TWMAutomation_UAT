@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
@@ -36,6 +37,7 @@ public void MobileStoreLocatorTest () throws InterruptedException {
 	driver.findElement(PageGlobal.AgeGateYes).click();
 	Thread.sleep(7000);
 	//Click "Find a store" from top nav
+	SiteAccess.ActionAccessMobileAgeGate(driver);
 	driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
 //	driver.findElement(By.cssSelector("div.parent-header-wrapper > div > ul > li.hide-on-scroll > a")).click();
 	Thread.sleep(3000);
@@ -44,6 +46,7 @@ public void MobileStoreLocatorTest () throws InterruptedException {
     Assert.assertEquals(driver.findElements(By.cssSelector("button#findStoresNearMe")).isEmpty(),false);
     
     //Search by state (dropdown)
+    SiteAccess.ActionAccessMobileAgeGate(driver);
     Select stateSearch = new Select(driver.findElement(By.cssSelector("select.store-loc-search-by-state")));
     Thread.sleep(2000);
     stateSearch.selectByVisibleText("Virginia");
@@ -54,6 +57,7 @@ public void MobileStoreLocatorTest () throws InterruptedException {
     Assert.assertEquals(storeName,"Alexandria");
     
     //Shipping Options
+    SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.cssSelector("a.link-ship-option")).click();
     Assert.assertEquals(driver.findElements(By.cssSelector("select.shipping-loc-search-by-state")).isEmpty(),false);
     driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
@@ -62,12 +66,14 @@ public void MobileStoreLocatorTest () throws InterruptedException {
     //Search by Zip
     driver.findElement(By.id("storelocator-query")).clear();
     driver.findElement(By.id("storelocator-query")).sendKeys("89002");
+    SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.cssSelector("input#btnStoreSearch")).click();
     Thread.sleep(3000);
     String storeResult = driver.findElement(By.cssSelector("div.store-loc-content-store-heading-store-name")).getText();
     System.out.println(storeResult);
     Assert.assertEquals(storeResult,"Henderson");
     Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@href,'/maps.google.com/')]")).isEmpty(),false); //Get Directions link
+    SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.cssSelector("button.btn-red.store-locater-button.cart-change-store.anShopThisStore")).click();
     Thread.sleep(5000);
 	 }

@@ -30,6 +30,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
@@ -47,24 +48,30 @@ public void MobileISPGuestCheckoutTest () throws InterruptedException {
 	Thread.sleep(5000);
 	
 	//Navigate to test PDP
+	SiteAccess.ActionAccessMobileAgeGate(driver);
 	driver.findElement(By.cssSelector("a.btn.btn-red.analyticsLinkComp[title=Beer]")).click();
 	Thread.sleep(5000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
 	driver.get(ConfigurationFunctions.accessURL+"/beer/lager/american-style-lager/corona-extra/p/3361128?s=205&igrules=true");
 	Thread.sleep(3000);
 	
 	//Add to Cart and access cart
+	SiteAccess.ActionAccessMobileAgeGate(driver);
 	JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("button.btnAddToCartPDP")));     
 	Thread.sleep(3000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
 	driver.findElement(By.cssSelector("em.mobile-cart")).click();
 	Thread.sleep(3000);
 	
 	//Initiate Checkout
 	 // Shopping Cart
+	SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.id("checkout")).sendKeys(Keys.PAGE_DOWN);
     //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).click();
     Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
     Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
+    SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.id("checkout")).click();
     Thread.sleep(5000);
     
