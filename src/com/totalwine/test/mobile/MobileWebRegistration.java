@@ -47,8 +47,13 @@ public class MobileWebRegistration extends Browser {
 		Thread.sleep(5000);
 		SiteAccess.ActionAccessMobileAgeGate(driver);
 		Thread.sleep(5000);
-		SiteAccess.ActionAccessMobileAgeGate(driver);
-		driver.findElement(By.xpath("//a[contains(@href,'.totalwine.com/my-account')]")).click(); //Click "My Account"
+		
+		// **  By passing location
+		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+		Thread.sleep(1000);
+
+		JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+		js1.executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[contains(@href,'.totalwine.com/my-account')]")));        
 		SiteAccess.ActionAccessMobileAgeGate(driver);
 		Thread.sleep(3000);
 		
@@ -75,12 +80,12 @@ public class MobileWebRegistration extends Browser {
 	    driver.findElement(By.id("email")).sendKeys("automatedtester_"+ConfigurationFunctions.randInt()+"."+ConfigurationFunctions.randInt()+"@totalwine.com");
 	    	String email = driver.findElement(By.id("email")).getAttribute("value");
 	    	System.out.println("Registered Email Address: "+email);
-//	    driver.findElement(By.id("checkEmail")).clear();
-//	    driver.findElement(By.id("checkEmail")).sendKeys(email);
 	    driver.findElement(By.id("pwd")).clear();
 	    driver.findElement(By.id("pwd")).sendKeys("grapes123!");
-//	    driver.findElement(By.id("checkPwd")).sendKeys("grapes123!");
 	    driver.findElement(By.id("phone")).sendKeys("3015470004");
+	    
+	    
+	    
 	    driver.findElement(By.cssSelector("div.dropdown.inst-state > div > span > span")).click();
 	    Thread.sleep(4000);
 	    WebElement element7 = driver.findElement(By.cssSelector(".undefined.undefined.anOption.js-hover-li[data-val='US-VA']"));  

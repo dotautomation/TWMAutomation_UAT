@@ -50,7 +50,11 @@ public class MobilePLPFilter extends Browser {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		logger=report.startTest("Mobile PLP Filter Test");
 		SiteAccess.ActionAccessMobileSite(driver, IP);
-		
+
+		// **  By passing location
+		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+		Thread.sleep(1000);
+
 		//Access the Mobile PLP
 		SiteAccess.ActionAccessMobileAgeGate(driver);
 		driver.findElement(PageHomepage.MobileWineButton).click();
