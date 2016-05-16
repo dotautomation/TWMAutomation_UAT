@@ -125,7 +125,7 @@ public class WebAccountRegistration extends Browser {
 	    Thread.sleep(1000);
 	    driver.findElement(By.cssSelector("#city")).sendKeys(City);
 	    driver.findElement(By.cssSelector("div.labelHolder.state-drop > div > div > span > span")).click();
-	    Thread.sleep(6000);
+	    Thread.sleep(7000);
 	    WebElement element9 = driver.findElement(By.cssSelector(".undefined.undefined.anOption[data-val='US-VA']"));  
 	    new Actions(driver).moveToElement(element9).perform();
 	    Thread.sleep(4000);

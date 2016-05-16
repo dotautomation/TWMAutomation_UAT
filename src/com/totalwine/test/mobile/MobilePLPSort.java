@@ -49,11 +49,22 @@ public class MobilePLPSort extends Browser {
 	public void MobileSortTest () throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Mobile PLP Sort Test");
 		SiteAccess.ActionAccessMobileSite(driver, "98.169.134.0");
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(5000);
+
+		// **  By passing location
+		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+		Thread.sleep(1000);
+		
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(5000);
 		
 		//Access Mobile PLP
-		SiteAccess.ActionAccessMobileAgeGate(driver);
 		driver.findElement(PageHomepage.MobileWineButton).click();
 		Thread.sleep(3000);
+		
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(5000);
 		
 		//Verify default sort "Most Popular"
 		Assert.assertEquals(driver.findElement(By.cssSelector("select#sortOptions > option[selected=selected]")).getText().replaceAll("^\\s+", ""), "Most Popular","Most Popular wasn't the default selected option");
@@ -76,6 +87,7 @@ public class MobilePLPSort extends Browser {
 	    //Verify "Expert Ratings" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Expert Ratings");
 	    driver.findElement(By.cssSelector("option[value=\"expert-ratings\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
@@ -87,6 +99,7 @@ public class MobilePLPSort extends Browser {
 		//Verify "Customer Ratings" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Customer Ratings");
 	    driver.findElement(By.cssSelector("option[value=\"customer-ratings\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
@@ -97,6 +110,7 @@ public class MobilePLPSort extends Browser {
 		//Verify "Price (highest first)" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Price (highest first)");
 	    driver.findElement(By.cssSelector("option[value=\"price-desc\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
@@ -109,6 +123,7 @@ public class MobilePLPSort extends Browser {
 		//Verify "Price (lowest first)" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Price (lowest first)");
 	    driver.findElement(By.cssSelector("option[value=\"price-asc\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
@@ -121,6 +136,7 @@ public class MobilePLPSort extends Browser {
 		//Verify "Name (A-Z)" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Name (A-Z)");
 	    driver.findElement(By.cssSelector("option[value=\"name-asc\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
@@ -131,6 +147,7 @@ public class MobilePLPSort extends Browser {
 		//Verify "Name (Z-A)" sort
 	    driver.findElement(PageProductList.MobilePLPSort).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    
 	    //SortOption.selectByVisibleText("Name (Z-A)");
 	    driver.findElement(By.cssSelector("option[value=\"name-desc\"]")).click();
 	    SiteAccess.ActionAccessMobileAgeGate(driver);

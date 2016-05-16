@@ -37,43 +37,49 @@ import com.totalwine.test.trials.Browser;
 
 public class MobileISPGuestCheckout extends Browser {
 	
-		private String IP="71.193.51.0";
+		private String IP="72.66.119.61";
 	
 @Test
 public void MobileISPGuestCheckoutTest () throws InterruptedException {
 	logger=report.startTest("Mobile ISP Guest Checkout Test");
 	driver.get(ConfigurationFunctions.locationSet+IP);
 	Thread.sleep(5000);
-	driver.findElement(PageGlobal.AgeGateYes).click();
-	Thread.sleep(5000);
-	
-	//Navigate to test PDP
 	SiteAccess.ActionAccessMobileAgeGate(driver);
-	driver.findElement(By.cssSelector("a.btn.btn-red.analyticsLinkComp[title=Beer]")).click();
-	Thread.sleep(5000);
-	SiteAccess.ActionAccessMobileAgeGate(driver);
-	driver.get(ConfigurationFunctions.accessURL+"/beer/lager/american-style-lager/corona-extra/p/3361128?s=205&igrules=true");
 	Thread.sleep(3000);
 	
-	//Add to Cart and access cart
+	// **  By passing location
+	driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
 	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(3000);
+	
+	//Navigate to test PDP
+	driver.findElement(By.cssSelector("a.btn.btn-red.analyticsLinkComp[title=Beer]")).click();
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
+	driver.get(ConfigurationFunctions.accessURL+"/beer/lager/light-lager/coors-light/p/3283125?s=1108&igrules=true");
+	Thread.sleep(3000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
+	
+	//Add to Cart and access cart
 	JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("button.btnAddToCartPDP")));     
 	Thread.sleep(3000);
 	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
 	driver.findElement(By.cssSelector("em.mobile-cart")).click();
 	Thread.sleep(3000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
 	
 	//Initiate Checkout
-	 // Shopping Cart
-	SiteAccess.ActionAccessMobileAgeGate(driver);
+	// Shopping Cart
     driver.findElement(By.id("checkout")).sendKeys(Keys.PAGE_DOWN);
     //driver.findElement(By.cssSelector("#deliveryModeInStore > div.customselect > span.itemval")).click();
     Assert.assertEquals(driver.findElements(By.cssSelector("input.anVoucherForm")).isEmpty(),false);
     Assert.assertEquals(driver.findElements(By.name("qty")).isEmpty(),false);
-    SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.id("checkout")).click();
-    Thread.sleep(5000);
+	Thread.sleep(2000);
     
     // Next Page (Login/Checkout as Guest)
     Assert.assertEquals(driver.findElements(By.id("j_username")).isEmpty(),false);
@@ -83,7 +89,7 @@ public void MobileISPGuestCheckoutTest () throws InterruptedException {
     Assert.assertEquals(driver.findElements(By.id("checkoutSignIn")).isEmpty(),false);
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div > button.btn.btn-red.anCheckoutContinue")));
-    Thread.sleep(3000);
+	Thread.sleep(2000);
     
     // Checkout Tab 1
     Assert.assertEquals(driver.findElements(By.cssSelector("a.instorepickup-tab")).isEmpty(),false);
@@ -94,10 +100,10 @@ public void MobileISPGuestCheckoutTest () throws InterruptedException {
     Assert.assertEquals(driver.findElements(By.cssSelector("div.checkStyle > label")).isEmpty(),false);
     driver.findElement(By.id("shipping-email")).click();
     driver.findElement(By.id("shipping-email")).clear();
-    driver.findElement(By.id("shipping-email")).sendKeys("rsud@live.com");
-    driver.findElement(By.id("pickup-phoneNumber")).sendKeys("410-428-2222");
+    driver.findElement(By.id("shipping-email")).sendKeys("mhossain@totalwine.com");
+    driver.findElement(By.id("pickup-phoneNumber")).sendKeys("703-844-0877");
     driver.findElement(By.id("btnPickup")).click();
-    Thread.sleep(5000);
+	Thread.sleep(2000);
     
     // Checkout Tab 2
     Assert.assertEquals(driver.findElements(By.cssSelector("a.billing-tab")).isEmpty(),false);
@@ -147,7 +153,7 @@ public void MobileISPGuestCheckoutTest () throws InterruptedException {
     Thread.sleep(10000);
     
     // Order Confirmation
-    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false);
-    Assert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);	
+//    Assert.assertEquals(driver.findElements(By.cssSelector("div.co-conf-thank-text")).isEmpty(),false);
+//    Assert.assertEquals(driver.findElements(By.cssSelector("div")).isEmpty(),false);	
 	}
 }
