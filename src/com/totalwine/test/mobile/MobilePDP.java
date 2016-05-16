@@ -26,7 +26,6 @@ import java.awt.event.KeyEvent;
 import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
@@ -41,19 +40,24 @@ public class MobilePDP extends Browser {
 		logger=report.startTest("Mobile PDP Test");
 		driver.get(ConfigurationFunctions.locationSet+IP);
 		Thread.sleep(5000);
-		driver.findElement(PageGlobal.AgeGateYes).click();
-		Thread.sleep(5000);
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(2000);
+		
+		// **  By passing location
+		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(2000);
 		
 		//Click on Wine
-		//driver.findElement(By.xpath("//a[contains(@href,'.totalwine.com/c/c0020/')]")).click();
-		SiteAccess.ActionAccessMobileAgeGate(driver);
+//		driver.findElement(By.xpath("//a[contains(@href,'.totalwine.com/c/c0020/')]")).click();
 		driver.findElement(By.cssSelector("section.wrapper-data > section.hp-way-fndg > section.mb > div.hp-way-fndg-cat > a.btn.btn-red.analyticsLinkComp")).click();
-	    Thread.sleep(3000);
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(2000);
 	    
 	    //Access Mobile PDP for first item on PLP
-	    SiteAccess.ActionAccessMobileAgeGate(driver);
 	    driver.findElement(By.cssSelector("a.analyticsProductName")).click();
-	    Thread.sleep(3000);
+		SiteAccess.ActionAccessMobileAgeGate(driver);
+		Thread.sleep(2000);
 	    
 	    //Validate contents of Mobile PLP
 	    Assert.assertEquals(driver.findElements(By.cssSelector("img.carouselImage.anProductImage")).isEmpty(),false); //PDP Image

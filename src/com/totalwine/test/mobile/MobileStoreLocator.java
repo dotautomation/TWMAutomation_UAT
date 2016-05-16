@@ -34,13 +34,21 @@ public void MobileStoreLocatorTest () throws InterruptedException {
 	logger=report.startTest("Mobile Store Locator Test");
 	driver.get(ConfigurationFunctions.locationSet+IP);
 	Thread.sleep(5000);
-	driver.findElement(PageGlobal.AgeGateYes).click();
-	Thread.sleep(7000);
-	//Click "Find a store" from top nav
 	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(5000);
+	
+	// **  By passing location
+	driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+	Thread.sleep(1000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
+	
+	//Click "Find a store" from top nav
 	driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
 //	driver.findElement(By.cssSelector("div.parent-header-wrapper > div > ul > li.hide-on-scroll > a")).click();
 	Thread.sleep(3000);
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
 
 	//Store Finder
     Assert.assertEquals(driver.findElements(By.cssSelector("button#findStoresNearMe")).isEmpty(),false);
@@ -59,6 +67,8 @@ public void MobileStoreLocatorTest () throws InterruptedException {
     //Shipping Options
     SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.cssSelector("a.link-ship-option")).click();
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
     Assert.assertEquals(driver.findElements(By.cssSelector("select.shipping-loc-search-by-state")).isEmpty(),false);
     driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
 	Thread.sleep(3000);
@@ -68,6 +78,8 @@ public void MobileStoreLocatorTest () throws InterruptedException {
     driver.findElement(By.id("storelocator-query")).sendKeys("89002");
     SiteAccess.ActionAccessMobileAgeGate(driver);
     driver.findElement(By.cssSelector("input#btnStoreSearch")).click();
+	SiteAccess.ActionAccessMobileAgeGate(driver);
+	Thread.sleep(2000);
     Thread.sleep(3000);
     String storeResult = driver.findElement(By.cssSelector("div.store-loc-content-store-heading-store-name")).getText();
     System.out.println(storeResult);
