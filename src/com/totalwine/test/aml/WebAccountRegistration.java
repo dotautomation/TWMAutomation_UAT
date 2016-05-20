@@ -4,10 +4,12 @@ package com.totalwine.test.aml;
  *  New User Registration using random credentials or credential from DB 
  *  Work flow : 
  *  1. Click on Sign In / Register link on the header
- *  2. Click on Register button
- *  3. Fill up all the required information in  "Create your account" page
+ *  2. Click on Need to create an account? "Start here" button
+ *  3. Fill up all the required information in  "Your TotalWine.com account" page
  *  5. Click on the Register button
- *  6. Verify welcome message displays after account creation. 
+ *  6. Fillup form in "Tell us about yourself" page
+ *  7. Click on "Save" button 
+ *  8. Verify welcome message displays after account creation. 
 
  * Technical Modules:
  * 	1. DataProvider: Checkout test input parameters
@@ -74,12 +76,15 @@ public class WebAccountRegistration extends Browser {
 		
 	    // ** Checking for survey pop-up
 	    Checkout.SurverPopup(driver);
+	    
+	    
 	    driver.findElement(PageGlobal.TopNavAccount).click();
 	    Thread.sleep(2000);
+	    driver.switchTo().frame(driver.findElement(By.id("iframe-signin-overlay")));
 	    driver.findElement(PageGlobal.SignUp).click();
 	    Thread.sleep(2000);
 	
-	 // ** Filling up "Create your account" page
+	    // ** Filling up "Create your account" page
 	    driver.findElement(By.cssSelector("#firstName")).sendKeys(FirstName);
 	    driver.findElement(By.cssSelector("#lastName")).sendKeys(LastName);
 	    Thread.sleep(2000);
@@ -95,11 +100,9 @@ public class WebAccountRegistration extends Browser {
 	    driver.findElement(By.cssSelector("#pwd")).sendKeys(Password);
 	    driver.findElement(By.cssSelector("#phone")).sendKeys(Phone);
 	    Thread.sleep(2000);
-	    WebElement scroll2 = driver.findElement(By.cssSelector("#btnnuregisteration"));  
-	    scroll2.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
-	    driver.findElement(By.cssSelector("div.dropdown.inst-state > div > span > span")).click();
+	    driver.findElement(By.cssSelector("#shipToStateDropdown > div > div.dropdown.inst-state > div > span > i")).click();
 	    Thread.sleep(4000);
-	    WebElement element7 = driver.findElement(By.cssSelector(".undefined.undefined.anOption.js-hover-li[data-val='US-VA']"));  
+	    WebElement element7 = driver.findElement(By.cssSelector(".undefined.undefined.anOption[data-val='US-VA']"));  
 	    new Actions(driver).moveToElement(element7).perform();
 	    Thread.sleep(2000);
 	    element7.click();
@@ -142,7 +145,6 @@ public class WebAccountRegistration extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector(".ahp-heading")).isEmpty(),false, "If Account home doesn't shows up then test will fail");
 		}
 	}
-
 
 
 //package com.totalwine.test.aml;
