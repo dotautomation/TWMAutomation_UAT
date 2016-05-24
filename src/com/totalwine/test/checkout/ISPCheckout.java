@@ -119,11 +119,11 @@ public class ISPCheckout extends Browser {
 	    driver.findElement(By.id("custom_card_type")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder month\"]")).click();
-	    Thread.sleep(5000);	    
+	    Thread.sleep(6000);	    
 	    WebElement element1 = driver.findElement(By.xpath("//td[2]/div/div/div/div/div/div/ul/li[2]"));  
 	    new Actions(driver).moveToElement(element1).perform();  
 	    element1.click();
-	    Thread.sleep(3000);
+	    Thread.sleep(4000);
 	    driver.findElement(By.cssSelector("div[class=\"inputHolder year\"]")).click();
 	    Thread.sleep(5000);	    
 	    WebElement element2 = driver.findElement(By.xpath("//td[2]/div[2]/div/div/div/div/div/ul/li[3]"));  

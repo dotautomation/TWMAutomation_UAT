@@ -47,7 +47,8 @@ public class PageGlobal {
 	//Not logged in
 //	public static final By SignUp = By.cssSelector("#sign-in-overlay > div.login-description > div > div.left-content > p > a");
 	public static final By SignUp = By.cssSelector(".btn.btn-red.analyticsGetStarted.post-links.post-links-bv");
-	public static final By SignInto = By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn");
+//	public static final By SignInto = By.cssSelector("a.btn.btn-red.acc-link.analyticsSignIn");
+	public static final By SignInto = By.cssSelector("div.top-header-wrapper > div.header-wrapper > ul:nth-child(3) > li:nth-child(2) > a > span.list-text");
 	
 	//Logged in
 	public static final By LogOut = By.cssSelector("a.analyticsHeaderLink[href*=\"/logout\"]");

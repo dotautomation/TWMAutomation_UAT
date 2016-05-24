@@ -9,10 +9,9 @@
     <classes>
       <!-- <class name="com.totalwine.test.aml.WebAccountRegistration"/> --> 
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistration"/>--> 
-      <!-- <class name="com.totalwine.test.review.CustomerReview"/>--> 
+      
 
-
-<class name="com.totalwine.test.review.CustomerReview"/>
+<class name="com.totalwine.test.events.BrowseEvent"/>
 
     </classes>
   </test>
