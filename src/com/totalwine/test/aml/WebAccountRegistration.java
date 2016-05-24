@@ -58,7 +58,7 @@ public class WebAccountRegistration extends Browser {
 			String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email,String Password,
 			String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV)
 					
-					throws InterruptedException, BiffException, IOException {
+throws InterruptedException, BiffException, IOException {
 		
 		logger=report.startTest("New User Registration using random credentials or credential from DB");
 		
@@ -145,7 +145,6 @@ public class WebAccountRegistration extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector(".ahp-heading")).isEmpty(),false, "If Account home doesn't shows up then test will fail");
 		}
 	}
-
 
 //package com.totalwine.test.aml;
 //

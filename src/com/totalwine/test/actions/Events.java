@@ -11,8 +11,8 @@ public class Events {
 	    
 	    driver.findElement(PageGlobal.TopNavAccount).click();
 	    Thread.sleep(2000);
-	    driver.findElement(PageGlobal.SignInto).click();
-	    Thread.sleep(2000);
+//	    driver.findElement(PageGlobal.SignInto).click();
+//	    Thread.sleep(2000);
 
 		driver.switchTo().frame("iframe-signin-overlay");
 	    driver.findElement(PageSignInModal.ModalUsername).clear();
