@@ -53,7 +53,7 @@ public class ShoppingListBrowse extends Browser {
 		SiteAccess.ActionAccessSite(driver, IP);
 	    
 	    driver.findElement(By.linkText("Shopping List")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(7000);
 
 	    //Login to retrieve Shopping List
 	    driver.switchTo().frame(0);
@@ -64,12 +64,12 @@ public class ShoppingListBrowse extends Browser {
 	    driver.findElement(By.id("j_password")).clear();
 	    driver.findElement(By.id("j_password")).sendKeys("grapes123");
 	    driver.findElement(By.xpath("//button[@type='button']")).click();
-	    Thread.sleep(6000);
+	    Thread.sleep(7000);
 
-	  //Check for the merge cart modal
+	    //Check for the merge cart modal
 	    if (driver.findElements(By.cssSelector("button.btn.btn-red.cartMergeBtn")).size()!=0)
 	    	driver.findElement(By.cssSelector("button.btn.btn-red.cartMergeBtn")).click();
-	    Thread.sleep(2000);
+	    Thread.sleep(3000);
 	    
 	    //Verify Page Elements on Shopping List 
 	    
