@@ -58,7 +58,7 @@ public class WebAccountRegistration extends Browser {
 			String LastName,String Company,String Address1,String Address2,String City,String State,String Zip,String Email,String Password,
 			String Phone,String CreditCard,String ExpirationMonth,String ExpirationYear,String CVV)
 					
-throws InterruptedException, BiffException, IOException {
+						throws InterruptedException, BiffException, IOException {
 		
 		logger=report.startTest("New User Registration using random credentials or credential from DB");
 		
@@ -118,14 +118,19 @@ throws InterruptedException, BiffException, IOException {
 	    driver.findElement(By.cssSelector("#checkbox3")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("#btnnuregisteration")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 
-	    // Filling "Tell us about yourself" page
+	    // Filling "Let's complete your Total Discovery profile" page
+	    
 	    driver.findElement(By.cssSelector("#address1")).sendKeys(Address1);
 	    driver.findElement(By.cssSelector("#address2")).sendKeys(Address2);
 	    WebElement scroll = driver.findElement(By.cssSelector("#city"));  
 	    scroll.sendKeys(Keys.PAGE_DOWN); //  ** Scrolling down page
 	    Thread.sleep(1000);
+	    
+	    // ** Checking for survey pop-up
+	    Checkout.SurverPopup(driver);
+	    
 	    driver.findElement(By.cssSelector("#city")).sendKeys(City);
 	    driver.findElement(By.cssSelector("div.labelHolder.state-drop > div > div > span > span")).click();
 	    Thread.sleep(7000);
