@@ -177,7 +177,7 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 
 	    //  ** Creating Account
 	    JavascriptExecutor js2 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
-	    js2.executeScript("arguments[0].click();", driver.findElement(By.id("btnCreateAcc")));    
+	    js2.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#btnCreateAcc")));    
 
 	    //  ** Checking for survey pop-up
 	    Checkout.SurverPopup(driver);
