@@ -91,12 +91,12 @@ public class WebAccountRegistration extends Browser {
 
 	    // *** Register Email from DB
 //	    driver.findElement(By.cssSelector("#email")).sendKeys(Email);
-//	    driver.findElement(By.cssSelector("#checkEmail")).sendKeys(Email);
 	    
 	    // *** Register Random Email
 	    driver.findElement(By.cssSelector("#email")).sendKeys("autoemail_"+randomNum+"."+randomNum_2+"@totalwine.com");
     	String email = driver.findElement(By.cssSelector("#email")).getAttribute("value");
     	System.out.println("Registered Email Address: "+email);
+    	
 	    driver.findElement(By.cssSelector("#pwd")).sendKeys(Password);
 	    driver.findElement(By.cssSelector("#phone")).sendKeys(Phone);
 	    Thread.sleep(2000);

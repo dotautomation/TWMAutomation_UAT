@@ -59,7 +59,6 @@ public class ParallelBrowser {
 	protected String hubURLMK = "http://PRT-2RPSD12.totalwine.com:5566/wd/hub";
 	protected String hubURLEC = "http://prt-55kxl32.totalwine.com:5566/wd/hub";
 	protected String hubURLMdH = "http://PRT-4QRSD12.totalwine.com:5566/wd/hub";
-	
 	protected ExtentTest logger;
 	protected static ExtentReports report = getReporter(); //Reporting v2
 	protected JavascriptExecutor js = (JavascriptExecutor)driver;

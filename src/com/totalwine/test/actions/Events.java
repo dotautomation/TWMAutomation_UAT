@@ -1,5 +1,7 @@
 package com.totalwine.test.actions;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.pages.PageSignInModal;
@@ -22,4 +24,16 @@ public class Events {
 	    driver.findElement(PageSignInModal.ModalSigninButton).click();
 	    Thread.sleep(6000);  	    
 	}
+	
+	
+	
+	public static void LogOut (WebDriver driver) throws InterruptedException {
+		driver.findElement(By.cssSelector("div.top-header-wrapper > div.header-wrapper > ul:nth-child(3) > li.loggedin-user > a > span.list-text")).click();
+		JavascriptExecutor js4 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+		js4.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("div.header-wrapper > ul:nth-child(3) > li.loggedin-user > div > div > div > ul > li:nth-child(4) > a")));        
+		Thread.sleep(5000);
+	}
+	
+	
+	
 }
