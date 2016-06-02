@@ -3,16 +3,17 @@
 
 <!-- suite name="MultiBrowserSuite" verbose="2" parallel="tests"-->
 <suite name="MultiBrowserSuite" verbose="2">
-  <test name="Product List Sort">
+  
+      <test name=" Chrome test ">
 	<parameter name="browser" value="Chrome">
 	</parameter>
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
-      <!-- <class name="com.totalwine.test.aml.GoodBadPassword"/> --> 
-      
-		<class name="com.totalwine.test.pricingpromos.Pricing"/>
 
+		<class name="com.totalwine.test.productlist.Filter"/>
 
     </classes>
   </test>
+  
+  
 </suite>
