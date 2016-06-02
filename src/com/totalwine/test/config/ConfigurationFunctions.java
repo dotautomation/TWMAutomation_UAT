@@ -36,7 +36,7 @@ public class ConfigurationFunctions {
 	//Environment
 	//public static final String accessURL="http://twmuatwebserver:webserveruattwm@uat.totalwine.com";
 	public static final String accessURL="http://uat.totalwine.com";
-	public static final String backofficeURL = "http://uat.totalwine.com";
+	public static final String backofficeURL = "http://uat.totalwine.com/backoffice";
 	//Browser Configuration Variables
 	//public static final String locationSet = "http://twmuatwebserver:webserveruattwm@uat.totalwine.com/?remoteTestIPAddress=";//UAT
 	//public static final String locationSet = "http://twmlaunchsite:dot@internal@launch.totalwine.com/?remoteTestIPAddress=";//Production
@@ -45,13 +45,15 @@ public class ConfigurationFunctions {
 	public static final String URL = "http://uat.totalwine.com/?remoteTestIPAddress=";
 	public static final ProfilesIni profile = new ProfilesIni();
 	public static final FirefoxProfile testProfile = profile.getProfile("WebDriver");
+	public static final String csCockpitURL = "http://uat.totalwine.com/cscockpit";
 	//public static final WebDriver driver = new FirefoxDriver(testProfile);
 	public static final String resourcePath = "C:\\twmautomation\\TWMAutomation_Prod\\Resources\\AutomatedFlows.xls";
 	public static final String CHROMEDRIVERPATH = "C:/twmautomation/lib/lib/chromedriver.exe";
 	public static final String IEDRIVERPATH = "C:/twmautomation/lib/lib/IEDriverServer.exe";
 	public static final String RESULTSPATH = "C:\\autoreports\\";
-	public static final String TESTLOGIN = "rsud@live.com";
+	public static final String TESTLOGIN = "mhossain@totalwine.com";
 	public static final String TESTPWD = "grapes123";
+	public static final String RRFORCEDISPLAY = "?forcedisplay=true";
 	
 	
 	public static void DeleteCookies() {
