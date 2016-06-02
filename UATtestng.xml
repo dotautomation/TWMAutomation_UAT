@@ -10,7 +10,7 @@
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
       <!-- <class name="com.totalwine.test.aml.GoodBadPassword"/> --> 
       
-		<class name="com.totalwine.test.aml.EmailSignup"/>
+		<class name="com.totalwine.test.pricingpromos.Pricing"/>
 
 
     </classes>

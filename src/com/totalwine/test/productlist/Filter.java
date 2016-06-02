@@ -92,6 +92,7 @@ public class Filter extends Browser {
 		action.moveToElement(wineMove1).build().perform(); 
 	    WebElement scroll_Price = driver.findElement(By.linkText("Price Range"));
 	 	scroll_Price.sendKeys(Keys.ARROW_DOWN);
+	 	Thread.sleep(1000);
 	 	driver.findElement(By.xpath("//a[contains(text(),'Price')]")).click();
 	 	
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight

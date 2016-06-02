@@ -42,14 +42,12 @@
 		</parameter>
 		<classes>
 			<class name="com.totalwine.test.events.BrowseEvent" />
-			<class name="com.totalwine.test.productlist.Filter" />
 			<class name="com.totalwine.test.productlist.Sort" />
 			<class name="com.totalwine.test.search.Search" />
 			<class name="com.totalwine.test.categorylanding.CatLandNav" />
 			<class name="com.totalwine.test.agegating.AgeGate" />
 			<class name="com.totalwine.test.pdp.PDPTabs" />
 			<class name="com.totalwine.test.lare.LARERules" />
-			<class name="com.totalwine.test.productlist.PLPListView"/>
 			<class name="com.totalwine.test.pricingpromos.Pricing"/>
 		</classes>
 	</test>
