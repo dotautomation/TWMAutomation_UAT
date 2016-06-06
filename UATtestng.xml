@@ -10,7 +10,7 @@
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
 
-		<class name="com.totalwine.test.productlist.Filter"/>
+		<class name="com.totalwine.test.pdp.PDPTabs"/>
 
     </classes>
   </test>
