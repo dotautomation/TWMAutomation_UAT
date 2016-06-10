@@ -10,7 +10,7 @@
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAcMR9"/> --> 
 
-		<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
+		<class name="com.totalwine.test.aml.PreferenceUpdates"/>
 
     </classes>
   </test>  
