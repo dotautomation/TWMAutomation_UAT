@@ -6,7 +6,8 @@ public class PageGlobal {
 	
 	//Age Gate
 	public static final By AgeGateYes = By.id("btnYes");
-	public static final By AgeGateNo = By.id("btnNo");
+//	public static final By AgeGateNo = By.id("btnNo");
+	public static final By AgeGateNo = By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray");
 	
 	//New Site Intro
 	public static final By NewSiteIntroClose = By.cssSelector("#email-signup-overlay-new-site > div.modal-dialog > div.modal-content > div.modal-body > p.close > a.btn-close");
