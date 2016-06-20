@@ -12,7 +12,8 @@
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistration"/> --> 
       <!-- <class name="com.totalwine.test.review.CustomerReview"/> --> 
 
-		<class name="com.totalwine.test.review.CustomerReview"/> 
+<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
+<class name="com.totalwine.test.aml.AddressBook"/>
 
     </classes>
   </test>  
