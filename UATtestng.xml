@@ -10,10 +10,24 @@
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistration"/> --> 
-      <!-- <class name="com.totalwine.test.review.CustomerReview"/> --> 
+      <!--  --> 
 
-<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
-<class name="com.totalwine.test.aml.AddressBook"/>
+
+<class name="com.totalwine.test.checkout.ShipCheckout"/>
+			<class name="com.totalwine.test.checkout.GuestShipCheckout"/>
+			<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
+			<class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc"/>
+			<class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
+			<class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout"/>
+			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/>
+			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
+
+
+
+<class name="com.totalwine.test.shoppinglist.ShoppingListBrowse"/>
+<class name="com.totalwine.test.shoppingcart.ShoppingCartAll"/>
+<class name="com.totalwine.test.shoppinglist.ShoppingListAddItem"/>
+<class name="com.totalwine.test.aml.PreferenceUpdates"/>
 
     </classes>
   </test>  

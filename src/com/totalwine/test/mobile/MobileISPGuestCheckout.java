@@ -32,7 +32,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
-import com.totalwine.test.pages.PageGlobal;
 import com.totalwine.test.trials.Browser;
 
 public class MobileISPGuestCheckout extends Browser {
@@ -70,7 +69,7 @@ public void MobileISPGuestCheckoutTest () throws InterruptedException {
 	driver.findElement(By.cssSelector("em.mobile-cart")).click();
 	Thread.sleep(3000);
 	SiteAccess.ActionAccessMobileAgeGate(driver);
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	
 	//Initiate Checkout
 	// Shopping Cart
