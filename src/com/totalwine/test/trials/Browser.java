@@ -205,7 +205,7 @@ public class Browser {
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
-			String scrFileName = "C:\\Users\\mhossain\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
+			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
 			File FailedFile = new File (scrFileName);
 			FileUtils.copyFile(scrFile, FailedFile);
 			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 
