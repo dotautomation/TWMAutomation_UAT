@@ -43,7 +43,7 @@ public class MobileBrowseEvent extends Browser {
 
 		// **  By passing location
 		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
-		SiteAccess.ActionAccessMobileAgeGate(driver);
+//		SiteAccess.ActionAccessMobileAgeGate(driver);
 		
 		// **  Clicking on Hamburger menu
 		driver.findElement(By.cssSelector("header > section > section > section > section.header-banner-wrapper > section > div > div.mobile-logo-left > div")).click();
