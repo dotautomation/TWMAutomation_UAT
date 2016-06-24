@@ -42,15 +42,15 @@ public class MobileBrowseEvent extends Browser {
 
 		// **  By passing location
 		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
-//		SiteAccess.ActionAccessMobileAgeGate(driver);
+		SiteAccess.ActionAccessMobileAgeGate(driver);
 		
 		// **  Clicking on Hamburger menu
-		driver.findElement(By.cssSelector("header > section > section > section > section.header-banner-wrapper > section > div > div.mobile-logo-left > div")).click();
+		driver.findElement(By.cssSelector("section.mobile-header.fluid-mobile-header > section > section > section.header-banner-wrapper > section > div > div.mobile-logo-left > div")).click();
 		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 		js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#pdp-left-nav > li:nth-child(11) > a > span")));        
 	    Thread.sleep(3000);
-//	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    SiteAccess.ActionAccessMobileAgeGate(driver);
 
 	    //Validate Mobile ELP
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.elp-pagetitle")).isEmpty(),false);
@@ -59,7 +59,7 @@ public class MobileBrowseEvent extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("button.eventCalender.anAddToCalendar")).isEmpty(),false);
 	    driver.findElement(By.xpath("//a[contains(@href,'/e/ec')]")).click();
 	    Thread.sleep(3000);
-//	    SiteAccess.ActionAccessMobileAgeGate(driver);
+	    SiteAccess.ActionAccessMobileAgeGate(driver);
 	    
 	    //Validate Mobile EDP (same as Desktop EDP)
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.store-right-hours-tasting > div.search-result-list-buy-ctrls")).isEmpty(),false);
