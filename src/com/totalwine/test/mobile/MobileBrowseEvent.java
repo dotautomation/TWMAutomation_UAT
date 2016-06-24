@@ -23,7 +23,6 @@ import org.testng.*;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
 import com.totalwine.test.actions.SiteAccess;
 import com.totalwine.test.config.ConfigurationFunctions;
 import com.totalwine.test.pages.PageGlobal;
@@ -51,7 +50,7 @@ public class MobileBrowseEvent extends Browser {
 		JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 		js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#pdp-left-nav > li:nth-child(11) > a > span")));        
 	    Thread.sleep(3000);
-	    SiteAccess.ActionAccessMobileAgeGate(driver);
+//	    SiteAccess.ActionAccessMobileAgeGate(driver);
 
 	    //Validate Mobile ELP
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.elp-pagetitle")).isEmpty(),false);
@@ -60,7 +59,7 @@ public class MobileBrowseEvent extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("button.eventCalender.anAddToCalendar")).isEmpty(),false);
 	    driver.findElement(By.xpath("//a[contains(@href,'/e/ec')]")).click();
 	    Thread.sleep(3000);
-	    SiteAccess.ActionAccessMobileAgeGate(driver);
+//	    SiteAccess.ActionAccessMobileAgeGate(driver);
 	    
 	    //Validate Mobile EDP (same as Desktop EDP)
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.store-right-hours-tasting > div.search-result-list-buy-ctrls")).isEmpty(),false);
