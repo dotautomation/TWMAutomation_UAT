@@ -49,7 +49,7 @@ public class MobilePLPSort extends Browser {
 	public void MobileSortTest () throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Mobile PLP Sort Test");
 		SiteAccess.ActionAccessMobileSite(driver, "198.24.30.115");
-		SiteAccess.ActionAccessMobileAgeGate(driver);
+//		SiteAccess.ActionAccessMobileAgeGate(driver);
 		Thread.sleep(5000);
 
 		// **  By passing location

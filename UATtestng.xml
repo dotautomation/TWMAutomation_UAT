@@ -5,14 +5,17 @@
 <suite name="MultiBrowserSuite" verbose="10">
   
       <test name=" Chrome test ">
-	<parameter name="browser" value="ios">
+	<parameter name="browser" value="Android">
 	</parameter>
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistration"/> --> 
       <!--  --> 
 
-<class name="com.totalwine.test.mobile.MobileISPGuestCheckout"/> 
+			<class name="com.totalwine.test.mobile.MobileISPGuestCheckout"/>
+
+
+
 
     </classes>
   </test>  
