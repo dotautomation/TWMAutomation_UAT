@@ -12,9 +12,7 @@
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistration"/> --> 
       <!--  --> 
 
-
-<class name="com.totalwine.test.mobile.MobileBrowseEvent"/> 
-
+<class name="com.totalwine.test.mobile.MobileISPGuestCheckout"/> 
 
     </classes>
   </test>  
