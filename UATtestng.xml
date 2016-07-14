@@ -12,7 +12,7 @@
       <!-- <class name="com.totalwine.test.checkout.ShipCheckout"/> --> 
       <!--  --> 
 
-<class name="com.totalwine.test.brandpages.BrandStoryTelling"/>
+<class name="com.totalwine.test.shoppinglist.ShoppingListAddItem"/>
 
 
 
