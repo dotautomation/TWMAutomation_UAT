@@ -62,19 +62,29 @@ public class MixSix extends Browser {
 
 	    ShoppingCart.MouseHoverWine(driver);
 
-	    //** Adding 4 different items into the shopping cart
-	    driver.findElement(By.cssSelector("li:nth-child(2) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
-	    ShoppingCart.ATC(driver);
-	    ShoppingCart.MouseHoverWine(driver);
+	    //** Adding One Mix 6 item with quantity 3
+//	    driver.findElement(By.cssSelector("li:nth-child(6) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).sendKeys(Keys.ARROW_DOWN); //Scrolling down
+	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(6) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")));
+	    
+	    driver.findElement(By.cssSelector("#overview-qty > div > div > span > i")).click();
 
-		driver.findElement(By.cssSelector("li:nth-child(3) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
+	    WebElement element = driver.findElement(By.cssSelector("#overview-qty > div > div > div > div > div.jspPane > ul > li:nth-child(3)"));  
+	    new Actions(driver).moveToElement(element).perform();  
+	    element.click();
+
+
 	    ShoppingCart.ATC(driver);
 		ShoppingCart.MouseHoverWine(driver);
 		
-	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
-	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(4) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")));
-	    ShoppingCart.ATC(driver);
-		ShoppingCart.MouseHoverWine(driver);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).sendKeys(Keys.ARROW_DOWN); //Scrolling down
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
