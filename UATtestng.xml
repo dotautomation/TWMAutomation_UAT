@@ -9,12 +9,10 @@
 	</parameter>
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
-      <!-- <class name="com.totalwine.test.checkout.ShipCheckout"/> --> 
+      <!-- <class name="com.totalwine.test.productlist.DefaultTabsBehavior"/> --> 
       <!--  --> 
 
-<class name="com.totalwine.test.pricingpromos.MixSix"/>
-
-
+<class name="com.totalwine.test.productlist.Filter"/>
 
     </classes>
   </test>  
