@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <!-- suite name="MultiBrowserSuite" verbose="2" parallel="tests"-->
-<suite name="MultiBrowserSuite" verbose="10">
+<suite name="MultiBrowserSuite" verbose="2">
   
       <test name="Chrome test">
 	<parameter name="browser" value="Chrome">
@@ -12,7 +12,8 @@
       <!-- <class name="com.totalwine.test.productlist.DefaultTabsBehavior"/> --> 
       <!--  --> 
 
-<class name="com.totalwine.test.productlist.Filter"/>
+<class name="com.totalwine.test.storelocator.StoreDetail"/>
+
 
     </classes>
   </test>  
