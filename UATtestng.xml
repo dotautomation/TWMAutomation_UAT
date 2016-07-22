@@ -12,7 +12,9 @@
       <!-- <class name="com.totalwine.test.productlist.DefaultTabsBehavior"/> --> 
       <!--  --> 
 
-<class name="com.totalwine.test.pricingpromos.Pricing"/>
+<class name="com.totalwine.test.storelocator.SLBrowseState"/>
+
+
 
 
     </classes>
