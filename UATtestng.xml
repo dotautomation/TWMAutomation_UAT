@@ -5,7 +5,7 @@
 <suite name="MultiBrowserSuite" verbose="2">
   
       <test name="Chrome test">
-	<parameter name="browser" value="Chrome">
+	<parameter name="browser" value="ios">
 	</parameter>
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
@@ -13,7 +13,7 @@
       <!-- <class name="com.totalwine.test.review.CustomerReview"/> --> 
 
 
-<class name="com.totalwine.test.productlist.PLPListView"/>
+<class name="com.totalwine.test.mobile.MobilePLPSort"/>
 
 
     </classes>
