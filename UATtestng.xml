@@ -10,11 +10,10 @@
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
       <!-- <class name="com.totalwine.test.productlist.DefaultTabsBehavior"/> --> 
-      <!--  --> 
-
-<class name="com.totalwine.test.productlist.DefaultTabsBehavior"/>
+      <!-- <class name="com.totalwine.test.review.CustomerReview"/> --> 
 
 
+<class name="com.totalwine.test.productlist.PLPListView"/>
 
 
     </classes>
