@@ -183,7 +183,7 @@ public class DefaultTabsBehavior extends Browser {
 		action.moveToElement(accNav).build().perform(); //Top Level Menu Hover
 		WebElement accPLPNav=driver.findElement(By.xpath("//a[contains(@href,'"+AccPLP+"')]"));
 		js.executeScript("arguments[0].click();", accPLPNav);
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		WebElement accMove = driver.findElement(By.cssSelector("ul.header-classes")); //Moving the mouse away from the top level menu 
 		action.moveToElement(accMove).build().perform(); 
 		//Validate default tab: ATY will always be the default
