@@ -77,6 +77,7 @@ public class AccountHome extends Browser {
 	    js.executeScript("arguments[0].click();", driver.findElement(PageAccountHome.OnlineOrders));         
 	    Thread.sleep(3000);
 	    driver.findElement(PageAccountHome.AccountHome).click();
+	    Thread.sleep(3000);
 	    sAssert.assertEquals(driver.findElements(PageAccountHome.OnlineOrders).isEmpty(),false,"Verifying online order");
 	    driver.findElement(PageAccountHome.InStoreOrders).click();
 	    Thread.sleep(3000);
