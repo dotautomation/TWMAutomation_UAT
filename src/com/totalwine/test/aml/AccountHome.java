@@ -57,6 +57,7 @@ public class AccountHome extends Browser {
 		
 	    //**Sign in modal with credential which has pre-existing order history, shopping list etc. 
 	    Events.CustomLogin(driver);
+	    Thread.sleep(3000);
 	    
 	    //**Checking for presence of merge cart modal
 	    ShoppingList.MergeCartModal(driver);
