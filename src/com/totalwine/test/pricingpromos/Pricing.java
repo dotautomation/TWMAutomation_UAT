@@ -109,7 +109,7 @@ public class Pricing extends Browser {
 	    
 	    // **  Selecting future events from PDP
 		driver.get(ConfigurationFunctions.accessURL+FutureEvent);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	    
 	    String elpPrice = driver.findElement(By.cssSelector("span.price")).getText();
 	    		

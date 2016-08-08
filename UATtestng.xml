@@ -15,7 +15,7 @@
 <!--  -->
 <!--  -->
 
-<class name="com.totalwine.test.pricingpromos.Pricing"/>
+<class name="com.totalwine.test.events.AddEventToShoppingList"/>
 
 
     </classes>
