@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="DOT Desktop Regression Test Suite" verbose="10">
+<suite name="MultiBrowserSuite" parallel="tests" verbose="10">
+<!-- <suite name="DOT Desktop Regression Test Suite" verbose="10">  -->
 	<!-- Results Archiving -->
 	
 	<test name="Archiving Results">
