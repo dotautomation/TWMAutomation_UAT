@@ -15,7 +15,7 @@
 <!--  -->
 <!--  -->
 
-<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
+<class name="com.totalwine.test.events.BrowseEvent"/>
 
 
     </classes>
