@@ -73,7 +73,6 @@ public class Browser {
 		}
 		//IE
 		if (browser.equalsIgnoreCase("IE")) {
-//			File file = new File(ConfigurationFunctions.EdgeDriverPath);
 			File file = new File(ConfigurationFunctions.IEDRIVERPATH);
 			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
 			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
