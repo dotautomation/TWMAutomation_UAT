@@ -60,25 +60,25 @@ public class FromGuides extends Browser{
 		Thread.sleep(3000);
 		
 		//Assert that you are on the wine guide page
-		Assert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Wine Guide");//check the breadcrumbs to make sure on right page
+		sAssert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Wine Guide");//check the breadcrumbs to make sure on right page
 		
 		jse.executeScript("window.scrollBy(0,800)", ""); 
 		Thread.sleep(1000);	
 		driver.findElement(By.xpath("//a[@href='http://uat.totalwine.com/wine-guide/white-grape-varietals/albarino-alvarinho']")).click(); //click on a grape varietal to access RR  
 		//Assert that you are on the Albarino Alvarinho page
-		Assert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Albarino Alvarinho");//check the breadcrumbs to make sure on right page
+		sAssert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Albarino Alvarinho");//check the breadcrumbs to make sure on right page
 		Thread.sleep(1000);	
 		jse.executeScript("window.scrollBy(0,800)", "");	//scroll down
 		Thread.sleep(1000);
 		
 		//RR Validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
 		
 		driver.findElement(By.xpath("//div[@class='rr-image']")).click();
 		Thread.sleep(7000);	
@@ -115,13 +115,13 @@ public class FromGuides extends Browser{
 		Thread.sleep(1000);	
 		
 		//RR Validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
 		driver.findElement(By.xpath("//div[@class='rr-image']")).click();
 		Thread.sleep(7000);	
 
@@ -161,13 +161,13 @@ public class FromGuides extends Browser{
 		Thread.sleep(1000);	
 		
 		//RR Validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
 		
 		driver.findElement(By.xpath("//div[@class='rr-image']")).click();
 		Thread.sleep(7000);	

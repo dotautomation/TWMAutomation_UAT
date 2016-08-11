@@ -83,8 +83,8 @@ public class Dot_11753 extends Browser {
 				Thread.sleep(4000);
 			
 			  //PLP Validation
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),false);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-productfull-tabs")).isEmpty(),true);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),false);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-productfull-tabs")).isEmpty(),true);
 
 				driver.findElement(By.xpath("//input[@id='header-search-text']")).sendKeys("screaming eagle");
 				driver.findElement(By.xpath("//input[@id='header-search-text']")).sendKeys(Keys.ENTER);
@@ -93,8 +93,8 @@ public class Dot_11753 extends Browser {
 				Thread.sleep(4000);
 				
 				//PLP Validation
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#search-productfull-tabs")).isEmpty(),false);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),true);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#search-productfull-tabs")).isEmpty(),false);
 	
 				//next click on the Find A Store tab to change from ISP to shipping
 				driver.findElement(By.xpath("//a[contains(@href,'totalwine.com/store-finder')]")).click();
@@ -120,7 +120,7 @@ public class Dot_11753 extends Browser {
 				Thread.sleep(4000);
 				
 				//PLP Validation
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),true);
-				Assert.assertEquals(driver.findElements(By.cssSelector("li.active > a#search-productfull-tabs")).isEmpty(),false);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#plp-aty-tab")).isEmpty(),true);
+				sAssert.assertEquals(driver.findElements(By.cssSelector("li.active > a#search-productfull-tabs")).isEmpty(),false);
 	}
 }

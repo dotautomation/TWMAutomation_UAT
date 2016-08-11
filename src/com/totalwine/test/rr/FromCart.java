@@ -53,35 +53,36 @@ public class FromCart extends Browser{
 		Thread.sleep(1000);	
 		
 		//Assert that you are on the shopping cart page
-		Assert.assertEquals(driver.findElements(By.xpath("//section[@class='delivery-section shopping-cart-empty']")).isEmpty(),false); //shopping cart empty message displayed
-		Assert.assertEquals(driver.findElements(By.xpath("//a[@class='btn btn-red analyticsContinueShopping']")).isEmpty(),false); //continue shopping button displayed
-		Assert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Cart");//Breadcrumbs says cart
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='page-header']")).getText(), "Your shopping cart");//title on page is Your Shopping Cart
+		sAssert.assertEquals(driver.findElements(By.xpath("//section[@class='delivery-section shopping-cart-empty']")).isEmpty(),false); //shopping cart empty message displayed
+		sAssert.assertEquals(driver.findElements(By.xpath("//a[@class='btn btn-red analyticsContinueShopping']")).isEmpty(),false); //continue shopping button displayed
+		sAssert.assertEquals(driver.findElement(By.cssSelector("div.breadcrumbs > ul > li.active > a.last")).getText(), "Cart");//Breadcrumbs says cart
+		sAssert.assertEquals(driver.findElement(By.xpath("//div[@class='page-header']")).getText(), "Your shopping cart");//title on page is Your Shopping Cart
+		
 		//RR Validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-strat-msg']")).isEmpty(),false); //RR title
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-items']")).isEmpty(),false); //RR Items
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-name']")).isEmpty(),false); //RR name
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-volume']")).isEmpty(),false); //RR volume
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-image']")).isEmpty(),false); //RR image
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-priceContainer']")).isEmpty(),false); //RR prices
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='rr-ratingContainer']")).isEmpty(),false); //RR rating
 
 		driver.findElement(By.xpath("//div[@class='rr-image']")).click();
 		Thread.sleep(7000);	
 		//PDP Validation
 		//Tab 1 - Overview
-		Assert.assertEquals(driver.findElements(By.cssSelector("section.pdp-tab-overview-prod-img > div.pdp-tab-overview-prod-img-bottle-img.pdp-img-zoom-modal-zoom-reset > img.anPDPImage")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("h1.product-name")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("div.pdp-tab-overview-desc-name > div.wine_details > ul.wine-right-details > li > h2 > a.analyticsCountryState")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("section.pdp-tab-overview-prod-img > div.pdp-tab-overview-prod-img-bottle-img.pdp-img-zoom-modal-zoom-reset > img.anPDPImage")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("h1.product-name")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("div.pdp-tab-overview-desc-name > div.wine_details > ul.wine-right-details > li > h2 > a.analyticsCountryState")).isEmpty(),false);
 			    //Assert.assertEquals(driver.findElements(By.cssSelector("section.css-hook-desc > div.pdp-tab-overview-desc-price > ul > li > div > span.price-style")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("li.sale-price-present > div > span.price-style-mid")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("#pdpTabs > section.item.pdp-tab-overview > section.pdp-tab-overview-type")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToCart")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("button.anAddToListInit")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("div#overview-qty")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("li.sale-price-present > div > span.price-style-mid")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("#pdpTabs > section.item.pdp-tab-overview > section.pdp-tab-overview-type")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("button.anAddToCart")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("button.anAddToListInit")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("div#overview-qty")).isEmpty(),false);
 //			    Assert.assertEquals(driver.findElements(By.cssSelector("span.pdp-tabs-ind-left")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("img.anPDPImage.active")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("div.breadcrumbs")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.cssSelector("span.tabs-right.anPDPTab")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("img.anPDPImage.active")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("div.breadcrumbs")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("span.tabs-right.anPDPTab")).isEmpty(),false);
 	}
 }

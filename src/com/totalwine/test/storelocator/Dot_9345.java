@@ -59,8 +59,8 @@ public class Dot_9345 extends Browser {
 		Thread.sleep(8000);
 		
 		//Assert that the details on page update to the search
-		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/florida-orlando-millenia-plaza/920')]")).isEmpty(),false); 
-
+		sAssert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/florida-orlando-millenia-plaza/920')]")).isEmpty(),false); 
+	
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		driver.findElement(By.xpath("//input[@id='storelocator-query']")).sendKeys("Dalls Texas");
 		driver.findElement(By.xpath("//input[@id='storelocator-query']")).sendKeys(Keys.ENTER);
@@ -68,7 +68,7 @@ public class Dot_9345 extends Browser {
 		Thread.sleep(6000);
 		
 		//Assert that the details on page update to the search
-		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/texas-dallas-park-lane/501')]")).isEmpty(),false); 
+		sAssert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/texas-dallas-park-lane/501')]")).isEmpty(),false); 
 
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		driver.findElement(By.xpath("//input[@id='storelocator-query']")).sendKeys("Txs Dallas");
@@ -86,7 +86,7 @@ public class Dot_9345 extends Browser {
 		Thread.sleep(6000);
 		
 		//Assert that the details on page update to the search
-		Assert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/texas-san-antonio-del-norte/503')]")).isEmpty(),false); 
+		sAssert.assertEquals(driver.findElements(By.xpath("//a[contains(@href, 'http://uat.totalwine.com/store-info/texas-san-antonio-del-norte/503')]")).isEmpty(),false); 
 
 	}
 }

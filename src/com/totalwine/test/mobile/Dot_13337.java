@@ -75,12 +75,12 @@ public class Dot_13337 extends Browser {
 		
 		//PDP Validation
 		/*
-		Assert.assertEquals(driver.findElements(By.cssSelector("img.carouselImage.anProductImage")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.xpath("//h1[@class='pdp-carousel-text analyticsProductName']")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='pdp-carousel-details']")).isEmpty(),false); //All stores tab				
-		Assert.assertEquals(driver.findElements(By.xpath("//span[@class='mobilerating-stars']")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.xpath("//span[@class='pdp-carousel-quantity-price-qty']")).isEmpty(),false);
-		Assert.assertEquals(driver.findElements(By.xpath("//span[@class='pdp-carousel-quantity-price-loc']")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.cssSelector("img.carouselImage.anProductImage")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.xpath("//h1[@class='pdp-carousel-text analyticsProductName']")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='pdp-carousel-details']")).isEmpty(),false); //All stores tab				
+		sAssert.assertEquals(driver.findElements(By.xpath("//span[@class='mobilerating-stars']")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.xpath("//span[@class='pdp-carousel-quantity-price-qty']")).isEmpty(),false);
+		sAssert.assertEquals(driver.findElements(By.xpath("//span[@class='pdp-carousel-quantity-price-loc']")).isEmpty(),false);
 			*/
 		Actions actions = new Actions(driver);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -90,9 +90,9 @@ public class Dot_13337 extends Browser {
 		Thread.sleep(1000);
 		
 		//Assert that the modal pops up
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='modal-body']")).isEmpty(),false);//modal body validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-email-modal-buttons']")).isEmpty(),false);//send email button appears
-		Assert.assertEquals(driver.findElements(By.xpath("//form[@id='frmEmailProduct']")).isEmpty(),false);//form validation
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='modal-body']")).isEmpty(),false);//modal body validation
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-email-modal-buttons']")).isEmpty(),false);//send email button appears
+		sAssert.assertEquals(driver.findElements(By.xpath("//form[@id='frmEmailProduct']")).isEmpty(),false);//form validation
 
 		//click on the send email button
 		WebElement sendemail = driver.findElement(By.xpath("//button[@class='btn-red anSendProd']"));
@@ -101,10 +101,10 @@ public class Dot_13337 extends Browser {
 		Thread.sleep(2000);
 		
 		//Assert that the error message appears for form validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-error-msg']")).isEmpty(),false);//Error message validation
-		Assert.assertEquals(driver.findElements(By.xpath("//input[@class='error-ele']")).isEmpty(),false);//inputs show that it was an error
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='modal-body']")).isEmpty(),false);//modal body validation
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-email-modal-buttons']")).isEmpty(),false);//send email button appears
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-error-msg']")).isEmpty(),false);//Error message validation
+		sAssert.assertEquals(driver.findElements(By.xpath("//input[@class='error-ele']")).isEmpty(),false);//inputs show that it was an error
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='modal-body']")).isEmpty(),false);//modal body validation
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='twm-email-modal-buttons']")).isEmpty(),false);//send email button appears
 
 
 		//now go back in the send email form and add the required information
@@ -120,18 +120,17 @@ public class Dot_13337 extends Browser {
 		Thread.sleep(2000);
 				
 		//Assert to make sure that the user has inputed all of the required fields
-		Assert.assertFalse(!(driver.findElement(By.xpath("//input[@id='yourName']")).getText().isEmpty()));
-		Assert.assertFalse(!(driver.findElement(By.xpath("//input[@id='yourEmail']")).getText().isEmpty()));
-		Assert.assertFalse(!(driver.findElement(By.xpath("//input[@id='recipientName']")).getText().isEmpty()));
-		Assert.assertFalse(!(driver.findElement(By.xpath("//input[@id='recipientEmail']")).getText().isEmpty()));
+		sAssert.assertFalse(!(driver.findElement(By.xpath("//input[@id='yourName']")).getText().isEmpty()));
+		sAssert.assertFalse(!(driver.findElement(By.xpath("//input[@id='yourEmail']")).getText().isEmpty()));
+		sAssert.assertFalse(!(driver.findElement(By.xpath("//input[@id='recipientName']")).getText().isEmpty()));
+		sAssert.assertFalse(!(driver.findElement(By.xpath("//input[@id='recipientEmail']")).getText().isEmpty()));
 		sendemail.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@id='btnYes']")).click();
 				
 		//PDP Validation - check that after submitting that the send button is not on  the page
-		Assert.assertEquals(driver.findElements(By.xpath("//section[@class='modal fade twm-email-modal in']")).isEmpty(),true); //validate that the modal is not there anymore
-		Assert.assertEquals(driver.findElements(By.xpath("//main[@class='wrapper pdp-wrapper an-productDetailsM']")).isEmpty(),false);
-		
+		sAssert.assertEquals(driver.findElements(By.xpath("//section[@class='modal fade twm-email-modal in']")).isEmpty(),true); //validate that the modal is not there anymore
+		sAssert.assertEquals(driver.findElements(By.xpath("//main[@class='wrapper pdp-wrapper an-productDetailsM']")).isEmpty(),false);
 		Thread.sleep(6000);
 
 				

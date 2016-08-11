@@ -52,14 +52,14 @@ public class Dot_9523 extends Browser{
 				//SiteAccess.ActionAccessMobileAgeGate(driver);
 		
 		//Assert that the everything is in the top nav except the search icon
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
-		Assert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),false); //search bar
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-header-2 light-bg']")).isEmpty(),false); //find a store, shopping list, call us
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-location-details mobile-header-2']")).isEmpty(),false); //your store details
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),true); //search icon does not appear	
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
+		sAssert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),false); //search bar
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-header-2 light-bg']")).isEmpty(),false); //find a store, shopping list, call us
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-location-details mobile-header-2']")).isEmpty(),false); //your store details
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),true); //search icon does not appear	
 
 		//scroll to the bottom so that sticky header appears
 		WebElement mobilefoot = driver.findElement(By.xpath("//ul[@class='mob-footer-follow-us-icons']"));
@@ -67,26 +67,26 @@ public class Dot_9523 extends Browser{
 		Thread.sleep(5000);
 		
 		//Assert that the specified logos are there and that you do not see the top nav
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),false); //search icon appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
-		Assert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),true); //search bar
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),false); //search icon appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
+		sAssert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),true); //search bar
 		
 		//click on the search icon
 		driver.findElement(By.xpath("//div[@class='anMobileSearch']")).click();
 		Thread.sleep(2000);
 		
 		//Assert that the everything is in the top nav except the search icon when the user clicks the search icon
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
-		Assert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
-		Assert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),false); //search bar
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-header-2 light-bg']")).isEmpty(),false); //find a store, shopping list, call us
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-location-details mobile-header-2']")).isEmpty(),false); //your store details
-		Assert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),true); //search icon does not appear	
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='signin-myaccount']")).isEmpty(),false); //profile icon appears			
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='search-right-cont-mini-cart anCartCount']")).isEmpty(),false); //cart icon appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-navigation fluid-icons']")).isEmpty(),false); //hamburger menu appears		
+		sAssert.assertEquals(driver.findElements(By.xpath("//img[@title='mob-twm-logo.png']")).isEmpty(),false); //twm logo		
+		sAssert.assertEquals(driver.findElements(By.xpath("//section[@class='mobile-search-container-alternate']")).isEmpty(),false); //search bar
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-header-2 light-bg']")).isEmpty(),false); //find a store, shopping list, call us
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='mobile-location-details mobile-header-2']")).isEmpty(),false); //your store details
+		sAssert.assertEquals(driver.findElements(By.xpath("//div[@class='anMobileSearch']")).isEmpty(),true); //search icon does not appear	
 	
 	}
 }
