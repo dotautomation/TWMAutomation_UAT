@@ -53,11 +53,11 @@ public class MobilePLPSort extends Browser {
 		Thread.sleep(5000);
 
 		// **  By passing location
-		driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
+	//	driver.findElement(By.cssSelector("div.ChooseStoreButtons > button#btnNo.btn.btn-gray")).click();
 		Thread.sleep(1000);
 		
-		SiteAccess.ActionAccessMobileAgeGate(driver);
-		Thread.sleep(5000);
+	//	SiteAccess.ActionAccessMobileAgeGate(driver);
+		//Thread.sleep(5000);
 		
 		//Access Mobile PLP
 		driver.findElement(PageHomepage.MobileSpiritsButton).click();

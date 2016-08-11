@@ -5,19 +5,21 @@
 <suite name="MultiBrowserSuite" verbose="10">
   
       <test name=" Chrome test ">
-	<parameter name="browser" value="Android">
+	<parameter name="browser" value="ios">
 	</parameter>
     <classes>
       <!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> --> 
       <!-- <class name="com.totalwine.test.checkout.ShipCheckout"/> --> 
-      <!--  --> 
-
-<class name="com.totalwine.test.mobile.MobileBrowseEvent" />
-<class name="com.totalwine.test.mobile.MobilePDP" />
-<class name="com.totalwine.test.mobile.MobileStoreLocator"/>
-<class name="com.totalwine.test.mobile.MobilePLPSort"/>
-
-
+      <!-- <class name="com.totalwine.test.mobile.MobileBrowseEvent" />  --> 
+  	  <!-- <class name="com.totalwine.test.mobile.MobilePDP" /> --> 
+  	  <!-- <class name="com.totalwine.test.mobile.MobileStoreLocator"/> --> 
+   	  <!-- <class name="com.totalwine.test.mobile.MobilePLPSort"/> --> 
+	
+ <class name="com.totalwine.test.mobile.Dot_11753" />  
+	      
+	<!--	    <class name="com.totalwine.test.pdp.Dot_13337" /> -->
+	      
+    <!--  <class name="com.totalwine.test.rr.FromDepartment" />-->
 
     </classes>
   </test>  
