@@ -85,9 +85,10 @@ public class ShipCheckout extends Browser {
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
 	    Thread.sleep(15000);
 	    PageLoad(driver); 
-	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
-	    Thread.sleep(7000);
-	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
+	    driver.findElement(By.cssSelector("#GROUND_HOME_DELIVERY")).click();
+//	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
+//	    Thread.sleep(7000);
+//	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
 	    Thread.sleep(7000);
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 

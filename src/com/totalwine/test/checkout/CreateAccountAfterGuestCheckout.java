@@ -88,24 +88,45 @@ public class CreateAccountAfterGuestCheckout extends Browser {
 	    Thread.sleep(7000);
 	    PageLoad(driver); // Will not trigger the next control until loading the page
 
-	    //  ** Shopping Cart
+//	    //  ** Shopping Cart
+//	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+//	    js.executeScript("arguments[0].click();", driver.findElement(By.id("zipCode")));  
+//	    driver.findElement(By.id("zipCode")).clear();
+//	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
+//	    PageLoad(driver); 
+//	    driver.findElement(By.cssSelector("input.anZipForm")).click();
+//	    Thread.sleep(9000);
+//	    PageLoad(driver); 
+//	    driver.findElement(By.cssSelector("#deliveryMode > div > span")).click();
+//	    Thread.sleep(7000);
+////	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
+////	    Thread.sleep(7000);
+//	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
+//	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
+//	    Thread.sleep(6000);
+//	    PageLoad(driver); 
+  
+	    
+	    // Shopping Cart
 	    JavascriptExecutor js = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js.executeScript("arguments[0].click();", driver.findElement(By.id("zipCode")));  
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
 	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("input.anZipForm")).click();
-	    Thread.sleep(9000);
+	    Thread.sleep(15000);
 	    PageLoad(driver); 
-	    driver.findElement(By.cssSelector("#deliveryMode > div > span")).click();
-	    Thread.sleep(7000);
-	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
+	    driver.findElement(By.cssSelector("#GROUND_HOME_DELIVERY")).click();
+//	    driver.findElement(By.cssSelector("#deliveryMode > div.customselect > span.itemval")).click();
+//	    Thread.sleep(7000);
+//	    driver.findElement(By.cssSelector("li[data-val="+ShipOption+"]")).click();
 	    Thread.sleep(7000);
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.id("checkout"))); 
-	    Thread.sleep(6000);
+	    Thread.sleep(5000);
 	    PageLoad(driver); 
-  
+	    
+	    
 	    //  **  Next Page (Login/Checkout as Guest)
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button")));     

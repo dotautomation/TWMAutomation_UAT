@@ -15,7 +15,9 @@
 <!--  -->
 <!--  -->
 
-<class name="com.totalwine.test.rr.FromCart"/>
+			
+	
+<class name="com.totalwine.test.pricingpromos.Pricing"/>
 
 
     </classes>
