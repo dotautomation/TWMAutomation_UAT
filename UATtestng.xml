@@ -15,9 +15,12 @@
 <!--  -->
 <!--  -->
 
-			
-	
-<class name="com.totalwine.test.pricingpromos.Pricing"/>
+<class name="com.totalwine.test.storelocator.StoreDetail"/>
+<class name="com.totalwine.test.storelocator.SLBrowseByRadius"/>
+<class name="com.totalwine.test.global.TopLevelMenu" />
+<class name="com.totalwine.test.seo.UserAgentSimulator"/>
+<class name="com.totalwine.test.review.CustomerReview"/>
+<class name="com.totalwine.test.review.SocialWidget"/>
 
 
     </classes>
