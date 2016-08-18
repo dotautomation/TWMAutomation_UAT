@@ -48,7 +48,8 @@ import com.totalwine.test.trials.Browser;
 
 public class StoreDetail extends Browser {
 	
-	String StoreLink = "ul.header-classes > li > a[href*=\\/store-finder]";
+//	String StoreLink = "ul.header-classes > li > a[href*=\\/store-finder]";
+	String StoreLink = ".list-text.anSpanCall.analyticsHeaderLink";
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
