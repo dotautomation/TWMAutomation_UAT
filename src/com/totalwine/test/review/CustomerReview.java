@@ -82,12 +82,12 @@ public class CustomerReview extends Browser {
 	    Assert.assertEquals(driver.findElements(By.cssSelector("section.css-details-pd")).isEmpty(),false);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(6000);
 	    
 	    driver.findElement(By.cssSelector("span.tabs-right.anPDPTab")).click();
-	    Thread.sleep(5000);
+	    Thread.sleep(6000);
 
-	    driver.findElement(By.cssSelector("#BVRRRatingSummaryLinkWriteID>a")).click();
+	    driver.findElement(By.cssSelector("#BVRRRatingSummaryLinkWriteID > a")).click();
 	    Thread.sleep(6000);
 
 	    //** Registering new email for writing review as for a specific product one review can write from one email
