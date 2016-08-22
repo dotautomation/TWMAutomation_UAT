@@ -104,7 +104,7 @@ public class GuestShipCheckout extends Browser {
 	    driver.findElement(By.id("zipCode")).clear();
 	    driver.findElement(By.id("zipCode")).sendKeys(Zip);
 	    PageLoad(driver); 
-	    driver.findElement(By.cssSelector("input.anZipForm")).click();
+	    driver.findElement(By.cssSelector("#updateCart > div > div:nth-child(4) > input.anZipForm")).click();
 	    Thread.sleep(15000);
 	    PageLoad(driver); 
 	    driver.findElement(By.cssSelector("#GROUND_HOME_DELIVERY")).click();
@@ -119,7 +119,7 @@ public class GuestShipCheckout extends Browser {
 	    
 	    //  **  Next Page (Login/Checkout as Guest)
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of site
-	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button.btn.btn-red")));     
+	    js3.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("#checkoutGuestForm > div.button-container > button")));     
 	    Thread.sleep(3000);
 	    PageLoad(driver); 
 

@@ -102,7 +102,7 @@ public class ModifyShoppingCartDuringCheckout extends Browser {
 	    
 	    JavascriptExecutor js3 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js3.executeScript("arguments[0].click();", driver.findElement(By.id("checkout")));
-	    Thread.sleep(3000);
+	    Thread.sleep(4000);
 
 	    // **  Login
 	    driver.findElement(By.id("j_username")).clear();
