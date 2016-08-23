@@ -24,7 +24,7 @@
 <class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/>
 <class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
 <class name="com.totalwine.test.checkout.NewUserRegistration"/>
-<class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/>
+<!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> -->
 			
 <!-- events -->
 <class name="com.totalwine.test.events.AddEventToShoppingList"/>
