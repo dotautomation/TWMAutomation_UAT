@@ -57,16 +57,16 @@ public class ShoppingCartAll extends Browser {
 	
 	public String IP = "71.193.51.0";
 
-	@BeforeMethod
-	public void setUp() throws Exception {
-		driver.manage().window().maximize();
-	  } 
+//	@BeforeMethod
+//	public void setUp() throws Exception {
+//		driver.manage().window().maximize();
+//	  } 
 	
 	@Test
 	public void ShoppingCartAllTest () throws InterruptedException, BiffException, IOException {
 		logger=report.startTest("Shopping Cart All");
 		driver.get(ConfigurationFunctions.locationSet+IP);
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		
 		//** By Passing Age Gate and Welcome Modal
 		Checkout.AgeGateWelcome(driver);
@@ -75,22 +75,27 @@ public class ShoppingCartAll extends Browser {
 
 	    //** Adding 4 different items into the shopping cart
 	    driver.findElement(By.cssSelector("li:nth-child(2) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
+	    Thread.sleep(2000);
 	    ShoppingCart.ATC(driver);
 	    ShoppingCart.MouseHoverWine(driver);
 	    Thread.sleep(2000);
 	    
 		driver.findElement(By.cssSelector("li:nth-child(3) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
+		Thread.sleep(2000);
 	    ShoppingCart.ATC(driver);
 		ShoppingCart.MouseHoverWine(driver);
 		Thread.sleep(2000);
 		
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of sight
 	    js1.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("li:nth-child(4) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")));
+	    Thread.sleep(2000);
 	    ShoppingCart.ATC(driver);
+	    Thread.sleep(2000);
 		ShoppingCart.MouseHoverWine(driver);
 		
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).sendKeys(Keys.ARROW_DOWN); //Scrolling down
 	    driver.findElement(By.cssSelector("li:nth-child(5) > div > div.plp-product-desc-wrap > div.plp-product-desc > h2 > a")).click();
+	    Thread.sleep(2000);
 	    ShoppingCart.ATC(driver);
 		ShoppingCart.MouseHoverWine(driver);
 		Thread.sleep (1000);

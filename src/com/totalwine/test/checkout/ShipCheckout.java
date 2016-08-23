@@ -48,11 +48,11 @@ public class ShipCheckout extends Browser {
         return(retObjArr);
     } 
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-		//driver = new FirefoxDriver(testProfile);
-	    driver.manage().window().maximize();	
-	  }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//		//driver = new FirefoxDriver(testProfile);
+//	    driver.manage().window().maximize();	
+//	  }  
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void ShipCheckoutTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String Email,String Password, String Phone,String FirstName,String LastName,String Company,String Address1,String Address2,String City,String State,String Zip) throws InterruptedException, BiffException, IOException {

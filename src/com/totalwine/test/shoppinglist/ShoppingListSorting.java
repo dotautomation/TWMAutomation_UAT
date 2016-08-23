@@ -40,10 +40,10 @@ public class ShoppingListSorting extends Browser {
         return(retObjArr);
     } 
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();	
-		 }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();	
+//		 }  
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void ShoppingListSortingTest (String Location,String Email, String Password)		

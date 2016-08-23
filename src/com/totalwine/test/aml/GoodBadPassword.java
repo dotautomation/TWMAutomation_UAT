@@ -39,10 +39,10 @@ public class GoodBadPassword extends Browser {
 	private String IP="71.193.51.0";
 	private String AMLPageHeading = "div:nth-child(2) > div.ahp-heading";
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	  }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	  }  
 	
 	@DataProvider(name="UserPwdParameters")
     public Object[][] createData() {

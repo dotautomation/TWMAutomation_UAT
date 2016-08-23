@@ -46,10 +46,10 @@ public class PDPTabs extends Browser {
         return(retObjArr);
     } 
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	  }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	  }  
 	
 	@Test (dataProvider = "PDPParameters")
 	public void PDPTest (String toplevel,String plp) throws InterruptedException, BiffException, IOException {

@@ -57,8 +57,11 @@ public class Browser {
 	
 	@BeforeMethod
 	
+	
+	
 	@Parameters("browser") 
 	public void openBrowser(@Optional String browser) {
+		
 		//Firefox
 		if(browser.equalsIgnoreCase("FF")) {
 			ProfilesIni profile = new ProfilesIni();
@@ -69,8 +72,11 @@ public class Browser {
 			//FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
 			//testProfile.setPreference("webdriver.load.strategy", "unstable");
 			driver = new FirefoxDriver();
+			//Maximizing browser window using maximize() method
+			driver.manage().window().maximize();
 			//testProfile.setEnableNativeEvents(true);
 		}
+		
 		//IE
 		if (browser.equalsIgnoreCase("IE")) {
 //			File file = new File(ConfigurationFunctions.EdgeDriverPath);
@@ -92,6 +98,7 @@ public class Browser {
 			driver = new InternetExplorerDriver(caps);
 			driver.manage().deleteAllCookies();
 		}
+		
 		//Chrome
 		if (browser.equalsIgnoreCase("Chrome")) {
 			Runtime rt = Runtime.getRuntime();
@@ -106,7 +113,10 @@ public class Browser {
 			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			driver = new ChromeDriver();
+			//Maximizing browser window using maximize() method
+			driver.manage().window().maximize();
 		}
+		
 		//iOS (iPhone 6)
 		if (browser.equalsIgnoreCase("iOS")) {
 			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
@@ -119,6 +129,7 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		
 		//Android (Samsung Galaxy S4)
 		if (browser.equalsIgnoreCase("Android")) {
 			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
@@ -131,6 +142,7 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		
 		//iPad
 		if (browser.equalsIgnoreCase("iPad")) {
 			File file = new File(ConfigurationFunctions.CHROMEDRIVERPATH);
@@ -143,11 +155,13 @@ public class Browser {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			driver = new ChromeDriver(capabilities);
 		}
+		
 		//Headless
 		if (browser.equalsIgnoreCase("Headless")) {
 			// Declaring and initialising the HtmlUnitWebDriver
 			HtmlUnitDriver driver = new HtmlUnitDriver();
 		}
+		
 		//Grid - Firefox
 		if(browser.equalsIgnoreCase("GridFF")) {
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
@@ -159,6 +173,7 @@ public class Browser {
 				e.printStackTrace();
 			} 
 		}
+		
 		//Grid - Chrome
 		if(browser.equalsIgnoreCase("GridChrome")) {
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -170,6 +185,7 @@ public class Browser {
 				e.printStackTrace();
 			} 
 		}
+		
 		//Grid - IE
 		if(browser.equalsIgnoreCase("GridIE")) {
 			DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
@@ -181,6 +197,7 @@ public class Browser {
 				e.printStackTrace();
 			}
 		}
+		
 		//Grid - iOS (iPhone 6)
 		if (browser.equalsIgnoreCase("iOSGrid")) {
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -204,7 +221,8 @@ public class Browser {
 		if(testResult.getStatus() == ITestResult.FAILURE) { 
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			String scrName = "FAIL_"+testResult.getName()+"_"+ConfigurationFunctions.now()+".png"; //Name of screenshot file
-			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
+//			String scrFileName = "C:\\Users\\rsud\\.jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
+			String scrFileName = "C:\\Program Files (x86)\\Jenkins\\userContent\\FailureScreenshots\\UAT\\"+scrName;
 			File FailedFile = new File (scrFileName);
 			FileUtils.copyFile(scrFile, FailedFile);
 			String relativePath = "/userContent/FailureScreenshots/UAT/"+scrName; 

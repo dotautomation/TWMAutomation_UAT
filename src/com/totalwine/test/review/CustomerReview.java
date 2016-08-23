@@ -49,10 +49,10 @@ public class CustomerReview extends Browser {
         return(retObjArr);
     } 
 
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();	
-		 }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();	
+//		 }  
 
 	@Test (dataProvider = "CheckoutParameters")
 	public void CustomerRatingsReviewsTest (String IP,String PDP,String Email,String Password,String ReviewTitle,String MyReview,String DescribeItem,
@@ -129,7 +129,7 @@ public class CustomerReview extends Browser {
 	    driver.findElement(By.cssSelector("#checkbox3")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("#btnnuregisteration")).click();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    
 	    //** Filling Customer Ratings & Reviews form
 	    driver.findElement(By.cssSelector("#star_link_rating_5")).click();

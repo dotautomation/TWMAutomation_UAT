@@ -37,10 +37,10 @@ public class Promotion extends Browser {
 
 	private String IP="98.169.134.0";
 
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	}  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	}  
 
 	@Test //Eligible WD Item
 	public void EligiblePromotion () throws InterruptedException {

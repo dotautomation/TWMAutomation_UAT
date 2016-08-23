@@ -53,10 +53,10 @@ public class ShoppingListAddItem extends Browser {
 	
 	public String IP = "71.193.51.0";
 	
-	@BeforeMethod
-	public void setUp() throws Exception {
-		driver.manage().window().maximize();
-	  } 
+//	@BeforeMethod
+//	public void setUp() throws Exception {
+//		driver.manage().window().maximize();
+//	  } 
 	
 //	//Create new shopping list and add item to it
 //	@Test

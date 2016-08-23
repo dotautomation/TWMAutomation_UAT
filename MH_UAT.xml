@@ -5,53 +5,56 @@
 
 <!-- Desktop Tests -->
 <test name="MH_UAT_Scripts">
-<parameter name="browser" value="Chrome"> </parameter>
+	<parameter name="browser" value="Chrome"> </parameter>
+
 	<classes>
-			
-			<!-- aml -->
-			<class name="com.totalwine.test.aml.PreferenceUpdates"/>
-			<class name="com.totalwine.test.aml.AccountHome"/>
-			<class name="com.totalwine.test.aml.AccountProfile"/>
-			<class name="com.totalwine.test.aml.AddressBook"/>
 
-			<!-- checkout -->
-			<class name="com.totalwine.test.checkout.GuestShipCheckout"/>
-			<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
-			<class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc"/>
-			<class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
-			<class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout"/>
-			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/>
-			<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
-			<class name="com.totalwine.test.checkout.NewUserRegistration"/>
-			<!-- <class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/> -->
-			
-			<!-- events -->
-			<class name="com.totalwine.test.events.AddEventToShoppingList"/>
-			<class name="com.totalwine.test.events.AddMultiEventsDifferentStoreToCart"/>
-			<class name="com.totalwine.test.events.AddMultiEventsSameStoreToCart"/>
-			<class name="com.totalwine.test.events.BrowseSoldOutEvent"/>
-			<class name="com.totalwine.test.events.PastEvents"/>    
-			<class name="com.totalwine.test.events.ValidateLareOnElp"/>
-			
-			<!-- pdp -->
-			<class name="com.totalwine.test.pdp.PdpChangeStores"/>
+<!-- aml -->
+<class name="com.totalwine.test.aml.AccountHome"/>
+<class name="com.totalwine.test.aml.AccountProfile"/>
+<class name="com.totalwine.test.aml.AddressBook"/>
+<class name="com.totalwine.test.aml.PreferenceUpdates"/>
 
-			<!-- pricingpromos -->
-			<class name="com.totalwine.test.pricingpromos.RemovePromoCode"/>
-
-			<!-- review -->
-			<class name="com.totalwine.test.review.CustomerReview"/>
-			<class name="com.totalwine.test.review.SocialWidget"/>
-
-			<!-- shoppinglist -->
-			<class name="com.totalwine.test.shoppinglist.ShoppingListSorting"/>
-			<class name="com.totalwine.test.shoppinglist.ShoppingListMoveToCart"/>
-			<class name="com.totalwine.test.shoppinglist.ShoppingListSharing"/>
+<!-- checkout -->
+<class name="com.totalwine.test.checkout.GuestShipCheckout"/> 
+<class name="com.totalwine.test.checkout.CreateAccountAfterGuestCheckout"/>
+<class name="com.totalwine.test.checkout.RegisteredISPCheckOutUsingSavedCc"/>
+<class name="com.totalwine.test.checkout.RegisteredShipCheckOutUsingSavedCc"/>
+<class name="com.totalwine.test.checkout.ModifyShoppingCartDuringCheckout"/>
+<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingSavedAddress"/>
+<class name="com.totalwine.test.checkout.RegisteredIspCheckOutUsingNewAddress"/>
+<class name="com.totalwine.test.checkout.NewUserRegistration"/>
+<class name="com.totalwine.test.checkout.NewUserRegistrationCustomAC"/>
 			
-			<!-- shoppingcart -->
-			<class name="com.totalwine.test.shoppingcart.ShoppingCartAll"/>
+<!-- events -->
+<class name="com.totalwine.test.events.AddEventToShoppingList"/>
+<class name="com.totalwine.test.events.AddMultiEventsDifferentStoreToCart"/>
+<class name="com.totalwine.test.events.AddMultiEventsSameStoreToCart"/>
+<class name="com.totalwine.test.events.BrowseSoldOutEvent"/>
+<class name="com.totalwine.test.events.PastEvents"/>    
+<class name="com.totalwine.test.events.ValidateLareOnElp"/>
+			
+<!-- pdp -->
+<class name="com.totalwine.test.pdp.PdpChangeStores"/>
+
+<!-- pricingpromos -->
+<class name="com.totalwine.test.pricingpromos.RemovePromoCode"/>
+			
+<!-- review -->
+<class name="com.totalwine.test.review.CustomerReview"/>
+<class name="com.totalwine.test.review.SocialWidget"/>
+
+<!-- shoppinglist -->
+<class name="com.totalwine.test.shoppinglist.ShoppingListSorting"/>
+<class name="com.totalwine.test.shoppinglist.ShoppingListMoveToCart"/>
+<class name="com.totalwine.test.shoppinglist.ShoppingListSharing"/>
+
+<!-- shoppingcart -->
+<class name="com.totalwine.test.shoppingcart.ShoppingCartAll"/>
+	
 	</classes>
-</test>
+	
+			</test>
 <!-- End of Desktop -->
 
 </suite>

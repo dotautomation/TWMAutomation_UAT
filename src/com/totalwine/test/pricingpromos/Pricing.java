@@ -44,10 +44,10 @@ public class Pricing extends Browser {
 	//ProfilesIni profile = new ProfilesIni();
 	//FirefoxProfile testProfile = profile.getProfile("WebDriver");
 
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	}  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	}  
 	
 	@Test 
 	public void PricingTest () throws InterruptedException, BiffException, IOException, AWTException {
