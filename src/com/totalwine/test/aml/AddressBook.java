@@ -37,10 +37,10 @@ public class AddressBook extends Browser {
 	
 	private String IP="71.193.51.0";
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	  }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();	
+//		 }  
 	
 	@Test
 	public void AddressBookTest() throws InterruptedException {
@@ -69,6 +69,7 @@ public class AddressBook extends Browser {
 	    
 	    //**Navigate to the User Address book link
 	    driver.findElement(PageAccountHome.AddressBook).click();  
+	    Thread.sleep(3000);
 	    
 	    //** Editing and verifying "Profile Address" 
 	    JavascriptExecutor js1 = (JavascriptExecutor)driver;  // Finding out elements that are out of site

@@ -47,10 +47,10 @@ public class RemovePromoCode extends Browser {
         return(retObjArr);
     } 
 
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();	
-		 }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();	
+//		 }  
 
 	@Test (dataProvider = "CheckoutParameters")
 	public void RemovePromoCodeTest (String Location,String PDP,String PromoCode,String Quantity,String ShipOption,String ISPOption,String Email,String Password)

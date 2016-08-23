@@ -18,7 +18,8 @@ public class ShoppingCart {
 	
 	//** Adding items into cart
 	public static void ATC (WebDriver driver) throws InterruptedException {
-		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
+//		String productId = driver.findElement(By.cssSelector("div.anProductId")).getText();
+		String productId = driver.findElement(By.cssSelector("div.pdp-product-nos > div")).getText();
 		System.out.println(productId);
 		Thread.sleep(2000);   
 	    driver.findElement(By.xpath("(//button[@id='"+productId+"'])[2]")).click(); //Clicking the ATC button

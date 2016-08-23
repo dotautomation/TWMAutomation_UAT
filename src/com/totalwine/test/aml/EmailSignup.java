@@ -45,10 +45,10 @@ public class EmailSignup extends Browser {
         return(retObjArr);
     } 
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	}  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	}  
 	
 	@Test //(dataProvider = "EmailSignup") //Existing Email Address
 	public void EmailSignupTest () throws InterruptedException, BiffException, IOException {

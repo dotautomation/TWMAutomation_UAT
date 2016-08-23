@@ -12,10 +12,10 @@ import com.totalwine.test.trials.Browser;
 public class LoginLogout extends Browser {
 	public String IP = "71.193.51.0";
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-}
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//}
 		@Test
 		public void LoginLogoutTest () throws InterruptedException, BiffException, IOException {
 			logger=report.startTest("Login Logout Test");

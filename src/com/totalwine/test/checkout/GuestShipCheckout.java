@@ -47,10 +47,10 @@ public class GuestShipCheckout extends Browser {
         return(retObjArr);
     } 
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();	
-		 }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();	
+//		 }  
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void GuestShipCheckoutTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String FirstName,

@@ -39,10 +39,10 @@ public class AddMultiEventsSameStoreToCart extends Browser {
 	public String IP = "72.66.119.61";
 	public String Event = "/events/nov-2016/virginia/mclean?storestatename=401";
 
-	@BeforeMethod
-	public void setUp() throws Exception {
-		driver.manage().window().maximize();
-	  } 
+//	@BeforeMethod
+//	public void setUp() throws Exception {
+//		driver.manage().window().maximize();
+//	  } 
 	
 	@Test
 	public void AddMultiEventsSameStoreToCartTest () throws InterruptedException, BiffException, IOException {

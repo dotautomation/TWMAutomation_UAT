@@ -39,10 +39,10 @@ public class AddEventToShoppingList extends Browser {
 	public String IP = "72.66.119.61";
 	public String Event = "/events/aug-2016/virginia/mclean?storestatename=205,203,201,402,401";
 
-	@BeforeMethod
-	public void setUp() throws Exception {
-		driver.manage().window().maximize();
-	  } 
+//	@BeforeMethod
+//	public void setUp() throws Exception {
+//		driver.manage().window().maximize();
+//	  } 
 	
 	@Test
 	public void AddEventToShoppingListTest () throws InterruptedException, BiffException, IOException {

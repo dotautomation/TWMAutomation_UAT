@@ -33,10 +33,10 @@ public class BrowseEvent extends Browser {
 	private String IP="72.66.119.61";
 	private String FutureEvent = "/events/jun-2016/virginia/mclean?storestatename=214,203,202,201,205";
 	
-	@BeforeMethod
-	  public void setUp() throws Exception {
-	    driver.manage().window().maximize();
-	  }  
+//	@BeforeMethod
+//	  public void setUp() throws Exception {
+//	    driver.manage().window().maximize();
+//	  }  
 	
 	@Test 
 	public void BrowseEventTest () throws InterruptedException {
