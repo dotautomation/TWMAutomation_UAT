@@ -52,11 +52,11 @@ public class ISPCheckout extends Browser {
         return(retObjArr);
     }
 	
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//		//driver = new FirefoxDriver(testProfile);
-//	    driver.manage().window().maximize();	
-//	  } 
+	@BeforeMethod
+	  public void setUp() throws Exception {
+		//driver = new FirefoxDriver(testProfile);
+	    driver.manage().window().maximize();	
+	  } 
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void ISPCheckoutTest (String Location,String StoreName,String PDP,String ISPOption,String Quantity,String Email,String CreditCard,String ExpirationMonth,String ExpirationYear,

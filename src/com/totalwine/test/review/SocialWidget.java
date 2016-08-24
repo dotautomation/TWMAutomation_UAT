@@ -37,10 +37,10 @@ public class SocialWidget extends Browser {
 
 	public String IP = "71.193.51.0";
 
-//	@BeforeMethod
-//	public void setUp() throws Exception {
-//		driver.manage().window().maximize();
-//	  } 
+	@BeforeMethod
+	public void setUp() throws Exception {
+		driver.manage().window().maximize();
+	  } 
 	
 	@Test
 	public void SocialWidgetTest () throws InterruptedException, BiffException, IOException {

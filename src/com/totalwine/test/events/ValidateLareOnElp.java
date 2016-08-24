@@ -37,10 +37,10 @@ public class ValidateLareOnElp extends Browser {
 	public String IP = "72.66.119.61";
 //	public String Event = "/events/mar-2016/virginia/mclean?storestatename=214,203,202,201,205";
 
-//	@BeforeMethod
-//	public void setUp() throws Exception {
-//		driver.manage().window().maximize();
-//	  } 
+	@BeforeMethod
+	public void setUp() throws Exception {
+		driver.manage().window().maximize();
+	  } 
 	
 	@Test
 	public void ValidateLareOnElpTest() throws InterruptedException, BiffException, IOException {
