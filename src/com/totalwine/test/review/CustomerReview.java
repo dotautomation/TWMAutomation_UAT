@@ -49,10 +49,10 @@ public class CustomerReview extends Browser {
         return(retObjArr);
     } 
 
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//	    driver.manage().window().maximize();	
-//		 }  
+	@BeforeMethod
+	  public void setUp() throws Exception {
+	    driver.manage().window().maximize();	
+		 }  
 
 	@Test (dataProvider = "CheckoutParameters")
 	public void CustomerRatingsReviewsTest (String IP,String PDP,String Email,String Password,String ReviewTitle,String MyReview,String DescribeItem,

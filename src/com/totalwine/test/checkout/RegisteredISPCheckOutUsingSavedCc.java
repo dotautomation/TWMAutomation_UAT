@@ -52,10 +52,10 @@ public class RegisteredISPCheckOutUsingSavedCc extends Browser {
         return(retObjArr);
     } 
 
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//	    driver.manage().window().maximize();	
-//		 }  
+	@BeforeMethod
+	  public void setUp() throws Exception {
+	    driver.manage().window().maximize();	
+		 }  
 
 	@Test (dataProvider = "CheckoutParameters")
 	public void RegisteredISPCheckOutUsingSavedCcTest (String Location,String StoreName,String PDP,String Quantity,String ShipOption,String ISPOption,String FirstName,

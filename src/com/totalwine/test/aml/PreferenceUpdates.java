@@ -38,10 +38,10 @@ public class PreferenceUpdates extends Browser {
 	
 	public String IP = "72.66.119.61";
 
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//	    driver.manage().window().maximize();	
-//	}  
+	@BeforeMethod
+	  public void setUp() throws Exception {
+	    driver.manage().window().maximize();	
+	}  
 
 	@Test
 	public void PreferenceUpdatesTest () throws InterruptedException, BiffException, IOException {

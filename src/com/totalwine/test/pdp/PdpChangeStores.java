@@ -44,10 +44,10 @@ public class PdpChangeStores extends Browser {
       return(retObjArr);
   } 
 	
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//	    driver.manage().window().maximize();
-//	  }  
+	@BeforeMethod
+	  public void setUp() throws Exception {
+	    driver.manage().window().maximize();
+	  }  
 	
 	@Test (dataProvider = "PDPParameters")
 	public void PdpChangeStoresTest (String toplevel,String plp,String zip) throws InterruptedException, BiffException, IOException {

@@ -57,10 +57,10 @@ public class ShoppingCartAll extends Browser {
 	
 	public String IP = "71.193.51.0";
 
-//	@BeforeMethod
-//	public void setUp() throws Exception {
-//		driver.manage().window().maximize();
-//	  } 
+	@BeforeMethod
+	public void setUp() throws Exception {
+		driver.manage().window().maximize();
+	  } 
 	
 	@Test
 	public void ShoppingCartAllTest () throws InterruptedException, BiffException, IOException {

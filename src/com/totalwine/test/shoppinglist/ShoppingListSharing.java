@@ -43,10 +43,10 @@ public class ShoppingListSharing extends Browser {
         return(retObjArr);
     } 
 	
-//	@BeforeMethod
-//	  public void setUp() throws Exception {
-//	    driver.manage().window().maximize();	
-//		 }  
+	@BeforeMethod
+	  public void setUp() throws Exception {
+	    driver.manage().window().maximize();	
+		 }  
 	
 	@Test (dataProvider = "CheckoutParameters")
 	public void ShoppingListSharingTest (String Location,String Email,String Password,String RecipientName,String RecipientEmail,String Message)		
